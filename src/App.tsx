@@ -1,35 +1,29 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./App.css";
+import TSLogo from "./assets/ts-logo-standard";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
+    <div>
+      <TSLogo />
+      <h1>
+        We're glad to have you here! We're currently working hard to finish the
+        Talente Spenden website.
+      </h1>
       <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
         <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
+          Until then, you can find more information about Talente Spenden at the
+          official website of the TUM Deutschlandstipendium:{" "}
+          <a href="https://www.tum.de/studium/studienfinanzierung/stipendien/stipendien-der-tum/deutschlandstipendium/initiativen">
+            TUM Deutschlandstipendium: Talente Spenden (tum.de)
+          </a>
+        </p>
+        <p>
+          You have an idea and want to talk to us? Feel free to contact us here:{" "}
+          <a href="mailto:talente-spenden@tum.de">talente-spenden@tum.de</a>
         </p>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </div>
+  );
 }
 
-export default App
+export default App;

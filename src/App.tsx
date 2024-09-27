@@ -3,7 +3,7 @@ import TSLogo from "./assets/ts-logo-standard";
 
 function App() {
   return (
-    <div>
+    <div className="bg-purple-light">
       <TSLogo />
       <h1>
         We're glad to have you here! We're currently working hard to finish the

@@ -1,8 +1,37 @@
-import { Canvas } from "@react-three/fiber";
+import { Canvas, useFrame } from "@react-three/fiber";
+import { useRef } from "react";
 import * as THREE from "three";
+import resolveConfig from "tailwindcss/resolveConfig";
+import tailwindConfig from "../../../tailwind.config.js";
 
-export const Gradient = () => {
+// The shaders used in this component are adapted from: https://codepen.io/bclarke/pen/MWEGRga
+// which was created by user Chuck_Loads in https://www.reddit.com/r/Frontend/comments/rvudot/who_can_replicate_this_background_effect/
+function hexToRgb(hex: string) {
+  var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+  return result
+    ? {
+        r: parseInt(result[1], 16) / 255,
+        g: parseInt(result[2], 16) / 255,
+        b: parseInt(result[3], 16) / 255,
+      }
+    : null;
+}
+
+const GradientObject = () => {
+  const fullConfig: any = resolveConfig(tailwindConfig);
+  const colorsHex = fullConfig.theme.colors;
+
+  let colorsShader: any = {};
+  for (let key in colorsHex) {
+    let colorRGB = hexToRgb(colorsHex[key]);
+    if (colorRGB == null) {
+      colorRGB = { r: 0.0, g: 0.0, b: 0.0 };
+    }
+    colorsShader[key] = `vec3(${colorRGB.r},${colorRGB.g},${colorRGB.b})`;
+  }
+
   const mouse = new THREE.Vector2();
+  const gradientRef: any = useRef();
   window.addEventListener("mousemove", (e) => {
     mouse.set(
       e.clientX / window.innerWidth - 0.5,
@@ -10,20 +39,27 @@ export const Gradient = () => {
     );
   });
 
+  useFrame(
+    () =>
+      (gradientRef.current.material.uniforms.uTime.value = performance.now())
+  );
+
   const vertexShader: string = `
-  
+
     varying vec2 vUv;
 
     void main() {
         vUv = uv;
         gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
     }
-
-`;
-  const fragmentShader: string = `
   
-  uniform float uTime;
+  `;
+  const fragmentShader: string = `
+    
+    uniform float uTime;
     uniform vec2 uMouse;
+    uniform float windowWidth;
+    uniform float windowHeight;
 
     varying vec2 vUv;
 
@@ -125,11 +161,41 @@ export const Gradient = () => {
 
     void main() {
     float noise = snoise(vec4(vUv, uMouse + uTime * 0.0001));
-    gl_FragColor = vec4(noise);
+    vec3 blue_col = mix(${colorsShader["blue"]}, ${colorsShader["purple"]}, clamp(cos(uTime * 0.001),0.0,1.0));
+    vec3 yellow_col = mix(${colorsShader["orange"]}, ${colorsShader["yellow"]}, clamp(sin(uTime * 0.001),0.0,1.0));
+    //vec3 third_col = mix(${colorsShader["yellow"]}, second_col, clamp(sin(uTime * 0.0001),0.0,1.0));
+
+    float f0 = smoothstep(0.0,windowWidth/2.0,gl_FragCoord.x);
+    vec3 c0 = noise*blue_col + (1.0-noise)*(${colorsShader["blue"]} * (1.0 - f0) + ${colorsShader["purple"]} * f0);
+    float f1 = smoothstep(windowWidth/2.0, windowWidth, gl_FragCoord.x);
+    vec3 c1 = noise*yellow_col + (1.0 - noise)*(${colorsShader["orange"]} * (1.0 - f1) + ${colorsShader["yellow"]} * f1);
+    float f2 = smoothstep(0.0, windowWidth, gl_FragCoord.x);
+    vec3 c2 = (1.0-f2) * c0 + f2*c1;
+
+    //vec3 col = first_col*smoothstep(0.0,1.0,vec3(noise)) + second_col*(1.0-noise);
+    gl_FragColor = vec4(noise*c2,noise);
     }
+  
+    `;
+  return (
+    <mesh ref={gradientRef}>
+      <planeGeometry args={[1, 1]} />
+      <shaderMaterial
+        depthTest={false}
+        uniforms={{
+          uTime: { value: performance.now() },
+          uMouse: { value: mouse },
+          windowWidth: { value: window.innerWidth },
+          windowHeight: { value: window.innerHeight },
+        }}
+        vertexShader={vertexShader}
+        fragmentShader={fragmentShader}
+      />
+    </mesh>
+  );
+};
 
-  `;
-
+export const Gradient = () => {
   return (
     <Canvas
       orthographic={true}
@@ -144,15 +210,7 @@ export const Gradient = () => {
       }}
       fallback={<div>Sorry no WebGL supported!</div>}
     >
-      <mesh>
-        <planeGeometry args={[1, 1]} />
-        <shaderMaterial
-          depthTest={false}
-          uniforms={{ uTime: { value: 0 }, uMouse: { value: mouse } }}
-          vertexShader={vertexShader}
-          fragmentShader={fragmentShader}
-        />
-      </mesh>
+      <GradientObject />
     </Canvas>
   );
 };

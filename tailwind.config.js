@@ -33,6 +33,9 @@ export default {
       "purple-mid-dark": "#560077",
       "orange-mid-dark": "#852E00",
     },
+    fontFamily: {
+      sans: ["inter", "Arial", "sans-serif"],
+    },
     extend: {},
   },
   plugins: [],

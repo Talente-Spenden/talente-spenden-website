@@ -1,12 +1,8 @@
 import "./App.css";
-import { Gradient } from "./components/gradient/Gradient";
+import Routes from "./components/router/Routes";
 
 function App() {
-  return (
-    <div className="left-0 top-0 bg-black w-screen h-screen">
-      <Gradient />
-    </div>
-  );
+  return <Routes />;
 }
 
 export default App;

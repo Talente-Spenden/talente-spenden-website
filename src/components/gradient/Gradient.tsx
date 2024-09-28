@@ -3,15 +3,6 @@ import { useRef } from "react";
 import * as THREE from "three";
 import resolveConfig from "tailwindcss/resolveConfig";
 import tailwindConfig from "../../../tailwind.config.js";
-import { ToneMappingMode } from "postprocessing";
-import {
-  EffectComposer,
-  Noise,
-  Bloom,
-  DepthOfField,
-  Vignette,
-  ToneMapping,
-} from "@react-three/postprocessing";
 
 // The shaders used in this component are adapted from: https://codepen.io/bclarke/pen/MWEGRga
 // which was created by user Chuck_Loads in https://www.reddit.com/r/Frontend/comments/rvudot/who_can_replicate_this_background_effect/
@@ -48,10 +39,12 @@ const GradientObject = () => {
     );
   });
 
-  useFrame(
-    () =>
-      (gradientRef.current.material.uniforms.uTime.value = performance.now())
-  );
+  useFrame(() => {
+    gradientRef.current.material.uniforms.uTime.value = performance.now();
+    gradientRef.current.material.uniforms.windowWidth.value = window.innerWidth;
+    gradientRef.current.material.uniforms.windowHeight.value =
+      window.innerHeight;
+  });
 
   const vertexShader: string = `
 
@@ -182,7 +175,7 @@ const GradientObject = () => {
     vec3 c2 = (1.0-f2) * c0 + f2*c1;
 
     //vec3 col = first_col*smoothstep(0.0,1.0,vec3(noise)) + second_col*(1.0-noise);
-    gl_FragColor = vec4(clamp(noise * 2.0,0.0,1.0)*c2,noise);
+    gl_FragColor = vec4(clamp(noise * 1.2,0.0,1.0)*c2,noise);
     }
   
     `;

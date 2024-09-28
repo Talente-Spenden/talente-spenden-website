@@ -39,6 +39,8 @@ const GradientObject = (props: {
   const fullConfig: any = resolveConfig(tailwindConfig);
   const colorsHex = fullConfig.theme.colors;
   let [mouseTracked, setMouseTracked] = useState(false);
+  let mouseTrackedRef = useRef(mouseTracked);
+  let [mouseTrackedStart, setMouseTrackedStart] = useState(0.0);
 
   let colorsShader: any = {};
   for (let key in colorsHex) {
@@ -56,14 +58,22 @@ const GradientObject = (props: {
       e.clientX / window.innerWidth - 0.5,
       1 - e.clientY / window.innerHeight - 0.5
     );
-    if (!mouseTracked) {
+    if (mouseTrackedRef.current == false) {
+      // Start timer for uTime
+      console.log(mouseTracked);
+      console.log("times!!!");
+      console.log(performance.now());
       setMouseTracked(true);
+      setMouseTrackedStart(performance.now());
+      mouseTrackedRef.current = true;
+      console.log(mouseTracked);
     }
   });
 
   useFrame(() => {
-    if (mouseTracked) {
-      gradientRef.current.material.uniforms.uTime.value = performance.now();
+    if (mouseTracked && mouseTrackedStart) {
+      gradientRef.current.material.uniforms.uTime.value =
+        performance.now() - mouseTrackedStart;
       gradientRef.current.material.uniforms.windowWidth.value =
         window.innerWidth;
       gradientRef.current.material.uniforms.windowHeight.value =
@@ -200,7 +210,8 @@ const GradientObject = (props: {
     vec3 c2 = (1.0-f2) * c0 + f2*c1;
 
     //vec3 col = first_col*smoothstep(0.0,1.0,vec3(noise)) + second_col*(1.0-noise);
-    gl_FragColor = vec4(clamp(noise * 1.2,0.0,1.0)*c2,noise);
+    float fade = smoothstep(0.0, 1.0, uTime*0.001);
+    gl_FragColor = vec4((1.0 - fade)*vec3(0.0,0.0,0.0) + (fade)*clamp(noise * 1.2,0.0,1.0)*c2,noise);
     }
   
     `;
@@ -212,7 +223,7 @@ const GradientObject = (props: {
           <shaderMaterial
             depthTest={false}
             uniforms={{
-              uTime: { value: performance.now() },
+              uTime: { value: performance.now() - mouseTrackedStart },
               uMouse: { value: mouse },
               windowWidth: { value: window.innerWidth },
               windowHeight: { value: window.innerHeight },

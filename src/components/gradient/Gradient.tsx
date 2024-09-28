@@ -1,5 +1,5 @@
 import { Canvas, useFrame } from "@react-three/fiber";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import * as THREE from "three";
 import resolveConfig from "tailwindcss/resolveConfig";
 import tailwindConfig from "../../../tailwind.config.js";
@@ -17,9 +17,28 @@ function hexToRgb(hex: string) {
     : null;
 }
 
-const GradientObject = () => {
+const GradientObject = (props: {
+  col0?: string;
+  col1?: string;
+  col2?: string;
+  col3?: string;
+}): JSX.Element => {
+  let { col0, col1, col2, col3 } = props;
+  if (col0 == undefined) {
+    col0 = "blue";
+  }
+  if (col1 == undefined) {
+    col1 = "purple";
+  }
+  if (col2 == undefined) {
+    col2 = "orange";
+  }
+  if (col3 == undefined) {
+    col3 = "yellow";
+  }
   const fullConfig: any = resolveConfig(tailwindConfig);
   const colorsHex = fullConfig.theme.colors;
+  let [mouseTracked, setMouseTracked] = useState(false);
 
   let colorsShader: any = {};
   for (let key in colorsHex) {
@@ -37,13 +56,19 @@ const GradientObject = () => {
       e.clientX / window.innerWidth - 0.5,
       1 - e.clientY / window.innerHeight - 0.5
     );
+    if (!mouseTracked) {
+      setMouseTracked(true);
+    }
   });
 
   useFrame(() => {
-    gradientRef.current.material.uniforms.uTime.value = performance.now();
-    gradientRef.current.material.uniforms.windowWidth.value = window.innerWidth;
-    gradientRef.current.material.uniforms.windowHeight.value =
-      window.innerHeight;
+    if (mouseTracked) {
+      gradientRef.current.material.uniforms.uTime.value = performance.now();
+      gradientRef.current.material.uniforms.windowWidth.value =
+        window.innerWidth;
+      gradientRef.current.material.uniforms.windowHeight.value =
+        window.innerHeight;
+    }
   });
 
   const vertexShader: string = `
@@ -163,14 +188,14 @@ const GradientObject = () => {
 
     void main() {
     float noise = snoise(vec4(vUv, uMouse + uTime * 0.0001));
-    vec3 blue_col = mix(${colorsShader["blue"]}, ${colorsShader["purple"]}, clamp(cos(uTime * 0.001),0.0,1.0));
-    vec3 yellow_col = mix(${colorsShader["orange"]}, ${colorsShader["yellow"]}, clamp(sin(uTime * 0.001),0.0,1.0));
-    //vec3 third_col = mix(${colorsShader["yellow"]}, second_col, clamp(sin(uTime * 0.0001),0.0,1.0));
+    vec3 blue_col = mix(${colorsShader[col0]}, ${colorsShader[col1]}, clamp(cos(uTime * 0.001),0.0,1.0));
+    vec3 yellow_col = mix(${colorsShader[col2]}, ${colorsShader[col3]}, clamp(sin(uTime * 0.001),0.0,1.0));
+    //vec3 third_col = mix(${colorsShader[col3]}, second_col, clamp(sin(uTime * 0.0001),0.0,1.0));
 
     float f0 = smoothstep(0.0,windowWidth/2.0,gl_FragCoord.x);
-    vec3 c0 = noise*blue_col + (1.0-noise)*(${colorsShader["blue"]} * (1.0 - f0) + ${colorsShader["purple"]} * f0);
+    vec3 c0 = noise*blue_col + (1.0-noise)*(${colorsShader[col0]} * (1.0 - f0) + ${colorsShader[col1]} * f0);
     float f1 = smoothstep(windowWidth/2.0, windowWidth, gl_FragCoord.x);
-    vec3 c1 = noise*yellow_col + (1.0 - noise)*(${colorsShader["orange"]} * (1.0 - f1) + ${colorsShader["yellow"]} * f1);
+    vec3 c1 = noise*yellow_col + (1.0 - noise)*(${colorsShader[col2]} * (1.0 - f1) + ${colorsShader[col3]} * f1);
     float f2 = smoothstep(0.0, windowWidth, gl_FragCoord.x);
     vec3 c2 = (1.0-f2) * c0 + f2*c1;
 
@@ -180,24 +205,33 @@ const GradientObject = () => {
   
     `;
   return (
-    <mesh ref={gradientRef}>
-      <planeGeometry args={[1, 1]} />
-      <shaderMaterial
-        depthTest={false}
-        uniforms={{
-          uTime: { value: performance.now() },
-          uMouse: { value: mouse },
-          windowWidth: { value: window.innerWidth },
-          windowHeight: { value: window.innerHeight },
-        }}
-        vertexShader={vertexShader}
-        fragmentShader={fragmentShader}
-      />
-    </mesh>
+    <>
+      {mouseTracked && (
+        <mesh ref={gradientRef}>
+          <planeGeometry args={[1, 1]} />
+          <shaderMaterial
+            depthTest={false}
+            uniforms={{
+              uTime: { value: performance.now() },
+              uMouse: { value: mouse },
+              windowWidth: { value: window.innerWidth },
+              windowHeight: { value: window.innerHeight },
+            }}
+            vertexShader={vertexShader}
+            fragmentShader={fragmentShader}
+          />
+        </mesh>
+      )}
+    </>
   );
 };
 
-export const Gradient = () => {
+export const Gradient = (props: {
+  col0?: string;
+  col1?: string;
+  col2?: string;
+  col3?: string;
+}): JSX.Element => {
   return (
     <Canvas
       orthographic={true}
@@ -212,7 +246,7 @@ export const Gradient = () => {
       }}
       fallback={<div>Sorry no WebGL supported!</div>}
     >
-      <GradientObject />
+      <GradientObject {...props} />
     </Canvas>
   );
 };

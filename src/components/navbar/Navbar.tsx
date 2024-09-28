@@ -12,7 +12,7 @@ export const Navbar = () => {
   }, [location]);
 
   return (
-    <div className="mx-2 mt-2 absolute z-[100] top-0 left-0 w-screen flex justify-between items-center">
+    <div className="mx-2 mt-2 sticky z-[100] top-0 left-0 w-screen flex justify-between items-center">
       <div className="navBarLogo">
         <Link to="/">
           <TSLogoWhite width={250} />
@@ -25,7 +25,7 @@ export const Navbar = () => {
               <Link
                 className={
                   (currentPage.startsWith(navLink.path)
-                    ? "text-blue"
+                    ? `text-${navLink.color}-mid-light`
                     : "text-white") + " text-xl hover:text-blue-mid-light"
                 }
                 to={navLink.path}

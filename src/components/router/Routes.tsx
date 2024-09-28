@@ -2,6 +2,12 @@ import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import { Home } from "../../pages/home/Home";
 import { ErrorPage } from "./RouteError";
 import { Navbar } from "../navbar/Navbar";
+import { Projects } from "../../pages/projects/Projects";
+import { News } from "../../pages/news/News";
+import { Team } from "../../pages/team/Team";
+import { Mission } from "../../pages/mission/Mission";
+import { Story } from "../../pages/story/Story";
+import { Contact } from "../../pages/contact/Contact";
 
 export default function Routes() {
   const routes = createBrowserRouter([
@@ -23,7 +29,7 @@ export default function Routes() {
           path: "/projects",
           element: <Outlet />,
           children: [
-            { path: "", element: <h1>Projects</h1> },
+            { path: "", element: <Projects /> },
             { path: ":id", element: <></> },
           ],
         },
@@ -31,7 +37,7 @@ export default function Routes() {
           path: "/news",
           element: <Outlet />,
           children: [
-            { path: "", element: <h1>News</h1> },
+            { path: "", element: <News /> },
             { path: ":id", element: <></> },
           ],
         },
@@ -39,23 +45,23 @@ export default function Routes() {
           path: "/team",
           element: <Outlet />,
           children: [
-            { path: "", element: <h1>Team</h1> },
+            { path: "", element: <Team /> },
             { path: ":id", element: <></> },
           ],
         },
         {
           path: "/mission",
-          element: <h1>Mission</h1>,
+          element: <Mission />,
           children: [],
         },
         {
           path: "/story",
-          element: <h1>Story</h1>,
+          element: <Story />,
           children: [],
         },
         {
           path: "/contact",
-          element: <h1>Contact us</h1>,
+          element: <Contact />,
           children: [],
         },
       ],

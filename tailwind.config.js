@@ -1,6 +1,13 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  safelist: [
+    "text-blue-mid-light",
+    "text-green-mid-light",
+    "text-yellow-mid-light",
+    "text-purple-mid-light",
+    "text-orange-mid-light",
+  ],
   theme: {
     colors: {
       blue: "#0065BD",

@@ -1,20 +1,15 @@
 import { Gradient } from "../../components/gradient/Gradient";
 
-export const Home = () => {
+export const Mission = () => {
   return (
     <div className="w-screen">
       <div className="ml-14 mt-[520px]">
         <h1 className="font-bold font-['Poppins'] text-9xl text-white">
-          Join Hands,
-          <br />
-          Share Talents,
-          <br />
-          Make a Difference.
-          <br />
+          Mission
         </h1>
       </div>
       <div className="bg-black w-screen h-screen absolute top-0 left-0 z-[-1]">
-        <Gradient />
+        <Gradient col0="purple" col1="blue" col2="purple" col3="purple" />
       </div>
     </div>
   );

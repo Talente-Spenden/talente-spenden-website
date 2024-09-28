@@ -1,10 +1,11 @@
 // ------------ Routing ------------
 export const navigationBarConfig = [
-  { name: "Projects", path: "/projects" },
-  { name: "Team", path: "/team" },
-  { name: "Our Mission", path: "/mission" },
-  { name: "Our Story", path: "/story" },
-  { name: "Contact", path: "/contact" },
+  { name: "Projects", path: "/projects", color: "green" },
+  { name: "News", path: "/news", color: "yellow" },
+  { name: "Team", path: "/team", color: "orange" },
+  { name: "Our Mission", path: "/mission", color: "purple" },
+  { name: "Our Story", path: "/story", color: "blue" },
+  { name: "Contact", path: "/contact", color: "grey" },
 ];
 
 // ------------ Content ------------

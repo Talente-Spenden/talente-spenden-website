@@ -1,6 +1,7 @@
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import { Home } from "../../pages/home/Home";
 import { ErrorPage } from "./RouteError";
+import { Navbar } from "../navbar/Navbar";
 
 export default function Routes() {
   const routes = createBrowserRouter([
@@ -8,6 +9,7 @@ export default function Routes() {
       path: "/",
       element: (
         <>
+          <Navbar />
           <Outlet />
         </>
       ),

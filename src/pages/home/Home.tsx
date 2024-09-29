@@ -1,4 +1,5 @@
 import { Gradient } from "../../components/gradient/Gradient";
+import { Link } from "react-router-dom";
 
 export const Home = () => {
   return (
@@ -13,10 +14,48 @@ export const Home = () => {
           <br />
         </h1>
       </div>
-      <div className="bg-black absolute top-[100vh] w-full h-[100vh]">
-        <h1 className="mt-8 ml-14 font-['Poppins'] font-bold text-8xl text-white">
-          News
-        </h1>
+      <div className="absolute top-[100vh] w-full">
+        <div className="bg-black pt-10 pb-10">
+          <h1 className="ml-[5vw] font-['Inter'] font-medium text-3xl text-white">
+            Latest Stories
+          </h1>
+          <div className="flex justify-center">
+            <div className=" h-[0.10rem] w-[90vw] bg-grey-light" />
+          </div>
+        </div>
+        <div className="bg-blue pt-10 pb-10">
+          <h1 className="ml-[5vw] font-['Inter'] font-medium text-3xl text-white">
+            Projects
+          </h1>
+          <div className="flex justify-center">
+            <div className=" h-[0.10rem] w-[90vw] bg-grey-light" />
+          </div>
+        </div>
+        <div className="pt-10 pb-10 px-10 w-full bg-white/60">
+          <div className="flex justify-between w-full max-w-[60vw]">
+            <h1 className="font-bold font-['Poppins'] text-5xl sm:text-7xl md:text-8xl lg:text-9xl">
+              WE
+            </h1>
+            <span></span>
+            <h1 className="font-bold font-['Poppins'] text-5xl sm:text-7xl md:text-8xl lg:text-9xl">
+              {" "}
+              MAKE
+            </h1>
+          </div>
+          <div>
+            <Link
+              to="/mission"
+              className="transition-all duration-300 hover:text-yellow font-bold text-5xl sm:text-7xl md:text-8xl lg:text-9xl italic text-blue font-['Poppins']"
+            >
+              THE WORLD
+            </Link>
+          </div>
+          <div>
+            <h1 className="font-bold font-['Poppins'] text-5xl sm:text-7xl md:text-8xl lg:text-9xl">
+              A BETTER PLACE.
+            </h1>
+          </div>
+        </div>
       </div>
       <div className="bg-black w-screen h-screen fixed top-0 left-0 z-[-1]">
         <Gradient />

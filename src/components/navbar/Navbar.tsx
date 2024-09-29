@@ -62,8 +62,8 @@ export const Navbar = () => {
   return (
     <div>
       <div
-        className={`px-4 pt-4 pb-4 fixed z-[200] top-0 left-0 w-full flex justify-between items-center transition-all ${
-          scrollPosition >= window.innerHeight ? "bg-black" : ""
+        className={`px-4 pt-4 pb-4 duration-400 fixed z-[200] top-0 left-0 w-full flex justify-between items-center transition-all ${
+          scrollPosition >= (1 / 2) * window.innerHeight ? "bg-black" : ""
         }`}
       >
         <div className="navBarLogo">

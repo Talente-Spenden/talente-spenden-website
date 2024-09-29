@@ -1,12 +1,19 @@
 import { navigationBarConfig } from "../../config/Config";
 import { Link, useLocation } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import TSLogoWhite from "../../assets/TSLogoWhite";
 import { NavbarMobile } from "./NavbarMobile";
+import {
+  disableBodyScroll,
+  enableBodyScroll,
+  clearAllBodyScrollLocks,
+} from "body-scroll-lock-upgrade";
 
 export const Navbar = () => {
   const location = useLocation();
   const [currentPage, setCurrentPage] = useState("/home");
+  const [overlayOpen, setOverlayOpen] = useState(false);
+  const overlayRef: any = useRef(null);
 
   useEffect(() => {
     setCurrentPage(location.pathname);
@@ -18,7 +25,26 @@ export const Navbar = () => {
     setScrollPosition(position);
   };
 
+  const handleButtonClick = () => {
+    setOverlayOpen((state) => !state);
+  };
+
+  useEffect(() => {
+    if (overlayOpen) {
+      disableBodyScroll(overlayRef);
+    } else {
+      enableBodyScroll(overlayRef);
+    }
+  }, [overlayOpen, overlayRef]);
+
   const [width, setWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    if (width > 1390) {
+      setOverlayOpen(false);
+      clearAllBodyScrollLocks();
+    }
+  }, [width]);
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -35,17 +61,23 @@ export const Navbar = () => {
 
   return (
     <div>
-      {width > 1390 ? (
-        <div
-          className={`px-2 pt-2 pb-4 fixed z-[100] top-0 left-0 w-full flex justify-between items-center transition-all ${
-            scrollPosition >= window.innerHeight ? "bg-black" : ""
-          }`}
-        >
-          <div className="navBarLogo">
-            <Link to="/">
-              <TSLogoWhite width={250} />
-            </Link>
-          </div>
+      <div
+        className={`px-2 pt-2 pb-4 fixed z-[200] top-0 left-0 w-full flex justify-between items-center transition-all ${
+          scrollPosition >= window.innerHeight ? "bg-black" : ""
+        }`}
+      >
+        <div className="navBarLogo">
+          <Link
+            to="/"
+            onClick={() => {
+              setOverlayOpen(false);
+            }}
+          >
+            <TSLogoWhite width={250} />
+          </Link>
+        </div>
+
+        {width > 1390 ? (
           <div className="text-white">
             <ul className="flex pt-2 mt-0">
               {navigationBarConfig.map((navLink, index) => (
@@ -57,6 +89,9 @@ export const Navbar = () => {
                         : "text-white") + " text-xl hover:text-blue-mid-light"
                     }
                     to={navLink.path}
+                    onClick={() => {
+                      setOverlayOpen(false);
+                    }}
                   >
                     {navLink.name}
                   </Link>
@@ -64,9 +99,21 @@ export const Navbar = () => {
               ))}
             </ul>
           </div>
-        </div>
-      ) : (
-        <NavbarMobile />
+        ) : (
+          <div className="absolute right-4 w-[120px] w[80px] z-[200]">
+            <button
+              onClick={() => {
+                handleButtonClick();
+              }}
+              className="bg-white right-0 mr-4"
+            >
+              Open bar!
+            </button>
+          </div>
+        )}
+      </div>
+      {overlayOpen && (
+        <NavbarMobile setOverlayOpen={setOverlayOpen} innerRef={overlayRef} />
       )}
     </div>
   );

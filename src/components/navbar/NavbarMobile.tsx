@@ -13,11 +13,11 @@ export const NavbarMobile = (props: any): JSX.Element => {
 
   return (
     <div className="w-screen h-screen fixed z-[100] top-0 left-0 bg-black flex items-end">
-      <div className="pb-6 pl-6">
+      <div className="pb-6 pl-6 mb-32">
         {navigationBarConfig.map((navLink) => {
           return (
             <Link
-              className="text-white text-5xl"
+              className="text-white text-3xl"
               to={navLink.path}
               onClick={() => {
                 setOverlayOpen(false);

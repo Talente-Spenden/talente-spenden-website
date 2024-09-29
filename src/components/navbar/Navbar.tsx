@@ -62,7 +62,7 @@ export const Navbar = () => {
   return (
     <div>
       <div
-        className={`px-2 pt-2 pb-4 fixed z-[200] top-0 left-0 w-full flex justify-between items-center transition-all ${
+        className={`px-4 pt-4 pb-4 fixed z-[200] top-0 left-0 w-full flex justify-between items-center transition-all ${
           scrollPosition >= window.innerHeight ? "bg-black" : ""
         }`}
       >
@@ -73,7 +73,7 @@ export const Navbar = () => {
               setOverlayOpen(false);
             }}
           >
-            <TSLogoWhite width={250} />
+            <TSLogoWhite width={200} />
           </Link>
         </div>
 

@@ -1,0 +1,21 @@
+import { Gradient } from "../../components/gradient/Gradient";
+
+export const Contact = () => {
+  return (
+    <div className="w-screen">
+      <div className="ml-14 mt-[520px]">
+        <h1 className="font-bold font-['Poppins'] text-9xl text-white">
+          Contact
+        </h1>
+      </div>
+      <div className="bg-black w-screen h-screen fixed top-0 left-0 z-[-1]">
+        <Gradient
+          col0="blue-light"
+          col1="yellow-light"
+          col2="purple-light"
+          col3="yellow-light"
+        />
+      </div>
+    </div>
+  );
+};

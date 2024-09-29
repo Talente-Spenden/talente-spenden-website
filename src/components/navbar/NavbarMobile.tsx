@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { navigationBarConfig } from "../../config/Config";
 import { Link, useLocation } from "react-router-dom";
-import { clearAllBodyScrollLocks } from "body-scroll-lock-upgrade";
 
 export const NavbarMobile = (props: any): JSX.Element => {
   const { setOverlayOpen } = props;

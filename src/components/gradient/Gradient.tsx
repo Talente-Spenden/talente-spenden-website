@@ -247,7 +247,7 @@ export const Gradient = (props: {
   col2?: string;
   col3?: string;
 }): JSX.Element => {
-  const { ErrorBoundary, didCatch, error } = useErrorBoundary();
+  const { ErrorBoundary, didCatch } = useErrorBoundary();
 
   return didCatch ? (
     <div className="bg-blue-dark w-screen h-screen fixed top-0 left-0" />

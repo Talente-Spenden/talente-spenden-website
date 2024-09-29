@@ -40,7 +40,7 @@ export const Navbar = () => {
   const [width, setWidth] = useState(window.innerWidth);
 
   useEffect(() => {
-    if (width > 1390) {
+    if (width > 1405) {
       setOverlayOpen(false);
       clearAllBodyScrollLocks();
     }
@@ -77,23 +77,24 @@ export const Navbar = () => {
           </Link>
         </div>
 
-        {width > 1390 ? (
+        {width > 1405 ? (
           <div className="text-white">
             <ul className="flex pt-2 mt-0">
               {navigationBarConfig.map((navLink, index) => (
-                <li className=" list-none px-14" key={index}>
+                <li className="list-none px-14" key={index}>
                   <Link
-                    className={
-                      (currentPage.startsWith(navLink.path)
-                        ? `text-${navLink.color}-mid-light`
-                        : "text-white") + " text-xl hover:text-blue-mid-light"
-                    }
+                    className="text-xl text-white transition-all hover:text-blue-mid-light group"
                     to={navLink.path}
                     onClick={() => {
                       setOverlayOpen(false);
                     }}
                   >
-                    {navLink.name}
+                    <div className="flex items-center">
+                      {currentPage.startsWith(navLink.path) && (
+                        <div className="w-2 h-2 rounded-full bg-white mr-3 transition-all group-hover:bg-blue-mid-light" />
+                      )}
+                      <span>{navLink.name}</span>
+                    </div>
                   </Link>
                 </li>
               ))}

@@ -16,7 +16,7 @@ export const Home = () => {
       </div>
       <div className="absolute top-[100vh] w-full">
         <div className="bg-black pt-10 pb-10">
-          <h1 className="ml-[5vw] font-['Inter'] font-medium text-3xl text-white">
+          <h1 className="ml-[5vw] font-['Inter'] font-medium text-xl lg:text-3xl text-white">
             Latest Stories
           </h1>
           <div className="flex justify-center">
@@ -24,7 +24,7 @@ export const Home = () => {
           </div>
         </div>
         <div className="bg-blue pt-10 pb-10">
-          <h1 className="ml-[5vw] font-['Inter'] font-medium text-3xl text-white">
+          <h1 className="ml-[5vw] font-['Inter'] font-medium text-xl lg:text-3xl text-white">
             Projects
           </h1>
           <div className="flex justify-center">
@@ -32,7 +32,7 @@ export const Home = () => {
           </div>
         </div>
         <div className="pt-10 pb-10 px-10 w-full bg-white/60">
-          <div className="flex justify-between w-full max-w-[60vw]">
+          <div className="flex justify-between w-full max-w-[55vw]">
             <h1 className="font-bold font-['Poppins'] text-5xl sm:text-7xl md:text-8xl lg:text-9xl">
               WE
             </h1>

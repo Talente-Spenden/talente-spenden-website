@@ -91,6 +91,7 @@ export const InteractiveGradient = (props: {
   const fragmentShader: string = `
       
       uniform float uTime;
+      uniform float uRandom;
       uniform vec2 uMouse;
       uniform float windowWidth;
       uniform float windowHeight;
@@ -198,7 +199,7 @@ export const InteractiveGradient = (props: {
       }
   
       void main() {
-      float noise = snoise(vec4(vUv, uMouse + uTime * 0.0001));
+      float noise = snoise(vec4(vUv, uMouse + uRandom + uTime * 0.0001));
       vec3 blue_col = mix(${colorsShader[col0]}, ${colorsShader[col1]}, clamp(cos(uTime * 0.001),0.0,1.0));
       vec3 yellow_col = mix(${colorsShader[col2]}, ${colorsShader[col3]}, clamp(sin(uTime * 0.001),0.0,1.0));
       //vec3 third_col = mix(${colorsShader[col3]}, second_col, clamp(sin(uTime * 0.0001),0.0,1.0));
@@ -225,6 +226,7 @@ export const InteractiveGradient = (props: {
             depthTest={false}
             uniforms={{
               uTime: { value: performance.now() - mouseTrackedStart },
+              uRandom: { value: Math.random() * 200 },
               uMouse: { value: mouse },
               windowWidth: { value: window.innerWidth },
               windowHeight: { value: window.innerHeight },

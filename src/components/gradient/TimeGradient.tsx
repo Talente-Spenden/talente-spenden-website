@@ -39,8 +39,18 @@ export const TimeGradient = (props: {
   }
   const fullConfig: any = resolveConfig(tailwindConfig);
   const colorsHex = fullConfig.theme.colors;
-  let [mouseTrackedStart, setMouseTrackedStart] = useState(performance.now());
+  let [mouseTrackedStart, setMouseTrackedStart] = useState(0.0);
+  let [animationStarted, setAnimationStarted] = useState(false);
+  let animationStartedRef = useRef(animationStarted);
 
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      setMouseTrackedStart(performance.now());
+      setAnimationStarted(true);
+      animationStartedRef.current = true;
+    }, 250);
+    return () => clearTimeout(timeoutId);
+  }, []);
   let colorsShader: any = {};
   for (let key in colorsHex) {
     let colorRGB = hexToRgb(colorsHex[key]);
@@ -54,7 +64,7 @@ export const TimeGradient = (props: {
   const gradientRef: any = useRef();
 
   useFrame(() => {
-    if (mouseTrackedStart != undefined) {
+    if (gradientRef.current && animationStartedRef.current == true) {
       gradientRef.current.material.uniforms.uTime.value =
         performance.now() - mouseTrackedStart;
       gradientRef.current.material.uniforms.windowWidth.value =
@@ -77,6 +87,7 @@ export const TimeGradient = (props: {
   const fragmentShader: string = `
       
       uniform float uTime;
+      uniform float uRandom;
       uniform vec2 uMouse;
       uniform float windowWidth;
       uniform float windowHeight;
@@ -184,40 +195,43 @@ export const TimeGradient = (props: {
       }
   
       void main() {
-      float noise = snoise(vec4(vUv, vec2(0.0) + uTime * 0.0001));
+      float noise = snoise(vec4(vUv, vec2(0.0) + uRandom + uTime * 0.0001));
       vec3 blue_col = mix(${colorsShader[col0]}, ${colorsShader[col1]}, clamp(cos(uTime * 0.001),0.0,1.0));
-      vec3 yellow_col = mix(${colorsShader[col2]}, ${colorsShader[col3]}, clamp(sin(uTime * 0.001),0.0,1.0));
-      //vec3 third_col = mix(${colorsShader[col3]}, second_col, clamp(sin(uTime * 0.0001),0.0,1.0));
+      vec3 yellow_col = mix(${colorsShader[col1]}, ${colorsShader[col0]}, clamp(sin(uTime * 0.001),0.0,1.0));
+      //vec3 third_col = mix(${colorsShader[col0]}, second_col, clamp(sin(uTime * 0.0001),0.0,1.0));
   
       float f0 = smoothstep(0.0,windowWidth/2.0,gl_FragCoord.x);
-      vec3 c0 = noise*blue_col + (1.0-noise)*(${colorsShader[col0]} * (1.0 - f0) + ${colorsShader[col1]} * f0);
+      vec3 c0 = noise*blue_col + (1.0-noise)*(${colorsShader[col0]} * (1.0 - f0) + ${colorsShader[col0]} * f0);
       float f1 = smoothstep(windowWidth/2.0, windowWidth, gl_FragCoord.x);
-      vec3 c1 = noise*yellow_col + (1.0 - noise)*(${colorsShader[col2]} * (1.0 - f1) + ${colorsShader[col3]} * f1);
+      vec3 c1 = noise*yellow_col + (1.0 - noise)*(${colorsShader[col1]} * (1.0 - f1) + ${colorsShader[col1]} * f1);
       float f2 = smoothstep(0.0, windowWidth, gl_FragCoord.x);
       vec3 c2 = (1.0-f2) * c0 + f2*c1;
   
       //vec3 col = first_col*smoothstep(0.0,1.0,vec3(noise)) + second_col*(1.0-noise);
-      float fade = smoothstep(0.0, 1.0, uTime*0.001);
+      float fade = smoothstep(0.0, 1.0, uTime*0.002);
       gl_FragColor = vec4((1.0 - fade)*vec3(0.0,0.0,0.0) + (fade)*(vec3(rand(vUv))*0.12 + clamp(noise * 1.2,0.0,1.0)*c2),noise);
       }
     
       `;
   return (
     <>
-      <mesh ref={gradientRef}>
-        <planeGeometry args={[1, 1]} />
-        <shaderMaterial
-          depthTest={false}
-          uniforms={{
-            uTime: { value: performance.now() - mouseTrackedStart },
-            uMouse: { value: mouse },
-            windowWidth: { value: window.innerWidth },
-            windowHeight: { value: window.innerHeight },
-          }}
-          vertexShader={vertexShader}
-          fragmentShader={fragmentShader}
-        />
-      </mesh>
+      {animationStarted && (
+        <mesh ref={gradientRef}>
+          <planeGeometry args={[1, 1]} />
+          <shaderMaterial
+            depthTest={false}
+            uniforms={{
+              uTime: { value: performance.now() - mouseTrackedStart },
+              uRandom: { value: Math.random() * 200 },
+              uMouse: { value: mouse },
+              windowWidth: { value: window.innerWidth },
+              windowHeight: { value: window.innerHeight },
+            }}
+            vertexShader={vertexShader}
+            fragmentShader={fragmentShader}
+          />
+        </mesh>
+      )}
     </>
   );
 };

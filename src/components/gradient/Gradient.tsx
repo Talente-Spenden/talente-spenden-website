@@ -2,7 +2,7 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { useRef, useState } from "react";
 import * as THREE from "three";
 import resolveConfig from "tailwindcss/resolveConfig";
-import tailwindConfig from "../../../tailwind.config.js";
+import tailwindConfig from "../../../tailwind.config";
 import { useErrorBoundary } from "use-error-boundary";
 
 // The shaders used in this component are adapted from: https://codepen.io/bclarke/pen/MWEGRga

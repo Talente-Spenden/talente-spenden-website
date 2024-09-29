@@ -3,7 +3,7 @@ import Routes from "./components/router/Routes";
 
 function App() {
   return (
-    <div className=" overflow-x-hidden">
+    <div className="top-0 left-0 w-screen h-screen overflow-x-hidden  overflow-y-visible">
       <Routes />
     </div>
   );

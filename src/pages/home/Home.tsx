@@ -1,3 +1,4 @@
+import { Footer } from "../../components/footer/Footer";
 import { Gradient } from "../../components/gradient/Gradient";
 import { Link } from "react-router-dom";
 
@@ -25,7 +26,16 @@ export const Home = () => {
         </div>
         <div className="bg-blue pt-10 pb-10">
           <h1 className="ml-[5vw] font-['Inter'] font-medium text-xl lg:text-3xl text-white">
-            Projects
+            Who we are
+          </h1>
+          <p></p>
+          <div className="flex justify-center">
+            <div className=" h-[0.10rem] w-[90vw] bg-grey-light" />
+          </div>
+        </div>
+        <div className="bg-black pt-10 pb-10">
+          <h1 className="ml-[5vw] font-['Inter'] font-medium text-xl lg:text-3xl text-white">
+            Project Spotlight
           </h1>
           <div className="flex justify-center">
             <div className=" h-[0.10rem] w-[90vw] bg-grey-light" />
@@ -50,12 +60,19 @@ export const Home = () => {
               THE WORLD
             </Link>
           </div>
-          <div>
+          <div className="mb-2">
             <h1 className="font-bold font-['Poppins'] text-5xl sm:text-7xl md:text-8xl lg:text-9xl">
               A BETTER PLACE.
             </h1>
           </div>
+          <Link
+            to="/contact"
+            className="p-3 border-black border-2 hover:bg-white transition-all duration-300"
+          >
+            <span className="text-medium text-l">Join our mission</span>
+          </Link>
         </div>
+        <Footer />
       </div>
       <div className="bg-black w-screen h-screen fixed top-0 left-0 z-[-1]">
         <Gradient />

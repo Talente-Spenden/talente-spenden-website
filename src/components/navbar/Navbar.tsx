@@ -106,20 +106,20 @@ export const Navbar = () => {
               onClick={() => {
                 handleButtonClick();
               }}
-              className="mr-4 cursor-pointer p-4"
+              className="mr-0 cursor-pointer p-3"
             >
               <div
-                className={`w-8 h-[0.15rem] transition-all mb-2 bg-white ${
+                className={`w-8 h-[0.125rem] transition-all mb-2 bg-white ${
                   overlayOpen ? " rotate-45 mb-[-0.15rem]" : ""
                 }`}
               />
               <div
-                className={`w-8 h-[0.15rem] transition-all mb-2 bg-white ${
+                className={`w-8 h-[0.125rem] transition-all mb-2 bg-white ${
                   overlayOpen ? " hidden" : ""
                 }`}
               />
               <div
-                className={`w-8 h-[0.15rem] transition-all bg-white${
+                className={`w-8 h-[0.125rem] transition-all bg-white${
                   overlayOpen ? " rotate-[-45deg] mb-0" : ""
                 }`}
               />

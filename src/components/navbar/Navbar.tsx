@@ -100,15 +100,29 @@ export const Navbar = () => {
             </ul>
           </div>
         ) : (
-          <div className="absolute right-4 w-[120px] w[80px] z-[200]">
-            <button
+          <div className="absolute right-4 z-[200]">
+            <div
               onClick={() => {
                 handleButtonClick();
               }}
-              className="bg-white right-0 mr-4"
+              className="mr-4 cursor-pointer p-4"
             >
-              Open bar!
-            </button>
+              <div
+                className={`w-8 h-[0.15rem] transition-all mb-2 bg-white ${
+                  overlayOpen ? " rotate-45 mb-[-0.15rem]" : ""
+                }`}
+              />
+              <div
+                className={`w-8 h-[0.15rem] transition-all mb-2 bg-white ${
+                  overlayOpen ? " hidden" : ""
+                }`}
+              />
+              <div
+                className={`w-8 h-[0.15rem] transition-all bg-white${
+                  overlayOpen ? " rotate-[-45deg] mb-0" : ""
+                }`}
+              />
+            </div>
           </div>
         )}
       </div>

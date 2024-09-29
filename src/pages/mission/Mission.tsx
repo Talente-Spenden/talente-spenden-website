@@ -4,7 +4,7 @@ export const Mission = () => {
   return (
     <div className="w-screen">
       <div className="ml-14 mt-[520px]">
-        <h1 className="font-bold font-['Poppins'] text-9xl text-white">
+        <h1 className="font-bold font-['Poppins'] text-4xl sm:text-4xl md:text-5xl lg:text-8xl text-white">
           Mission
         </h1>
       </div>

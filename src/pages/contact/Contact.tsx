@@ -8,7 +8,7 @@ export const Contact = () => {
           Contact
         </h1>
       </div>
-      <div className="bg-black w-screen h-screen absolute top-0 left-0 z-[-1]">
+      <div className="bg-black w-screen h-screen fixed top-0 left-0 z-[-1]">
         <Gradient
           col0="blue-light"
           col1="yellow-light"

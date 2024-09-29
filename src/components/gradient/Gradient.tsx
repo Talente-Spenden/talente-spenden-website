@@ -3,9 +3,12 @@ import { useRef, useState } from "react";
 import * as THREE from "three";
 import resolveConfig from "tailwindcss/resolveConfig";
 import tailwindConfig from "../../../tailwind.config.js";
+import { useErrorBoundary } from "use-error-boundary";
 
 // The shaders used in this component are adapted from: https://codepen.io/bclarke/pen/MWEGRga
 // which was created by user Chuck_Loads in https://www.reddit.com/r/Frontend/comments/rvudot/who_can_replicate_this_background_effect/
+
+// Film grain shader is from: https://maximmcnair.com/p/webgl-film-grain
 function hexToRgb(hex: string) {
   var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
   return result
@@ -60,13 +63,10 @@ const GradientObject = (props: {
     );
     if (mouseTrackedRef.current == false) {
       // Start timer for uTime
-      console.log(mouseTracked);
-      console.log("times!!!");
-      console.log(performance.now());
+
       setMouseTracked(true);
       setMouseTrackedStart(performance.now());
       mouseTrackedRef.current = true;
-      console.log(mouseTracked);
     }
   });
 
@@ -196,6 +196,10 @@ const GradientObject = (props: {
 
     }
 
+    float rand(vec2 co){
+      return fract(sin(dot(co.xy, vec2(12.9898, 78.233))) * 43758.5453);
+    }
+
     void main() {
     float noise = snoise(vec4(vUv, uMouse + uTime * 0.0001));
     vec3 blue_col = mix(${colorsShader[col0]}, ${colorsShader[col1]}, clamp(cos(uTime * 0.001),0.0,1.0));
@@ -211,7 +215,7 @@ const GradientObject = (props: {
 
     //vec3 col = first_col*smoothstep(0.0,1.0,vec3(noise)) + second_col*(1.0-noise);
     float fade = smoothstep(0.0, 1.0, uTime*0.001);
-    gl_FragColor = vec4((1.0 - fade)*vec3(0.0,0.0,0.0) + (fade)*clamp(noise * 1.2,0.0,1.0)*c2,noise);
+    gl_FragColor = vec4((1.0 - fade)*vec3(0.0,0.0,0.0) + (fade)*(vec3(rand(vUv))*0.12 + clamp(noise * 1.2,0.0,1.0)*c2),noise);
     }
   
     `;
@@ -243,21 +247,29 @@ export const Gradient = (props: {
   col2?: string;
   col3?: string;
 }): JSX.Element => {
-  return (
-    <Canvas
-      orthographic={true}
-      camera={{
-        left: -0.5,
-        right: 0.5,
-        top: 0.5,
-        bottom: -0.5,
-        near: 1e-5,
-        far: 100,
-        position: [0, 0, 1],
-      }}
-      fallback={<div>Sorry no WebGL supported!</div>}
-    >
-      <GradientObject {...props} />
-    </Canvas>
+  const { ErrorBoundary, didCatch, error } = useErrorBoundary();
+
+  return didCatch ? (
+    <div className="bg-blue-dark w-screen h-screen fixed top-0 left-0" />
+  ) : (
+    <ErrorBoundary>
+      <Canvas
+        orthographic={true}
+        camera={{
+          left: -0.5,
+          right: 0.5,
+          top: 0.5,
+          bottom: -0.5,
+          near: 1e-5,
+          far: 100,
+          position: [0, 0, 1],
+        }}
+        fallback={
+          <div className="bg-blue-dark w-screen h-screen fixed top-0 left-0" />
+        }
+      >
+        <GradientObject {...props} />
+      </Canvas>
+    </ErrorBoundary>
   );
 };

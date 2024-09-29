@@ -8,7 +8,7 @@ export const Projects = () => {
           Projects
         </h1>
       </div>
-      <div className="bg-black w-screen h-screen absolute top-0 left-0 z-[-1]">
+      <div className="bg-black w-screen h-screen fixed top-0 left-0 z-[-1]">
         <Gradient col0="green" col1="green" col2="yellow" col3="green" />
       </div>
     </div>

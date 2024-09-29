@@ -8,7 +8,7 @@ export const Mission = () => {
           Mission
         </h1>
       </div>
-      <div className="bg-black w-screen h-screen absolute top-0 left-0 z-[-1]">
+      <div className="bg-black w-screen h-screen fixed top-0 left-0 z-[-1]">
         <Gradient col0="purple" col1="blue" col2="purple" col3="purple" />
       </div>
     </div>

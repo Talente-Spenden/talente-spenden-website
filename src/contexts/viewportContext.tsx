@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect, useContext } from "react";
+import { createContext, useEffect, useContext } from "react";
 // Useful Resource: https://blog.logrocket.com/developing-responsive-layouts-with-react-hooks/
 
 const viewportContext = createContext<{ width: number; height: number }>({

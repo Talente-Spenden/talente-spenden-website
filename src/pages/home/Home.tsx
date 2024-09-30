@@ -1,4 +1,3 @@
-import { Footer } from "../../components/footer/Footer";
 import { Gradient } from "../../components/gradient/Gradient";
 import { Link } from "react-router-dom";
 

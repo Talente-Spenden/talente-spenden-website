@@ -1,5 +1,5 @@
 import { useFrame } from "@react-three/fiber";
-import { useEffect, useRef, useState } from "react";
+import { memo, useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import resolveConfig from "tailwindcss/resolveConfig";
 import tailwindConfig from "../../../tailwind.config";
@@ -18,63 +18,64 @@ function hexToRgb(hex: string) {
     : null;
 }
 
-export const TimeGradient = (props: {
-  col0?: string;
-  col1?: string;
-  col2?: string;
-  col3?: string;
-}): JSX.Element => {
-  let { col0, col1, col2, col3 } = props;
-  if (col0 == undefined) {
-    col0 = "blue";
-  }
-  if (col1 == undefined) {
-    col1 = "purple";
-  }
-  if (col2 == undefined) {
-    col2 = "orange";
-  }
-  if (col3 == undefined) {
-    col3 = "yellow";
-  }
-  const fullConfig: any = resolveConfig(tailwindConfig);
-  const colorsHex = fullConfig.theme.colors;
-  let [mouseTrackedStart, setMouseTrackedStart] = useState(0.0);
-  let [animationStarted, setAnimationStarted] = useState(false);
-  let animationStartedRef = useRef(animationStarted);
-
-  useEffect(() => {
-    const timeoutId = setTimeout(() => {
-      setMouseTrackedStart(performance.now());
-      setAnimationStarted(true);
-      animationStartedRef.current = true;
-    }, 250);
-    return () => clearTimeout(timeoutId);
-  }, []);
-  let colorsShader: any = {};
-  for (let key in colorsHex) {
-    let colorRGB = hexToRgb(colorsHex[key]);
-    if (colorRGB == null) {
-      colorRGB = { r: 0.0, g: 0.0, b: 0.0 };
+export const TimeGradient = memo(
+  (props: {
+    col0?: string;
+    col1?: string;
+    col2?: string;
+    col3?: string;
+  }): JSX.Element => {
+    let { col0, col1, col2, col3 } = props;
+    if (col0 == undefined) {
+      col0 = "blue";
     }
-    colorsShader[key] = `vec3(${colorRGB.r},${colorRGB.g},${colorRGB.b})`;
-  }
-
-  const mouse = new THREE.Vector2();
-  const gradientRef: any = useRef();
-
-  useFrame(() => {
-    if (gradientRef.current && animationStartedRef.current == true) {
-      gradientRef.current.material.uniforms.uTime.value =
-        performance.now() - mouseTrackedStart;
-      gradientRef.current.material.uniforms.windowWidth.value =
-        window.innerWidth;
-      gradientRef.current.material.uniforms.windowHeight.value =
-        window.innerHeight;
+    if (col1 == undefined) {
+      col1 = "purple";
     }
-  });
+    if (col2 == undefined) {
+      col2 = "orange";
+    }
+    if (col3 == undefined) {
+      col3 = "yellow";
+    }
+    const fullConfig: any = resolveConfig(tailwindConfig);
+    const colorsHex = fullConfig.theme.colors;
+    let [mouseTrackedStart, setMouseTrackedStart] = useState(0.0);
+    let [animationStarted, setAnimationStarted] = useState(false);
+    let animationStartedRef = useRef(animationStarted);
 
-  const vertexShader: string = `
+    useEffect(() => {
+      const timeoutId = setTimeout(() => {
+        setMouseTrackedStart(performance.now());
+        setAnimationStarted(true);
+        animationStartedRef.current = true;
+      }, 250);
+      return () => clearTimeout(timeoutId);
+    }, []);
+    let colorsShader: any = {};
+    for (let key in colorsHex) {
+      let colorRGB = hexToRgb(colorsHex[key]);
+      if (colorRGB == null) {
+        colorRGB = { r: 0.0, g: 0.0, b: 0.0 };
+      }
+      colorsShader[key] = `vec3(${colorRGB.r},${colorRGB.g},${colorRGB.b})`;
+    }
+
+    const mouse = new THREE.Vector2();
+    const gradientRef: any = useRef();
+
+    useFrame(() => {
+      if (gradientRef.current && animationStartedRef.current == true) {
+        gradientRef.current.material.uniforms.uTime.value =
+          performance.now() - mouseTrackedStart;
+        gradientRef.current.material.uniforms.windowWidth.value =
+          window.innerWidth;
+        gradientRef.current.material.uniforms.windowHeight.value =
+          window.innerHeight;
+      }
+    });
+
+    const vertexShader: string = `
   
       varying vec2 vUv;
   
@@ -84,7 +85,7 @@ export const TimeGradient = (props: {
       }
     
     `;
-  const fragmentShader: string = `
+    const fragmentShader: string = `
       
       uniform float uTime;
       uniform float uRandom;
@@ -213,25 +214,26 @@ export const TimeGradient = (props: {
       }
     
       `;
-  return (
-    <>
-      {animationStarted && (
-        <mesh ref={gradientRef}>
-          <planeGeometry args={[1, 1]} />
-          <shaderMaterial
-            depthTest={false}
-            uniforms={{
-              uTime: { value: performance.now() - mouseTrackedStart },
-              uRandom: { value: Math.random() * 200 },
-              uMouse: { value: mouse },
-              windowWidth: { value: window.innerWidth },
-              windowHeight: { value: window.innerHeight },
-            }}
-            vertexShader={vertexShader}
-            fragmentShader={fragmentShader}
-          />
-        </mesh>
-      )}
-    </>
-  );
-};
+    return (
+      <>
+        {animationStarted && (
+          <mesh ref={gradientRef}>
+            <planeGeometry args={[1, 1]} />
+            <shaderMaterial
+              depthTest={false}
+              uniforms={{
+                uTime: { value: performance.now() - mouseTrackedStart },
+                uRandom: { value: Math.random() * 200 },
+                uMouse: { value: mouse },
+                windowWidth: { value: window.innerWidth },
+                windowHeight: { value: window.innerHeight },
+              }}
+              vertexShader={vertexShader}
+              fragmentShader={fragmentShader}
+            />
+          </mesh>
+        )}
+      </>
+    );
+  }
+);

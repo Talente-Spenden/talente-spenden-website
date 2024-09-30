@@ -1,5 +1,5 @@
 import { useFrame } from "@react-three/fiber";
-import { useRef, useState } from "react";
+import { memo, useRef, useState } from "react";
 import * as THREE from "three";
 import resolveConfig from "tailwindcss/resolveConfig";
 import tailwindConfig from "../../../tailwind.config";
@@ -18,67 +18,68 @@ function hexToRgb(hex: string) {
     : null;
 }
 
-export const InteractiveGradient = (props: {
-  col0?: string;
-  col1?: string;
-  col2?: string;
-  col3?: string;
-}): JSX.Element => {
-  let { col0, col1, col2, col3 } = props;
-  if (col0 == undefined) {
-    col0 = "blue";
-  }
-  if (col1 == undefined) {
-    col1 = "purple";
-  }
-  if (col2 == undefined) {
-    col2 = "orange";
-  }
-  if (col3 == undefined) {
-    col3 = "yellow";
-  }
-  const fullConfig: any = resolveConfig(tailwindConfig);
-  const colorsHex = fullConfig.theme.colors;
-  let [mouseTracked, setMouseTracked] = useState(false);
-  let mouseTrackedRef = useRef(mouseTracked);
-  let [mouseTrackedStart, setMouseTrackedStart] = useState(0.0);
-
-  let colorsShader: any = {};
-  for (let key in colorsHex) {
-    let colorRGB = hexToRgb(colorsHex[key]);
-    if (colorRGB == null) {
-      colorRGB = { r: 0.0, g: 0.0, b: 0.0 };
+export const InteractiveGradient = memo(
+  (props: {
+    col0?: string;
+    col1?: string;
+    col2?: string;
+    col3?: string;
+  }): JSX.Element => {
+    let { col0, col1, col2, col3 } = props;
+    if (col0 == undefined) {
+      col0 = "blue";
     }
-    colorsShader[key] = `vec3(${colorRGB.r},${colorRGB.g},${colorRGB.b})`;
-  }
-
-  const mouse = new THREE.Vector2();
-  const gradientRef: any = useRef();
-  window.addEventListener("mousemove", (e) => {
-    mouse.set(
-      e.clientX / window.innerWidth - 0.5,
-      1 - e.clientY / window.innerHeight - 0.5
-    );
-
-    if (mouseTrackedRef.current == false) {
-      setMouseTracked(true);
-      setMouseTrackedStart(performance.now());
-      mouseTrackedRef.current = true;
+    if (col1 == undefined) {
+      col1 = "purple";
     }
-  });
-
-  useFrame(() => {
-    if (mouseTracked && mouseTrackedStart) {
-      gradientRef.current.material.uniforms.uTime.value =
-        performance.now() - mouseTrackedStart;
-      gradientRef.current.material.uniforms.windowWidth.value =
-        window.innerWidth;
-      gradientRef.current.material.uniforms.windowHeight.value =
-        window.innerHeight;
+    if (col2 == undefined) {
+      col2 = "orange";
     }
-  });
+    if (col3 == undefined) {
+      col3 = "yellow";
+    }
+    const fullConfig: any = resolveConfig(tailwindConfig);
+    const colorsHex = fullConfig.theme.colors;
+    let [mouseTracked, setMouseTracked] = useState(false);
+    let mouseTrackedRef = useRef(mouseTracked);
+    let [mouseTrackedStart, setMouseTrackedStart] = useState(0.0);
 
-  const vertexShader: string = `
+    let colorsShader: any = {};
+    for (let key in colorsHex) {
+      let colorRGB = hexToRgb(colorsHex[key]);
+      if (colorRGB == null) {
+        colorRGB = { r: 0.0, g: 0.0, b: 0.0 };
+      }
+      colorsShader[key] = `vec3(${colorRGB.r},${colorRGB.g},${colorRGB.b})`;
+    }
+
+    const mouse = new THREE.Vector2();
+    const gradientRef: any = useRef();
+    window.addEventListener("mousemove", (e) => {
+      mouse.set(
+        e.clientX / window.innerWidth - 0.5,
+        1 - e.clientY / window.innerHeight - 0.5
+      );
+
+      if (mouseTrackedRef.current == false) {
+        setMouseTracked(true);
+        setMouseTrackedStart(performance.now());
+        mouseTrackedRef.current = true;
+      }
+    });
+
+    useFrame(() => {
+      if (mouseTracked && mouseTrackedStart) {
+        gradientRef.current.material.uniforms.uTime.value =
+          performance.now() - mouseTrackedStart;
+        gradientRef.current.material.uniforms.windowWidth.value =
+          window.innerWidth;
+        gradientRef.current.material.uniforms.windowHeight.value =
+          window.innerHeight;
+      }
+    });
+
+    const vertexShader: string = `
   
       varying vec2 vUv;
   
@@ -88,7 +89,7 @@ export const InteractiveGradient = (props: {
       }
     
     `;
-  const fragmentShader: string = `
+    const fragmentShader: string = `
       
       uniform float uTime;
       uniform float uRandom;
@@ -217,25 +218,26 @@ export const InteractiveGradient = (props: {
       }
     
       `;
-  return (
-    <>
-      {mouseTracked && (
-        <mesh ref={gradientRef}>
-          <planeGeometry args={[1, 1]} />
-          <shaderMaterial
-            depthTest={false}
-            uniforms={{
-              uTime: { value: performance.now() - mouseTrackedStart },
-              uRandom: { value: Math.random() * 200 },
-              uMouse: { value: mouse },
-              windowWidth: { value: window.innerWidth },
-              windowHeight: { value: window.innerHeight },
-            }}
-            vertexShader={vertexShader}
-            fragmentShader={fragmentShader}
-          />
-        </mesh>
-      )}
-    </>
-  );
-};
+    return (
+      <>
+        {mouseTracked && (
+          <mesh ref={gradientRef}>
+            <planeGeometry args={[1, 1]} />
+            <shaderMaterial
+              depthTest={false}
+              uniforms={{
+                uTime: { value: performance.now() - mouseTrackedStart },
+                uRandom: { value: Math.random() * 200 },
+                uMouse: { value: mouse },
+                windowWidth: { value: window.innerWidth },
+                windowHeight: { value: window.innerHeight },
+              }}
+              vertexShader={vertexShader}
+              fragmentShader={fragmentShader}
+            />
+          </mesh>
+        )}
+      </>
+    );
+  }
+);

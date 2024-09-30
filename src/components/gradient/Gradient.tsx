@@ -1,5 +1,4 @@
 import { Canvas } from "@react-three/fiber";
-import { useState, useEffect } from "react";
 import { useErrorBoundary } from "use-error-boundary";
 import { InteractiveGradient } from "./InteractiveGradient";
 import { TimeGradient } from "./TimeGradient";

@@ -12,15 +12,8 @@ const ViewportProvider = ({ children }: any): JSX.Element => {
 
   /** Performance optimisation:
    * Prevents unnecessary rerenders of child components
-   * if ViewportProivder is forced to rerender by a parent component,
+   * if ViewportProvider is forced to rerender by a parent component,
    * but neither width nor height change */
-  const contextValue = useMemo(
-    () => ({
-      width,
-      height,
-    }),
-    [width, height]
-  );
 
   // Registering resize event listener on mounting
   useEffect(() => {
@@ -36,7 +29,7 @@ const ViewportProvider = ({ children }: any): JSX.Element => {
   }, []);
 
   return (
-    <viewportContext.Provider value={contextValue}>
+    <viewportContext.Provider value={{ width, height }}>
       {children}
     </viewportContext.Provider>
   );

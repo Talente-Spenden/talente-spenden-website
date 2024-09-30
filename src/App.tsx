@@ -5,7 +5,7 @@ import { ViewportProvider } from "./contexts/viewportContext";
 function App() {
   return (
     <ViewportProvider>
-      <div className="top-0 left-0 w-screen h-screen overflow-x-hidden  overflow-y-visible">
+      <div className="top-0 left-0 w-screen h-full overflow-x-hidden overflow-y-visible">
         <Routes />
       </div>
     </ViewportProvider>

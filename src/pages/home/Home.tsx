@@ -16,7 +16,7 @@ export const Home = () => {
         </h1>
       </div>
       <div className="absolute top-[100vh] w-full">
-        <div className="bg-black pt-10 pb-10">
+        <div className="bg-black py-10">
           <h1 className="ml-[5vw] font-['Inter'] font-medium text-xl lg:text-3xl text-white">
             Latest Stories
           </h1>
@@ -41,36 +41,38 @@ export const Home = () => {
             <div className=" h-[0.10rem] w-[90vw] bg-grey-light" />
           </div>
         </div>
-        <div className="pt-10 pb-10 px-10 w-full bg-white/60">
-          <div className="flex justify-between w-full max-w-[55vw]">
-            <h1 className="font-bold font-['Poppins'] text-5xl sm:text-7xl md:text-8xl lg:text-9xl">
-              WE
-            </h1>
-            <span></span>
-            <h1 className="font-bold font-['Poppins'] text-5xl sm:text-7xl md:text-8xl lg:text-9xl">
-              {" "}
-              MAKE
-            </h1>
-          </div>
-          <div>
+        <div className="py-14 w-full bg-white/50 flex justify-center">
+          <div className="w-[90vw]">
+            <div className="flex justify-between w-full min-w-[20vw] max-w-[65vw]">
+              <h1 className="font-bold font-['Poppins'] text-5xl sm:text-7xl md:text-8xl lg:text-9xl">
+                WE
+              </h1>
+              <span>&nbsp;</span>
+              <h1 className="font-bold font-['Poppins'] text-5xl sm:text-7xl md:text-8xl lg:text-9xl">
+                {" "}
+                MAKE
+              </h1>
+            </div>
+            <div>
+              <Link
+                to="/mission"
+                className="transition-all duration-300 hover:text-yellow font-bold text-5xl sm:text-7xl md:text-8xl lg:text-9xl italic text-blue font-['Poppins']"
+              >
+                THE WORLD
+              </Link>
+            </div>
+            <div className="mb-4">
+              <h1 className="font-bold font-['Poppins'] text-5xl sm:text-7xl md:text-8xl lg:text-9xl">
+                A BETTER PLACE.
+              </h1>
+            </div>
             <Link
-              to="/mission"
-              className="transition-all duration-300 hover:text-yellow font-bold text-5xl sm:text-7xl md:text-8xl lg:text-9xl italic text-blue font-['Poppins']"
+              to="/contact"
+              className="p-3 border-black border-2 hover:bg-white transition-all duration-300"
             >
-              THE WORLD
+              <span className="text-medium text-l">Join our mission</span>
             </Link>
           </div>
-          <div className="mb-2">
-            <h1 className="font-bold font-['Poppins'] text-5xl sm:text-7xl md:text-8xl lg:text-9xl">
-              A BETTER PLACE.
-            </h1>
-          </div>
-          <Link
-            to="/contact"
-            className="p-3 border-black border-2 hover:bg-white transition-all duration-300"
-          >
-            <span className="text-medium text-l">Join our mission</span>
-          </Link>
         </div>
         <Footer />
       </div>

@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export const Footer = () => {
   return (
     <div className="bg-black w-screen flex justify-center [&_h1]:text-white py-10">
@@ -27,20 +29,95 @@ export const Footer = () => {
             <div>
               <p className="font-bold">Follow us</p>
               <ul>
-                <li>Instagram</li>
-                <li>LinkedIn</li>
-                <li>GitHub</li>
-                <li>TUM Deutschlandstipendium</li>
+                <li>
+                  <a
+                    className="hover:text-blue-mid-light transition-all"
+                    target="_blank"
+                    href="https://www.instagram.com/talente.spenden/"
+                  >
+                    Instagram
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className="hover:text-blue-mid-light transition-all"
+                    target="_blank"
+                    href="https://www.linkedin.com/company/talente-spenden/"
+                  >
+                    LinkedIn
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className="hover:text-blue-mid-light transition-all"
+                    target="_blank"
+                    href="https://github.com/Talente-Spenden"
+                  >
+                    GitHub
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className="hover:text-blue-mid-light transition-all"
+                    target="_blank"
+                    href="https://www.tum.de/en/studies/fees-and-financial-aid/scholarships/tum-scholarships/deutschlandstipendium/initiatives"
+                  >
+                    TUM Deutschlandstipendium
+                  </a>
+                </li>
               </ul>
             </div>
             <div>
               <p className="font-bold">Topics</p>
               <ul>
-                <li>News</li>
-                <li>Projects</li>
-                <li>Our Mission</li>
-                <li>Our Story</li>
-                <li>Contact</li>
+                <li>
+                  <Link
+                    to="/"
+                    className="hover:text-blue-mid-light transition-all"
+                  >
+                    Home
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/news"
+                    className="hover:text-blue-mid-light transition-all"
+                  >
+                    News
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/projects"
+                    className="hover:text-blue-mid-light transition-all"
+                  >
+                    Projects
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/mission"
+                    className="hover:text-blue-mid-light transition-all"
+                  >
+                    Our Mission
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/story"
+                    className="hover:text-blue-mid-light transition-all"
+                  >
+                    Our Story
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/contact"
+                    className="hover:text-blue-mid-light transition-all"
+                  >
+                    Contact
+                  </Link>
+                </li>
               </ul>
             </div>
             <div>

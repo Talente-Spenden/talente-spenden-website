@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 export const Home = () => {
   return (
     <div className="w-screen">
-      <div className="ml-6 sm:ml-10 mt-[50vh]">
-        <h1 className="font-bold font-['Poppins'] text-4xl sm:text-4xl md:text-5xl lg:text-8xl text-white">
+      <div className="h-screen">
+        <h1 className="pl-6 sm:pl-10 pt-[45vh] font-bold font-['Poppins'] text-4xl sm:text-4xl md:text-5xl lg:text-8xl text-white">
           Join Hands,
           <br />
           Share <span className="italic">Talents</span>,
@@ -15,7 +15,7 @@ export const Home = () => {
           <br />
         </h1>
       </div>
-      <div className="absolute top-[100vh] w-full">
+      <div className="w-full">
         <div className="bg-black py-10">
           <h1 className="ml-[5vw] font-['Inter'] font-medium text-xl lg:text-3xl text-white">
             Latest Stories
@@ -74,7 +74,6 @@ export const Home = () => {
             </Link>
           </div>
         </div>
-        <Footer />
       </div>
       <div className="bg-black w-screen h-screen fixed top-0 left-0 z-[-1]">
         <Gradient />

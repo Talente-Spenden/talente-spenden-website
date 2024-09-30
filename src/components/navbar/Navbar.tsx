@@ -22,8 +22,9 @@ export const Navbar = () => {
 
   const [scrollPosition, setScrollPosition] = useState(0);
   const handleScroll = () => {
-    const position = window.pageYOffset;
+    const position = window.scrollY;
     setScrollPosition(position);
+    console.log(position);
   };
 
   const handleButtonClick = () => {

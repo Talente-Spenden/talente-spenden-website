@@ -13,11 +13,11 @@ export const NavbarMobile = (props: any): JSX.Element => {
 
   return (
     <div className="w-screen h-screen fixed z-[100] top-0 left-0 bg-black flex items-end">
-      <div className="pb-6 pl-6">
+      <div className="pb-6 pl-6 mb-32">
         {navigationBarConfig.map((navLink) => {
           return (
             <Link
-              className="text-white text-5xl"
+              className="text-white text-3xl"
               to={navLink.path}
               onClick={() => {
                 setOverlayOpen(false);
@@ -26,7 +26,7 @@ export const NavbarMobile = (props: any): JSX.Element => {
               <div className="hover:bg-white [&_*]:hover:text-black cursor-pointer group">
                 <div className="flex items-center">
                   {currentPage.startsWith(navLink.path) && (
-                    <div className="w-2 h-2 rounded-full bg-white mr-4 transition-all group-hover:h-12 group-hover:rounded-none group-hover:bg-blue" />
+                    <div className="w-2 h-2 rounded-full bg-white mr-4 transition-all group-hover:h-9 group-hover:rounded-none group-hover:bg-blue" />
                   )}
                   <span>{navLink.name}</span>
                 </div>

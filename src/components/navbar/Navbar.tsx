@@ -8,6 +8,7 @@ import {
   enableBodyScroll,
   clearAllBodyScrollLocks,
 } from "body-scroll-lock-upgrade";
+import { useViewport } from "../../contexts/viewportContext";
 
 export const Navbar = () => {
   const location = useLocation();
@@ -37,7 +38,7 @@ export const Navbar = () => {
     }
   }, [overlayOpen, overlayRef]);
 
-  const [width, setWidth] = useState(window.innerWidth);
+  const { width } = useViewport();
 
   useEffect(() => {
     if (width > 1405) {
@@ -48,22 +49,17 @@ export const Navbar = () => {
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll, { passive: true });
-    const changeWidth = () => {
-      setWidth(window.innerWidth);
-    };
-    window.addEventListener("resize", changeWidth);
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("resize", changeWidth);
     };
   }, []);
 
   return (
     <div>
       <div
-        className={`px-2 pt-2 pb-4 fixed z-[200] top-0 left-0 w-full flex justify-between items-center transition-all ${
-          scrollPosition >= window.innerHeight ? "bg-black" : ""
+        className={`px-4 pt-4 pb-4 duration-400 fixed z-[200] top-0 left-0 w-full flex justify-between items-center transition-all ${
+          scrollPosition >= (1 / 2) * window.innerHeight ? "bg-black" : ""
         }`}
       >
         <div className="navBarLogo">
@@ -73,7 +69,7 @@ export const Navbar = () => {
               setOverlayOpen(false);
             }}
           >
-            <TSLogoWhite width={250} />
+            <TSLogoWhite width={width > 600 ? 200 : 150} />
           </Link>
         </div>
 
@@ -106,20 +102,20 @@ export const Navbar = () => {
               onClick={() => {
                 handleButtonClick();
               }}
-              className="mr-4 cursor-pointer p-4"
+              className="mr-0 cursor-pointer p-3"
             >
               <div
-                className={`w-8 h-[0.15rem] transition-all mb-2 bg-white ${
+                className={`w-8 h-[0.125rem] transition-all mb-2 bg-white ${
                   overlayOpen ? " rotate-45 mb-[-0.15rem]" : ""
                 }`}
               />
               <div
-                className={`w-8 h-[0.15rem] transition-all mb-2 bg-white ${
+                className={`w-8 h-[0.125rem] transition-all mb-2 bg-white ${
                   overlayOpen ? " hidden" : ""
                 }`}
               />
               <div
-                className={`w-8 h-[0.15rem] transition-all bg-white${
+                className={`w-8 h-[0.125rem] transition-all bg-white${
                   overlayOpen ? " rotate-[-45deg] mb-0" : ""
                 }`}
               />

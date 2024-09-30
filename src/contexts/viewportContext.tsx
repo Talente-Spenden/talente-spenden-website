@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect, useContext, useMemo } from "react";
+import { createContext, useState, useEffect, useContext } from "react";
 // Useful Resource: https://blog.logrocket.com/developing-responsive-layouts-with-react-hooks/
 
 const viewportContext = createContext<{ width: number; height: number }>({
@@ -17,14 +17,10 @@ const ViewportProvider = ({ children }: any): JSX.Element => {
 
   // Registering resize event listener on mounting
   useEffect(() => {
-    const handleResize = () => {
-      setWidth(window.innerWidth);
-      setHeight(window.innerHeight);
-    };
-    window.addEventListener("resize", handleResize);
+    //window.addEventListener("resize", handleResize);
 
     return () => {
-      window.removeEventListener("resize", handleResize);
+      //window.removeEventListener("resize", handleResize);
     };
   }, []);
 
@@ -43,7 +39,7 @@ const useViewport = (): { width: number; height: number } => {
   if (!context) {
     throw new Error(`useViewport must be used inside a ViewportProvider`);
   }
-  return context;
+  return { width: 0, height: 0 };
 };
 
 export { ViewportProvider, useViewport };

@@ -69,7 +69,7 @@ export const Navbar = () => {
               setOverlayOpen(false);
             }}
           >
-            <TSLogoWhite width={200} />
+            <TSLogoWhite width={width > 600 ? 200 : 150} />
           </Link>
         </div>
 

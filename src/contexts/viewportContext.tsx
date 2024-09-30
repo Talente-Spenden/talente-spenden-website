@@ -7,9 +7,6 @@ const viewportContext = createContext<{ width: number; height: number }>({
 });
 
 const ViewportProvider = ({ children }: any): JSX.Element => {
-  const [width, setWidth] = useState(window.innerWidth);
-  const [height, setHeight] = useState(window.innerHeight);
-
   /** Performance optimisation:
    * Prevents unnecessary rerenders of child components
    * if ViewportProvider is forced to rerender by a parent component,
@@ -25,7 +22,7 @@ const ViewportProvider = ({ children }: any): JSX.Element => {
   }, []);
 
   return (
-    <viewportContext.Provider value={{ width, height }}>
+    <viewportContext.Provider value={{ width: 0, height: 0 }}>
       {children}
     </viewportContext.Provider>
   );

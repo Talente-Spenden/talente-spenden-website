@@ -5,11 +5,11 @@ import { Link } from "react-router-dom";
 export const Home = () => {
   return (
     <div className="w-screen">
-      <div className="ml-6 sm:ml-10 mt-[520px]">
+      <div className="ml-6 sm:ml-10 mt-[50vh]">
         <h1 className="font-bold font-['Poppins'] text-4xl sm:text-4xl md:text-5xl lg:text-8xl text-white">
           Join Hands,
           <br />
-          Share Talents,
+          Share <span className="italic">Talents</span>,
           <br />
           Make a Difference.
           <br />

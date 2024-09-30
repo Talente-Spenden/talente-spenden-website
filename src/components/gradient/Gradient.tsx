@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { useErrorBoundary } from "use-error-boundary";
 import { InteractiveGradient } from "./InteractiveGradient";
 import { TimeGradient } from "./TimeGradient";
+import { useViewport } from "../../contexts/viewportContext";
 
 export const Gradient = (props: {
   col0?: string;
@@ -12,20 +13,7 @@ export const Gradient = (props: {
 }): JSX.Element => {
   const { ErrorBoundary, didCatch } = useErrorBoundary();
 
-  const [width, setWidth] = useState(window.innerWidth);
-
-  useEffect(() => {
-    const changeWidth = () => {
-      setWidth(window.innerWidth);
-    };
-    window.addEventListener("resize", changeWidth);
-
-    return () => {
-      window.removeEventListener("resize", changeWidth);
-    };
-  }, []);
-
-  useEffect(() => {}, [width]);
+  const { width } = useViewport();
 
   return didCatch ? (
     <div className="bg-blue-dark w-screen h-screen fixed top-0 left-0" />

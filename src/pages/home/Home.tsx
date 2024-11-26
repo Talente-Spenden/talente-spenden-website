@@ -30,9 +30,9 @@ export const Home = () => {
               striving to create social impact. Our mission is to leverage our
               time and talents to support diverse initiatives, empowering
               students to make{" "}
-              <span className="font-bold italic">
+              <Link to="/mission" className="font-bold italic hover:bg-yellow">
                 meaningful contributions to society and the environment
-              </span>
+              </Link>
               .
             </p>
           )}
@@ -59,12 +59,13 @@ export const Home = () => {
               striving to create social impact. Our mission is to leverage our
               time and talents to support diverse initiatives, empowering
               students to make{" "}
-              <span className="font-bold italic">
+              <Link to="/mission" className="font-bold italic hover:bg-yellow">
                 meaningful contributions to society and the environment
-              </span>
+              </Link>
               .
             </p>
           )}
+          <p className="text-grey pt-[5vh]">Scroll down</p>
         </div>
       </div>
       <div className="w-full">

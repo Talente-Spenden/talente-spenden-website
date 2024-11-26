@@ -8,6 +8,7 @@ import { Team } from "../../pages/team/Team";
 import { Mission } from "../../pages/mission/Mission";
 import { Story } from "../../pages/story/Story";
 import { Contact } from "../../pages/contact/Contact";
+import { Footer } from "../footer/Footer";
 
 export default function Routes() {
   const routes = createBrowserRouter([
@@ -17,6 +18,7 @@ export default function Routes() {
         <>
           <Navbar />
           <Outlet />
+          <Footer />
         </>
       ),
       errorElement: <ErrorPage />,

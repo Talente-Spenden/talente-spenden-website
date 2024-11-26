@@ -8,7 +8,6 @@ import {
   enableBodyScroll,
   clearAllBodyScrollLocks,
 } from "body-scroll-lock-upgrade";
-import { useViewport } from "../../contexts/viewportContext";
 
 export const Navbar = () => {
   const location = useLocation();
@@ -22,8 +21,9 @@ export const Navbar = () => {
 
   const [scrollPosition, setScrollPosition] = useState(0);
   const handleScroll = () => {
-    const position = window.pageYOffset;
+    const position = window.scrollY;
     setScrollPosition(position);
+    console.log(position);
   };
 
   const handleButtonClick = () => {
@@ -38,7 +38,7 @@ export const Navbar = () => {
     }
   }, [overlayOpen, overlayRef]);
 
-  const { width } = useViewport();
+  const [width, setWidth] = useState(window.innerWidth);
 
   useEffect(() => {
     if (width > 1405) {
@@ -49,9 +49,14 @@ export const Navbar = () => {
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll, { passive: true });
+    const changeWidth = () => {
+      setWidth(window.innerWidth);
+    };
+    window.addEventListener("resize", changeWidth);
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", changeWidth);
     };
   }, []);
 

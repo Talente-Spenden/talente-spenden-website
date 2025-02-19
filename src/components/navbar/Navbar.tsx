@@ -76,7 +76,7 @@ export const Navbar = () => {
 
         {width > 1405 ? (
           <div className="text-white">
-            <ul className="flex pt-2 mt-0">
+            <ul className="flex pt-2 mt-0 items-center">
               {navigationBarConfig.map((navLink, index) => (
                 <li className="list-none px-14" key={index}>
                   <Link
@@ -86,11 +86,34 @@ export const Navbar = () => {
                       setOverlayOpen(false);
                     }}
                   >
-                    <div className="flex items-center">
-                      {currentPage.startsWith(navLink.path) && (
-                        <div className="w-2 h-2 rounded-full bg-white mr-3 transition-all group-hover:bg-blue-mid-light" />
+                    <div className="">
+                      {index == navigationBarConfig.length - 1 ? (
+                        <div
+                          className={`border-blue border-[2px] px-4 py-1 ${
+                            currentPage.startsWith(navLink.path)
+                              ? "border-blue"
+                              : ""
+                          }`}
+                        >
+                          {" "}
+                          <span
+                            className={`${
+                              currentPage.startsWith(navLink.path)
+                                ? "text-blue-mid-light"
+                                : ""
+                            }`}
+                          >
+                            {navLink.name}
+                          </span>
+                        </div>
+                      ) : (
+                        <>
+                          <span>{navLink.name}</span>
+                          {currentPage.startsWith(navLink.path) && (
+                            <div className="w-full h-[2px] bg-white mr-3 transition-all group-hover:bg-blue-mid-light" />
+                          )}
+                        </>
                       )}
-                      <span>{navLink.name}</span>
                     </div>
                   </Link>
                 </li>

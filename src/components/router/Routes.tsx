@@ -36,7 +36,7 @@ export default function Routes() {
           ],
         },
         {
-          path: "/news",
+          path: "/tracks",
           element: <Outlet />,
           children: [
             { path: "", element: <News /> },

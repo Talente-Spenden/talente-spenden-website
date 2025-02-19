@@ -1,14 +1,19 @@
 // ------------ Routing ------------
 export const navigationBarConfig = [
-  { name: "News", path: "/news", color: "yellow" },
-  { name: "Projects", path: "/projects", color: "green" },
+  { name: "Charity Track", path: "/tracks", color: "yellow" },
+  {
+    name: "Entrepreneurship Track",
+    path: "/projects",
+    color: "green",
+  },
   { name: "Team", path: "/team", color: "orange" },
   { name: "Our Mission", path: "/mission", color: "purple" },
-  { name: "Our Story", path: "/story", color: "blue" },
-  { name: "Contact", path: "/contact", color: "grey" },
+  { name: "Join us", path: "/contact", color: "grey" },
 ];
 
 // ------------ Content ------------
+
+// Team Page
 
 export const managementTeam = [
   {
@@ -27,7 +32,7 @@ export const managementTeam = [
   },
   {
     name: "Jonas Itt",
-    role: "Head of Teechnology",
+    role: "Head of Technology",
     job: "Masters's student in informatics",
     email: "jonas.itt@tum.de",
     image: "/src/assets/img/JonasI.jpeg",
@@ -41,5 +46,115 @@ export const managementTeam = [
   },
 ];
 
+// Projects Page
+
+// News Page
+export const projectTags = [
+  {
+    name: "Education",
+    color: "orange",
+  },
+  {
+    name: "Sustainability",
+    color: "green",
+  },
+  {
+    name: "Donations",
+    color: "blue",
+  },
+  {
+    name: "Social",
+    color: "blue",
+  },
+];
+
+export const projects = [
+  {
+    name: "Blutspende",
+    descriptionShort: "A blood donation initiative to support local hospitals.",
+    descriptionLong:
+      "Blutspende is a community-driven program focused on collecting blood donations from volunteers to ensure a steady supply for hospitals and medical facilities in need. The initiative helps save lives and supports patients requiring blood transfusions.",
+    image: "blutspende.jpg",
+    type: "Project",
+    tags: ["Donations"],
+    track: "TSCT",
+  },
+  {
+    name: "Bücherspende",
+    descriptionShort:
+      "A project promoting book donations for educational purposes.",
+    descriptionLong:
+      "Bücherspende is aimed at collecting and distributing books to schools, libraries, and under-resourced communities. The initiative seeks to make educational materials accessible and promote learning opportunities for everyone.",
+    image: "buchspende.jpg",
+    type: "Project",
+    tags: ["Education", "Donations"],
+    track: "TSCT",
+  },
+  {
+    name: "Mentoring@Salesianum",
+    descriptionShort:
+      "Mentorship program to support students at Salesianum School.",
+    descriptionLong:
+      "Mentoring@Salesianum connects students with mentors from various industries to provide guidance, career advice, and personal development support. The initiative aims to empower students to reach their academic and professional goals.",
+    image: "mentoring.jpg",
+    type: "Project",
+    tags: ["Education", "Social"],
+    track: "TSCT",
+  },
+  {
+    name: "NavigaTUM",
+    descriptionShort:
+      "A mentorship program for students at the Technical University of Munich.",
+    descriptionLong:
+      "NavigaTUM is designed to assist new students at the Technical University of Munich (TUM) with their transition to university life. This initiative pairs incoming students with experienced mentors who provide advice, guidance, and community support.",
+    image: "navigatum.jpg",
+    type: "Project",
+    tags: ["Education"],
+    track: "TSCT",
+  },
+  {
+    name: "Biotoppflege Freising",
+    descriptionShort:
+      "Conservation project focused on maintaining local natural habitats.",
+    descriptionLong:
+      "Biotoppflege Freising is a local conservation effort aimed at preserving and maintaining biodiversity in the Freising area. Volunteers participate in habitat restoration, protection of native species, and ecological education activities.",
+    image: "biotoppflege.jpg",
+    type: "Project",
+    tags: ["Sustainability"],
+    track: "TSCT",
+  },
+  {
+    name: "Lebensfreude",
+    descriptionShort:
+      "A program dedicated to enhancing the well-being of the elderly.",
+    descriptionLong:
+      "Lebensfreude focuses on enriching the lives of senior citizens through activities, social events, and workshops. The project aims to combat loneliness, promote healthy living, and enhance the quality of life for older adults in the community.",
+    image: "lebensfreude.jpg",
+    type: "Project",
+    tags: ["Social"],
+    track: "TSCT",
+  },
+  {
+    name: "Lern-Fair",
+    descriptionShort:
+      "An educational project providing tutoring for disadvantaged children.",
+    descriptionLong:
+      "Lern-Fair is an educational initiative that offers free tutoring services to children from low-income backgrounds. The program aims to close the educational gap by providing academic support, fostering learning skills, and boosting student confidence.",
+    image: "lernfair.jpg",
+    type: "Cooperation",
+    tags: ["Education"],
+    track: "TSCT",
+  },
+  {
+    name: "Tafel",
+    descriptionShort: "A food distribution service for people in need.",
+    descriptionLong:
+      "Tafel is a volunteer-driven organization that collects surplus food from stores and distributes it to individuals and families facing food insecurity. The project helps reduce food waste while supporting those in need with nutritious meals.",
+    image: "tafel.jpg",
+    type: "Project",
+    tags: ["Donations", "Social"],
+    track: "TSCT",
+  },
+];
 // ------------ Design -------------
 // Colors can be edited in /tailwind.config.js

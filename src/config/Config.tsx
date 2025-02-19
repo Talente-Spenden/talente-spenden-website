@@ -46,6 +46,24 @@ export const managementTeam = [
   },
 ];
 
+export const milestones = [
+  {
+    year: 2014,
+    title: "Talente Spenden is founded",
+    description: "Munich, Germany",
+  },
+  {
+    year: 2023,
+    title: "Talente Spenden legal registration as e.V.",
+    description: "",
+  },
+  {
+    year: 2025,
+    title: "Talente Spenden 2.0 releases",
+    description: "",
+  },
+];
+
 // Projects Page
 
 // News Page

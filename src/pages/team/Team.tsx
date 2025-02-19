@@ -1,5 +1,5 @@
 import { Gradient } from "../../components/gradient/Gradient";
-import { managementTeam } from "../../config/Config";
+import { managementTeam, milestones } from "../../config/Config";
 import { useViewport } from "../../contexts/ViewportContext";
 
 export const Team = () => {
@@ -64,7 +64,24 @@ export const Team = () => {
           </div>
         </div>
       </div>
-      <div className="bg-white pl-6 sm:pl-10 pb-10 min-h-[40vh]"></div>
+      <div className="bg-white pl-6 sm:pl-10 pb-10 min-h-[40vh]">
+        <h1 className="pt-6 font-bold font-['Poppins'] text-2xl sm:text-3xl md:text-3xl lg:text-4xl text-black">
+          Talente Spenden in a nutshell
+        </h1>
+        <div className="max-w-[800px]">
+          {milestones.map((milestone) => {
+            return (
+              <div>
+                <div className="flex justify-between">
+                  <h2>{milestone.year}</h2>
+                  <h2>{milestone.title}</h2>
+                </div>
+                <div className="w-full h-[2px] bg-grey" />
+              </div>
+            );
+          })}
+        </div>
+      </div>
       <div className="bg-black w-screen h-screen fixed top-0 left-0 z-[-1]">
         <Gradient col0="orange" col1="yellow" col2="orange" col3="orange" />
       </div>

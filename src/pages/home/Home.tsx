@@ -92,7 +92,7 @@ export const Home = () => {
           <h1 className="ml-[5vw] font-['Inter'] font-medium text-xl lg:text-3xl text-white mb-8">
             Q&A
           </h1>
-          <div className="w-full flex justify-end pr-[20vw]">
+          <div className="w-full flex justify-center md:justify-end md:pr-[5vw]">
             <QA questions={qaHome} />
           </div>
         </div>

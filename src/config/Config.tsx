@@ -13,6 +13,51 @@ export const navigationBarConfig = [
 
 // ------------ Content ------------
 
+// Home Page
+export const qaHome = [
+  {
+    question: "How can I get involved at Talente Spenden?",
+    answer:
+      "You can join any project of our Charity Track, start your own Charity Track project (email us!), or apply to a position in our core teams. Let's make a difference, together.",
+    links: [
+      {
+        type: "internal",
+        text: "Join us",
+        url: "/join",
+      },
+    ],
+  },
+  {
+    question: "Can I start my own project at Talente Spendens Charity Track?",
+    answer: "Absolutely. We'd be super happy to know about about your ideas!",
+    links: [
+      {
+        type: "external",
+        text: "talente-spenden@tum.de",
+        url: "mailto:talente-spenden@tum.de",
+      },
+    ],
+  },
+  {
+    question: "Will my voluntary work at Talente Spenden be certified?",
+    answer:
+      "Of course. All volunteers at Talente Spenden can request an official certificate for their work that is accepted e.g. by the Deutschlandstipendium at TUM. Just let the Project Leads of your project know!",
+    links: [],
+  },
+  {
+    question:
+      "Is Talente Spenden open to collaborations with other organisations?",
+    answer: "Yes! You can reach us via mail",
+    links: [
+      {
+        type: "external",
+        text: "talente-spenden@tum.de",
+        url: "mailto:talente-spenden@tum.de",
+      },
+    ],
+  },
+];
+
 // Team Page
 
 export const managementTeam = [

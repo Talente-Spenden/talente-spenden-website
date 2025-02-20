@@ -1,6 +1,8 @@
 import { Gradient } from "../../components/gradient/Gradient";
 import { Link } from "react-router-dom";
 import { useViewport } from "../../contexts/ViewportContext";
+import { QA } from "../../components/qa/QA";
+import { qaHome } from "../../config/Config";
 
 export const Home = () => {
   const { width } = useViewport();
@@ -87,11 +89,11 @@ export const Home = () => {
           </div>
         </div>
         <div className="bg-black pt-10 pb-10">
-          <h1 className="ml-[5vw] font-['Inter'] font-medium text-xl lg:text-3xl text-white">
-            Project Spotlight
+          <h1 className="ml-[5vw] font-['Inter'] font-medium text-xl lg:text-3xl text-white mb-8">
+            Q&A
           </h1>
-          <div className="flex justify-center">
-            <div className=" h-[0.10rem] w-[90vw] bg-grey-light" />
+          <div className="w-full flex justify-end pr-[20vw]">
+            <QA questions={qaHome} />
           </div>
         </div>
         <div className="py-14 w-full bg-white/50 flex justify-center">

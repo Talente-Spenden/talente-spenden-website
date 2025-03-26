@@ -8,7 +8,7 @@ export const navigationBarConfig = [
   },
   { name: "Team", path: "/team", color: "orange" },
   { name: "Our Mission", path: "/mission", color: "purple" },
-  { name: "Join us", path: "/contact", color: "grey" },
+  { name: "Join us", path: "/join", color: "grey" },
 ];
 
 // ------------ Content ------------
@@ -56,6 +56,13 @@ export const qaHome = [
       },
     ],
   },
+];
+
+export const projectSpotlight = [
+  { id: "Blutspende", text: "" },
+  { id: "Bücherspende", text: "" },
+  { id: "Tafel", text: "" },
+  { id: "NavigaTUM", text: "" },
 ];
 
 // Team Page

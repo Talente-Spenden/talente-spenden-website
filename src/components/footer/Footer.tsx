@@ -112,10 +112,10 @@ export const Footer = () => {
                 </li>
                 <li>
                   <Link
-                    to="/contact"
+                    to="/join"
                     className="hover:text-blue-mid-light transition-all"
                   >
-                    Contact
+                    Join
                   </Link>
                 </li>
               </ul>

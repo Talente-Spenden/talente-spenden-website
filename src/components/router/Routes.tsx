@@ -62,7 +62,7 @@ export default function Routes() {
           children: [],
         },
         {
-          path: "/contact",
+          path: "/join",
           element: <Contact />,
           children: [],
         },

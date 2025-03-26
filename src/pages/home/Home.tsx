@@ -2,7 +2,8 @@ import { Gradient } from "../../components/gradient/Gradient";
 import { Link } from "react-router-dom";
 import { useViewport } from "../../contexts/ViewportContext";
 import { QA } from "../../components/qa/QA";
-import { qaHome } from "../../config/Config";
+import { projects, projectSpotlight, qaHome } from "../../config/Config";
+import { Slider } from "../../components/slider/Slider";
 
 export const Home = () => {
   const { width } = useViewport();
@@ -81,11 +82,16 @@ export const Home = () => {
         </div>
         <div className="bg-blue pt-10 pb-10">
           <h1 className="ml-[5vw] font-['Inter'] font-medium text-xl lg:text-3xl text-white">
-            Who we are
+            In the Spotlight
           </h1>
-          <p></p>
-          <div className="flex justify-center">
-            <div className=" h-[0.10rem] w-[90vw] bg-grey-light" />
+          <div className="flex justify-end">
+            <div className="w-[70%]">
+              <Slider
+                selected={projectSpotlight}
+                content={projects}
+                itemsPerPage={3}
+              />
+            </div>
           </div>
         </div>
         <div className="bg-black pt-10 pb-10">
@@ -122,7 +128,7 @@ export const Home = () => {
               </h1>
             </div>
             <Link
-              to="/contact"
+              to="/join"
               className="p-3 border-black border-2 hover:bg-white transition-all duration-300"
             >
               <span className="text-medium text-l">Join our mission</span>

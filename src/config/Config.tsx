@@ -1,9 +1,9 @@
 // ------------ Routing ------------
 export const navigationBarConfig = [
-  { name: "Charity Track", path: "/tracks", color: "yellow" },
+  { name: "Charity Track", path: "/charity", color: "yellow" },
   {
     name: "Entrepreneurship Track",
-    path: "/projects",
+    path: "/entrepreneurship",
     color: "green",
   },
   { name: "Team", path: "/team", color: "orange" },
@@ -150,47 +150,24 @@ export const projects = [
     track: "TSCT",
   },
   {
-    name: "Bücherspende",
-    descriptionShort:
-      "A project promoting book donations for educational purposes.",
-    descriptionLong:
-      "Bücherspende is aimed at collecting and distributing books to schools, libraries, and under-resourced communities. The initiative seeks to make educational materials accessible and promote learning opportunities for everyone.",
-    image: "buchspende.jpg",
-    type: "Project",
-    tags: ["Education", "Donations"],
-    track: "TSCT",
-  },
-  {
-    name: "Mentoring@Salesianum",
-    descriptionShort:
-      "Mentorship program to support students at Salesianum School.",
-    descriptionLong:
-      "Mentoring@Salesianum connects students with mentors from various industries to provide guidance, career advice, and personal development support. The initiative aims to empower students to reach their academic and professional goals.",
-    image: "mentoring.jpg",
-    type: "Project",
-    tags: ["Education", "Social"],
-    track: "TSCT",
-  },
-  {
-    name: "NavigaTUM",
-    descriptionShort:
-      "A mentorship program for students at the Technical University of Munich.",
-    descriptionLong:
-      "NavigaTUM is designed to assist new students at the Technical University of Munich (TUM) with their transition to university life. This initiative pairs incoming students with experienced mentors who provide advice, guidance, and community support.",
-    image: "navigatum.jpg",
-    type: "Project",
-    tags: ["Education"],
-    track: "TSCT",
-  },
-  {
     name: "Biotoppflege Freising",
     descriptionShort:
       "Conservation project focused on maintaining local natural habitats.",
     descriptionLong:
       "Biotoppflege Freising is a local conservation effort aimed at preserving and maintaining biodiversity in the Freising area. Volunteers participate in habitat restoration, protection of native species, and ecological education activities.",
-    image: "biotoppflege.jpg",
+    image: "biotoppflege.png",
     type: "Project",
     tags: ["Sustainability"],
+    track: "TSCT",
+  },
+  {
+    name: "Tafel",
+    descriptionShort: "A food distribution service for people in need.",
+    descriptionLong:
+      "Tafel is a volunteer-driven organization that collects surplus food from stores and distributes it to individuals and families facing food insecurity. The project helps reduce food waste while supporting those in need with nutritious meals.",
+    image: "tafel.jpg",
+    type: "Project",
+    tags: ["Donations", "Social"],
     track: "TSCT",
   },
   {
@@ -205,24 +182,36 @@ export const projects = [
     track: "TSCT",
   },
   {
-    name: "Lern-Fair",
+    name: "Mentoring@Salesianum",
     descriptionShort:
-      "An educational project providing tutoring for disadvantaged children.",
+      "Mentorship program to support students at Salesianum School.",
     descriptionLong:
-      "Lern-Fair is an educational initiative that offers free tutoring services to children from low-income backgrounds. The program aims to close the educational gap by providing academic support, fostering learning skills, and boosting student confidence.",
-    image: "lernfair.jpg",
-    type: "Cooperation",
-    tags: ["Education"],
+      "Mentoring@Salesianum connects students with mentors from various industries to provide guidance, career advice, and personal development support. The initiative aims to empower students to reach their academic and professional goals.",
+    image: "salesianum.png",
+    type: "Project",
+    tags: ["Education", "Social"],
     track: "TSCT",
   },
   {
-    name: "Tafel",
-    descriptionShort: "A food distribution service for people in need.",
+    name: "Bücherspende",
+    descriptionShort:
+      "A project promoting book donations for educational purposes.",
     descriptionLong:
-      "Tafel is a volunteer-driven organization that collects surplus food from stores and distributes it to individuals and families facing food insecurity. The project helps reduce food waste while supporting those in need with nutritious meals.",
-    image: "tafel.jpg",
+      "Bücherspende is aimed at collecting and distributing books to schools, libraries, and under-resourced communities. The initiative seeks to make educational materials accessible and promote learning opportunities for everyone.",
+    image: "buecherspende.png",
     type: "Project",
-    tags: ["Donations", "Social"],
+    tags: ["Education", "Donations"],
+    track: "TSCT",
+  },
+  {
+    name: "NavigaTUM",
+    descriptionShort:
+      "A mentorship program for students at the Technical University of Munich.",
+    descriptionLong:
+      "NavigaTUM is designed to assist new students at the Technical University of Munich (TUM) with their transition to university life. This initiative pairs incoming students with experienced mentors who provide advice, guidance, and community support.",
+    image: "navigatum.jpg",
+    type: "Project",
+    tags: ["Education"],
     track: "TSCT",
   },
 ];

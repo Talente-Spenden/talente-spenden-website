@@ -3,12 +3,13 @@ import { Home } from "../../pages/home/Home";
 import { ErrorPage } from "./RouteError";
 import { Navbar } from "../navbar/Navbar";
 import { Projects } from "../../pages/projects/Projects";
-import { News } from "../../pages/news/News";
+import { CharityTrack } from "../../pages/charityTrack/CharityTrack";
 import { Team } from "../../pages/team/Team";
 import { Mission } from "../../pages/mission/Mission";
 import { Story } from "../../pages/story/Story";
 import { Contact } from "../../pages/contact/Contact";
 import { Footer } from "../footer/Footer";
+import { EntrepreneurshipTrack } from "../../pages/entrepreneurshipTrack/EntrepreneurshipTrack";
 
 export default function Routes() {
   const routes = createBrowserRouter([
@@ -39,9 +40,19 @@ export default function Routes() {
           path: "/tracks",
           element: <Outlet />,
           children: [
-            { path: "", element: <News /> },
+            { path: "", element: <CharityTrack /> },
             { path: ":id", element: <></> },
           ],
+        },
+        {
+          path: "/charity",
+          element: <CharityTrack />,
+          children: [],
+        },
+        {
+          path: "/entrepreneurship",
+          element: <EntrepreneurshipTrack />,
+          children: [],
         },
         {
           path: "/team",

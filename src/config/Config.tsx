@@ -59,10 +59,10 @@ export const qaHome = [
 ];
 
 export const projectSpotlight = [
-  { id: "Blutspende", text: "" },
-  { id: "Bücherspende", text: "" },
-  { id: "Tafel", text: "" },
-  { id: "Lebensfreude", text: "" },
+  { id: "Blutspende", text: "Collecting blood cells for the good" },
+  { id: "Bücherspende", text: "Old Books deserve to be read" },
+  { id: "Tafel", text: "Everyone needs food" },
+  { id: "Lebensfreude", text: "Happy" },
 ];
 
 // Team Page

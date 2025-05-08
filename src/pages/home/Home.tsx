@@ -75,12 +75,16 @@ export const Home = () => {
         </div>
       </div>
       <div className="w-full">
-        <div className="bg-black py-24 px-[5vw] flex justify-between">
-          <div className="w-[40%]">
+        <div
+          className={`bg-black py-24 px-[5vw] ${
+            width > 1200 ? "flex justify-between" : ""
+          }`}
+        >
+          <div className={`${width > 1200 ? "w-[40%]" : "w-[95%]"}`}>
             <p className="text-xl mb-7 text-white">
               At Talente Spenden, we create social value. We host multiple
               projects,{" "}
-              <span className="text-yellow-mid-light font-semibold">
+              <span className="text-orange-mid-light font-semibold">
                 tackling diverse challenges of today's world
               </span>
               , including sustainability efforts, blood donation drives,
@@ -91,26 +95,28 @@ export const Home = () => {
               to="/join"
               className="p-3 border-white border-2 hover:bg-yellow-mid-light text-white hover:text-black transition-all duration-300"
             >
-              <span className="text-medium text-">
-                &rarr; Join Talente Spenden
-              </span>
+              <span className="text-medium">&rarr; Join Talente Spenden</span>
             </Link>
           </div>
-          <div className="w-[40%]">
+          <div className={`${width > 1200 ? "w-[40%]" : "w-[95%] mt-16"}`}>
             <div className="my-1 h-[2px] w-full bg-grey-light" />
             <div className="flex justify-between px-4">
               <h1 className="text-grey-light text-xl">Established in</h1>
-              <h1 className="text-yellow-mid-light font-bold text-4xl">2014</h1>
+              <h1 className="text-orange-mid-light font-semibold text-4xl">
+                2014
+              </h1>
             </div>{" "}
             <div className="my-1 h-[2px] w-full bg-grey-light" />
             <div className="flex justify-between px-4">
               <h1 className="text-grey-light text-xl">Current project count</h1>
-              <h1 className="text-yellow-mid-light font-bold text-4xl">8</h1>
+              <h1 className="text-orange-mid-light font-semibold text-4xl">
+                8
+              </h1>
             </div>
             <div className="my-1 h-[2px] w-full bg-grey-light" />
             <div className="flex justify-between px-4">
               <h1 className="text-grey-light text-xl">Students who comitted</h1>
-              <h1 className="text-yellow-mid-light font-bold text-4xl">
+              <h1 className="text-orange-mid-light font-semibold text-4xl">
                 {" "}
                 &gt; 2000
               </h1>
@@ -120,19 +126,19 @@ export const Home = () => {
               <h1 className="text-grey-light text-xl">
                 Collectively spent time{" "}
               </h1>
-              <h1 className="text-yellow-mid-light font-bold text-4xl">
+              <h1 className="text-orange-mid-light font-semibold text-4xl">
                 &gt; 16000h
               </h1>
             </div>
           </div>
         </div>
-        <div className="bg-blue-mid-light/50 pt-10 pb-10">
-          <h1 className="ml-[5vw] font-['Inter'] font-medium text-xl lg:text-3xl text-white">
+        <div className="bg-blue pt-20 pb-20">
+          <h1 className="ml-[5vw] font-['Inter'] font-semibold text-xl lg:text-3xl text-black">
             Our Projects In the Spotlight
           </h1>
           <div className="">
-            <div className="w-[70%]">
-              <Slider selected={projectSpotlight} content={projects} />
+            <div className="w-full">
+              <Slider selectedContent={projectSpotlight} content={projects} />
             </div>
           </div>
         </div>

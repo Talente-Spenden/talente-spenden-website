@@ -4,6 +4,7 @@ import { useViewport } from "../../contexts/ViewportContext";
 import { QA } from "../../components/qa/QA";
 import { projects, projectSpotlight, qaHome } from "../../config/Config";
 import { Slider } from "../../components/slider/Slider";
+import { ScrollIndicator } from "../../components/scrollIndicator/ScrollIndicator";
 
 export const Home = () => {
   const { width } = useViewport();
@@ -68,29 +69,70 @@ export const Home = () => {
               .
             </p>
           )}
-          <p className="text-grey pt-[5vh]">Scroll down</p>
+          <div className="absolute bottom-10 flex justify-center w-screen">
+            <ScrollIndicator />
+          </div>
         </div>
       </div>
       <div className="w-full">
-        <div className="bg-black py-10">
-          <h1 className="ml-[5vw] font-['Inter'] font-medium text-xl lg:text-3xl text-white">
-            Latest Stories
-          </h1>
-          <div className="flex justify-center">
-            <div className=" h-[0.10rem] w-[90vw] bg-grey-light" />
+        <div className="bg-black py-24 px-[5vw] flex justify-between">
+          <div className="w-[40%]">
+            <p className="text-xl mb-7 text-white">
+              At Talente Spenden, we create social value. We host multiple
+              projects,{" "}
+              <span className="text-yellow-mid-light font-semibold">
+                tackling diverse challenges of today's world
+              </span>
+              , including sustainability efforts, blood donation drives,
+              educational assistance and many more. Join us in creating a
+              lasting impact for a better society.
+            </p>
+            <Link
+              to="/join"
+              className="p-3 border-white border-2 hover:bg-yellow-mid-light text-white hover:text-black transition-all duration-300"
+            >
+              <span className="text-medium text-">
+                &rarr; Join Talente Spenden
+              </span>
+            </Link>
+          </div>
+          <div className="w-[40%]">
+            <div className="my-1 h-[2px] w-full bg-grey-light" />
+            <div className="flex justify-between px-4">
+              <h1 className="text-grey-light text-xl">Established in</h1>
+              <h1 className="text-yellow-mid-light font-bold text-4xl">2014</h1>
+            </div>{" "}
+            <div className="my-1 h-[2px] w-full bg-grey-light" />
+            <div className="flex justify-between px-4">
+              <h1 className="text-grey-light text-xl">Current project count</h1>
+              <h1 className="text-yellow-mid-light font-bold text-4xl">8</h1>
+            </div>
+            <div className="my-1 h-[2px] w-full bg-grey-light" />
+            <div className="flex justify-between px-4">
+              <h1 className="text-grey-light text-xl">Students who comitted</h1>
+              <h1 className="text-yellow-mid-light font-bold text-4xl">
+                {" "}
+                &gt; 2000
+              </h1>
+            </div>
+            <div className="my-1 h-[2px] w-full bg-grey-light" />
+            <div className="flex justify-between px-4">
+              <h1 className="text-grey-light text-xl">
+                Collectively spent time{" "}
+              </h1>
+              <h1 className="text-yellow-mid-light font-bold text-4xl">
+                &gt; 16000h
+              </h1>
+            </div>
           </div>
         </div>
-        <div className="bg-blue pt-10 pb-10">
+        <div className="bg-blue-mid-light/50 pt-10 pb-10">
           <h1 className="ml-[5vw] font-['Inter'] font-medium text-xl lg:text-3xl text-white">
-            In the Spotlight
+            Our Projects In the Spotlight
           </h1>
-          <div className="flex justify-end">
+          <div className="">
             <div className="w-[70%]">
-              <Slider
-                selected={projectSpotlight}
-                content={projects}
-                itemsPerPage={3}
-              />
+              <Slider selected={projectSpotlight} content={projects} />
             </div>
           </div>
         </div>

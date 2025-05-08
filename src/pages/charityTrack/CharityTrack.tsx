@@ -1,8 +1,24 @@
+import { useEffect, useState } from "react";
 import { Gradient } from "../../components/gradient/Gradient";
 import { ProjectCard } from "../../components/projectCard/ProjectCard";
 import { projects } from "../../config/Config";
 
 export const CharityTrack = () => {
+  const [scrollPosition, setScrollPosition] = useState(0);
+
+  const handleScroll = () => {
+    const position = window.scrollY;
+    setScrollPosition(position);
+    console.log(position);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   return (
     <div className="w-screen">
       <div className="h-[70vh] w-full flex justify-center">
@@ -11,8 +27,12 @@ export const CharityTrack = () => {
         </h1>
       </div>{" "}
       <div className="w-full">
-        <div className="py-10 flex justify-center">
-          <div className="flex flex-wrap justify-between px-10">
+        <div
+          className={`py-10 transition-all duration-400 ${
+            scrollPosition > 100 ? "bg-black" : ""
+          }`}
+        >
+          <div className="flex flex-wrap justify-center">
             {projects.map((element) => {
               return <ProjectCard project={element} />;
             })}

@@ -62,7 +62,7 @@ export const projectSpotlight = [
   { id: "Blutspende", text: "" },
   { id: "Bücherspende", text: "" },
   { id: "Tafel", text: "" },
-  { id: "NavigaTUM", text: "" },
+  { id: "Lebensfreude", text: "" },
 ];
 
 // Team Page

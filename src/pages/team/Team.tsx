@@ -41,23 +41,6 @@ export const Team = () => {
                       &rarr; {member.email}
                     </a>
                   </div>
-                  <div className="w-[390px] mr-16 mt-10">
-                    <img src={member.image} className="" />
-                    <div className="mt-3 w-full h-[2px] bg-grey" />
-                    <p className="text-white font-bold text-2xl pt-2">
-                      {member.name}
-                    </p>
-                    <p className="text-grey-light text-xl font-bold">
-                      {member.role}
-                    </p>
-                    <p className="text-grey">{member.job}</p>
-                    <a
-                      href={`mailto:${member.email}`}
-                      className="text-grey-dark hover:bg-yellow hover:text-black"
-                    >
-                      &rarr; {member.email}
-                    </a>
-                  </div>
                 </>
               );
             })}

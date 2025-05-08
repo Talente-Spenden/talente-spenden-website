@@ -1,20 +1,13 @@
 import { useRef, useEffect, useState } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 import { ChevronRight, ChevronLeft } from "lucide-react";
+import { useViewport } from "../../contexts/ViewportContext";
+import { SliderItem } from "./SliderItem";
 // Main App component
 export function Slider(props: any) {
   const { content, selectedContent } = props;
+  const { width } = useViewport();
   // Array of card data (you can replace this with your actual data)
-  const cards = [
-    { id: 1, title: "Card 1", content: "This is the content for card 1." },
-    { id: 2, title: "Card 2", content: "This is the content for card 2." },
-    { id: 3, title: "Card 3", content: "This is the content for card 3." },
-    { id: 4, title: "Card 4", content: "This is the content for card 4." },
-    { id: 5, title: "Card 5", content: "This is the content for card 5." },
-    { id: 6, title: "Card 6", content: "This is the content for card 6." },
-    { id: 7, title: "Card 7", content: "This is the content for card 7." },
-    { id: 8, title: "Card 8", content: "This is the content for card 8." },
-  ];
 
   // Ref for the carousel container to measure its width
   const carouselRef = useRef(null);
@@ -36,7 +29,7 @@ export function Slider(props: any) {
         carouselRef.current.scrollWidth - carouselRef.current.offsetWidth + 10
       );
     }
-  }, [cards]); // Recalculate if the number of cards changes
+  }, []); // Recalculate if the number of cards changes
 
   // Function to handle clicking the "Next" button
   const handleNextClick = () => {
@@ -107,40 +100,7 @@ export function Slider(props: any) {
           {selectedContent.map((s) => {
             // Find matching content
             let current = content.find((e) => e.name === s.id);
-            return (
-              <motion.div
-                className="mr-8 my-4"
-                key={current.name}
-                // Initial animation state
-                initial={{ opacity: 0, scale: 0.9 }}
-                // Animation state while in view (using whileInView)
-                whileInView={{ opacity: 1, scale: 1 }}
-                // Animation state while dragging (using whileDrag)
-                whileDrag={{ scale: 1.05 }}
-                // Transition properties for the animations
-                transition={{ duration: 0.3 }}
-              >
-                <div className="bg-grey-light h-[2px] w-full mb-2" />
-                <div className="group relative flex justify-between min-w-[600px] h-[400px] bg-black">
-                  <motion.div className=" text-white p-6 flex flex-col justify-between">
-                    <h3 className="text-xl font-semibold mb-2">
-                      {current.name}
-                    </h3>
-                    <div className="flex justify-start">
-                      {current.tags.map((tag) => (
-                        <div className="mr-4 border-[2px] border-white group-hover:border-blue transition-all duration-300 rounded-full px-3 py-1">
-                          <p className="text-m">{tag}</p>
-                        </div>
-                      ))}
-                    </div>
-                  </motion.div>{" "}
-                  <img
-                    src={`src/assets/img/${current.image}`}
-                    className=" object-cover w-[40%] h-full pointer-events-none select-none filter grayscale transition duration-300 group-hover:grayscale-0"
-                  ></img>
-                </div>
-              </motion.div>
-            );
+            return <SliderItem current={current} />;
           })}
         </motion.div>
       </div>

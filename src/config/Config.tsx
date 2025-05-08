@@ -7,7 +7,7 @@ export const navigationBarConfig = [
     color: "green",
   },
   { name: "Team", path: "/team", color: "orange" },
-  { name: "Our Mission", path: "/mission", color: "purple" },
+  //{ name: "Our Mission", path: "/mission", color: "purple" },
   { name: "Join us", path: "/join", color: "grey" },
 ];
 

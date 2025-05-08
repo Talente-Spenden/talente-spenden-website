@@ -71,20 +71,20 @@ export function Slider(props: any) {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center bg-gray-100 pr-[5vw]">
+    <div className="flex flex-col items-center justify-center bg-gray-100 pl-[5vw] pr-4">
       <div className="w-full">
         {/* Navigation Buttons */}
         <div className="flex justify-end">
           <div className="flex space-x-2">
             <button
               onClick={handlePrevClick}
-              className="px-3 py-3 bg-grey text-black hover:bg-black hover:text-white font-semibold rounded-full focus:outline-none transition duration-300"
+              className="px-3 py-3 bg-grey-light text-black hover:bg-black hover:text-white font-semibold rounded-full focus:outline-none transition duration-300"
             >
               <ChevronLeft />
             </button>
             <button
               onClick={handleNextClick}
-              className="px-3 py-3 bg-grey text-black hover:bg-black hover:text-white font-semibold rounded-full focus:outline-none focus:ring-opacity-50 transition duration-300"
+              className="px-3 py-3 bg-grey-light text-black hover:bg-black hover:text-white font-semibold rounded-full focus:outline-none focus:ring-opacity-50 transition duration-300"
             >
               <ChevronRight />
             </button>
@@ -109,7 +109,7 @@ export function Slider(props: any) {
             let current = content.find((e) => e.name === s.id);
             return (
               <motion.div
-                className="mr-4 my-4"
+                className="mr-8 my-4"
                 key={current.name}
                 // Initial animation state
                 initial={{ opacity: 0, scale: 0.9 }}
@@ -120,7 +120,7 @@ export function Slider(props: any) {
                 // Transition properties for the animations
                 transition={{ duration: 0.3 }}
               >
-                <div className="bg-grey-dark h-[2px] w-full mb-2" />
+                <div className="bg-grey-light h-[2px] w-full mb-2" />
                 <div className="group relative flex justify-between min-w-[600px] h-[400px] bg-black">
                   <motion.div className=" text-white p-6 flex flex-col justify-between">
                     <h3 className="text-xl font-semibold mb-2">
@@ -128,7 +128,7 @@ export function Slider(props: any) {
                     </h3>
                     <div className="flex justify-start">
                       {current.tags.map((tag) => (
-                        <div className="mr-4 border-2 border-white px-3 py-1">
+                        <div className="mr-4 border-[2px] border-white group-hover:border-blue transition-all duration-300 rounded-full px-3 py-1">
                           <p className="text-m">{tag}</p>
                         </div>
                       ))}

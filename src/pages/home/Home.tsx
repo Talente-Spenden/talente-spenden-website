@@ -81,10 +81,10 @@ export const Home = () => {
           }`}
         >
           <div className={`${width > 1200 ? "w-[40%]" : "w-[95%]"}`}>
-            <p className="text-xl mb-7 text-white">
+            <p className="md:text-xl text-md mb-7 text-white">
               At Talente Spenden, we create social value. We host multiple
               projects,{" "}
-              <span className="text-orange-mid-light font-semibold">
+              <span className="text-blue font-semibold">
                 tackling diverse challenges of today's world
               </span>
               , including sustainability efforts, blood donation drives,
@@ -93,47 +93,55 @@ export const Home = () => {
             </p>
             <Link
               to="/join"
-              className="p-3 border-white border-2 hover:bg-yellow-mid-light text-white hover:text-black transition-all duration-300"
+              className="p-3 border-white border-2 hover:bg-blue-mid-light text-white hover:text-black transition-all duration-300"
             >
-              <span className="text-medium">&rarr; Join Talente Spenden</span>
+              <span className="md:text-xl text-md">
+                &rarr; Join Talente Spenden
+              </span>
             </Link>
           </div>
           <div className={`${width > 1200 ? "w-[40%]" : "w-[95%] mt-16"}`}>
             <div className="my-1 h-[2px] w-full bg-grey-light" />
             <div className="flex justify-between px-4">
-              <h1 className="text-grey-light text-xl">Established in</h1>
-              <h1 className="text-orange-mid-light font-semibold text-4xl">
+              <h1 className="text-grey-light md:text-xl text-md">
+                Established in
+              </h1>
+              <h1 className="text-blue-mid-light font-semibold md:text-4xl text-2xl">
                 2014
               </h1>
             </div>{" "}
             <div className="my-1 h-[2px] w-full bg-grey-light" />
             <div className="flex justify-between px-4">
-              <h1 className="text-grey-light text-xl">Current project count</h1>
-              <h1 className="text-orange-mid-light font-semibold text-4xl">
+              <h1 className="text-grey-light md:text-xl text-md">
+                Current project count
+              </h1>
+              <h1 className="text-blue-mid-light font-semibold md:text-4xl text-2xl">
                 8
               </h1>
             </div>
             <div className="my-1 h-[2px] w-full bg-grey-light" />
             <div className="flex justify-between px-4">
-              <h1 className="text-grey-light text-xl">Students who comitted</h1>
-              <h1 className="text-orange-mid-light font-semibold text-4xl">
+              <h1 className="text-grey-light md:text-xl text-md">
+                Students who comitted
+              </h1>
+              <h1 className="text-blue-mid-light font-semibold md:text-4xl text-2xl">
                 {" "}
                 &gt; 2000
               </h1>
             </div>
             <div className="my-1 h-[2px] w-full bg-grey-light" />
             <div className="flex justify-between px-4">
-              <h1 className="text-grey-light text-xl">
+              <h1 className="text-grey-light md:text-xl text-md">
                 Collectively spent time{" "}
               </h1>
-              <h1 className="text-orange-mid-light font-semibold text-4xl">
+              <h1 className="text-blue-mid-light font-semibold md:text-4xl text-2xl">
                 &gt; 16000h
               </h1>
             </div>
           </div>
         </div>
         <div className="bg-blue pt-20 pb-20">
-          <h1 className="ml-[5vw] font-['Inter'] font-semibold text-xl lg:text-3xl text-black">
+          <h1 className="ml-[5vw] font-['Inter'] font-semibold text-xl lg:text-3xl text-white">
             Our Projects In the Spotlight
           </h1>
           <div className="">

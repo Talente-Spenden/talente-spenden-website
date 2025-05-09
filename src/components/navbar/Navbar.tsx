@@ -147,9 +147,7 @@ export const Navbar = () => {
           </div>
         )}
       </div>
-      {overlayOpen && (
-        <NavbarMobile setOverlayOpen={setOverlayOpen} innerRef={overlayRef} />
-      )}
+      {overlayOpen && <NavbarMobile setOverlayOpen={setOverlayOpen} />}
     </div>
   );
 };

@@ -1,5 +1,15 @@
+import {
+  ManagementTeamConfig,
+  MilestonesConfig,
+  NavigationBarConfig,
+  ProjectsConfig,
+  ProjectSpotlightConfig,
+  ProjectTagsConfig,
+  QaHomeConfig,
+} from "../types/Types";
+
 // ------------ Routing ------------
-export const navigationBarConfig = [
+export const navigationBarConfig: NavigationBarConfig = [
   { name: "Charity Track", path: "/charity", color: "yellow" },
   {
     name: "Entrepreneurship Track",
@@ -14,7 +24,7 @@ export const navigationBarConfig = [
 // ------------ Content ------------
 
 // Home Page
-export const qaHome = [
+export const qaHome: QaHomeConfig = [
   {
     question: "How can I get involved at Talente Spenden?",
     answer:
@@ -58,7 +68,7 @@ export const qaHome = [
   },
 ];
 
-export const projectSpotlight = [
+export const projectSpotlight: ProjectSpotlightConfig = [
   { id: "Blutspende", text: "Collecting blood cells for the good" },
   { id: "Bücherspende", text: "Old Books deserve to be read" },
   { id: "Tafel", text: "Everyone needs food" },
@@ -67,7 +77,7 @@ export const projectSpotlight = [
 
 // Team Page
 
-export const managementTeam = [
+export const managementTeam: ManagementTeamConfig = [
   {
     name: "Melis Güler",
     role: "Head of Events",
@@ -112,7 +122,7 @@ export const managementTeam = [
   },
 ];
 
-export const milestones = [
+export const milestones: MilestonesConfig = [
   {
     year: 2014,
     title: "Talente Spenden is founded",
@@ -133,7 +143,7 @@ export const milestones = [
 // Projects Page
 
 // News Page
-export const projectTags = [
+export const projectTags: ProjectTagsConfig = [
   {
     name: "Education",
     color: "orange",
@@ -152,7 +162,7 @@ export const projectTags = [
   },
 ];
 
-export const projects = [
+export const projects: ProjectsConfig = [
   {
     name: "Blutspende",
     descriptionShort: "A blood donation initiative to support local hospitals.",

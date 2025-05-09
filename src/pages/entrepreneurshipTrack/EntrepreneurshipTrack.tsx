@@ -1,7 +1,7 @@
 import { Gradient } from "../../components/gradient/Gradient";
 import { Link } from "react-router-dom";
 
-export const EntrepreneurshipTrack = () => {
+export const EntrepreneurshipTrack: React.FC = () => {
   return (
     <div className="w-screen">
       <div className="h-screen">

@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 
-export const ScrollIndicator = () => {
+export const ScrollIndicator: React.FC = () => {
   return (
     <div className="flex justify-center">
       <motion.div

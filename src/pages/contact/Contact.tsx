@@ -1,6 +1,6 @@
 import { Gradient } from "../../components/gradient/Gradient";
 
-export const Contact = () => {
+export const Contact: React.FC = () => {
   return (
     <div className="w-screen">
       <div className="h-screen">

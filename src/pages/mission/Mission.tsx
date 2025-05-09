@@ -1,6 +1,6 @@
 import { Gradient } from "../../components/gradient/Gradient";
 
-export const Mission = () => {
+export const Mission: React.FC = () => {
   return (
     <div className="w-screen">
       <div className="h-[30vh]">

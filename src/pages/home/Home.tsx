@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 import { useViewport } from "../../contexts/ViewportContext";
 import { QA } from "../../components/qa/QA";
 import { projects, projectSpotlight, qaHome } from "../../config/Config";
-import { Slider } from "../../components/slider/Slider";
+import { ProjectSlider } from "../../components/slider/ProjectSlider";
 import { ScrollIndicator } from "../../components/scrollIndicator/ScrollIndicator";
 
-export const Home = () => {
+export const Home: React.FC = () => {
   const { width } = useViewport();
   return (
     <div className="w-screen">
@@ -146,7 +146,10 @@ export const Home = () => {
           </h1>
           <div className="">
             <div className="w-full">
-              <Slider selectedContent={projectSpotlight} content={projects} />
+              <ProjectSlider
+                selectedContent={projectSpotlight}
+                content={projects}
+              />
             </div>
           </div>
         </div>

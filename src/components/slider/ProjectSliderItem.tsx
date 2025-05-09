@@ -1,8 +1,11 @@
 import { motion } from "framer-motion";
 import { useViewport } from "../../contexts/ViewportContext";
 import { ExternalLink } from "lucide-react";
+import { ProjectItem } from "../../types/Types";
 
-export const SliderItem = (props: any) => {
+export const ProjectSliderItem: React.FC<{
+  current: ProjectItem;
+}> = (props) => {
   const { current } = props;
   const { width } = useViewport();
 

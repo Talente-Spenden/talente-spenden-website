@@ -3,7 +3,7 @@ import { Gradient } from "../../components/gradient/Gradient";
 import { ProjectCard } from "../../components/projectCard/ProjectCard";
 import { projects } from "../../config/Config";
 
-export const CharityTrack = () => {
+export const CharityTrack: React.FC = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
 
   const handleScroll = () => {

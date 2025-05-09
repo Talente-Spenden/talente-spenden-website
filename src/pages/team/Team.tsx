@@ -2,7 +2,7 @@ import { Gradient } from "../../components/gradient/Gradient";
 import { managementTeam, milestones } from "../../config/Config";
 import { useViewport } from "../../contexts/ViewportContext";
 
-export const Team = () => {
+export const Team: React.FC = () => {
   const { width } = useViewport();
 
   return (

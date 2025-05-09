@@ -2,15 +2,19 @@ import { useRef, useEffect, useState } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 import { ChevronRight, ChevronLeft } from "lucide-react";
 import { useViewport } from "../../contexts/ViewportContext";
-import { SliderItem } from "./SliderItem";
+import { ProjectSliderItem } from "./ProjectSliderItem";
+import { ProjectsConfig, ProjectSpotlightConfig } from "../../types/Types";
 // Main App component
-export function Slider(props: any) {
+export const ProjectSlider: React.FC<{
+  content: ProjectsConfig;
+  selectedContent: ProjectSpotlightConfig;
+}> = (props) => {
   const { content, selectedContent } = props;
   const { width } = useViewport();
   // Array of card data (you can replace this with your actual data)
 
   // Ref for the carousel container to measure its width
-  const carouselRef = useRef(null);
+  const carouselRef = useRef<HTMLDivElement | null>(null);
   // State to store the width of the carousel container
   const [carouselWidth, setCarouselWidth] = useState(0);
 
@@ -100,10 +104,16 @@ export function Slider(props: any) {
           {selectedContent.map((s) => {
             // Find matching content
             let current = content.find((e) => e.name === s.id);
-            return <SliderItem current={current} />;
+            return (
+              <>
+                {current != undefined && (
+                  <ProjectSliderItem current={current} />
+                )}
+              </>
+            );
           })}
         </motion.div>
       </div>
     </div>
   );
-}
+};

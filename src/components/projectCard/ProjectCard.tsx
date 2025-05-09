@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
+import { ProjectItem } from "../../types/Types";
 
-export const ProjectCard = (props: any) => {
+export const ProjectCard: React.FC<{ project: ProjectItem }> = (props) => {
   const { project } = props;
 
   return (

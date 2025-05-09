@@ -1,6 +1,9 @@
 import { useState } from "react";
+import { QAItem } from "../../types/Types";
 
-export const QAItem = (props: any) => {
+export const QAElement: React.FC<{ question: QAItem; index: number }> = (
+  props
+) => {
   const { question, index } = props;
   const [open, setOpen] = useState(false);
   return (

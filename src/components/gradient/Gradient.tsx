@@ -4,12 +4,12 @@ import { InteractiveGradient } from "./InteractiveGradient";
 import { TimeGradient } from "./TimeGradient";
 import { useState, useEffect } from "react";
 
-export const Gradient = (props: {
+export const Gradient: React.FC<{
   col0?: string;
   col1?: string;
   col2?: string;
   col3?: string;
-}): JSX.Element => {
+}> = (props) => {
   const { ErrorBoundary, didCatch } = useErrorBoundary();
 
   const [width, setWidth] = useState(window.innerWidth);

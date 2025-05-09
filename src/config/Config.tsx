@@ -72,14 +72,14 @@ export const managementTeam = [
     name: "Melis Güler",
     role: "Head of Events",
     job: "Bachelor's student in environmental engineering",
-    email: "test@tum.de",
+    email: "melis.gueler@tum.de",
     image: "/src/assets/img/Melis.jpeg",
   },
   {
     name: "Max Huppertz",
     role: "Head of Communication",
     job: "Bachelor's student in informatics",
-    email: "test@tum.de",
+    email: "max.huppertz@tum.de",
     image: "/src/assets/img/Max.jpeg",
   },
   {
@@ -93,8 +93,22 @@ export const managementTeam = [
     name: "Jonas Süß",
     role: "Head of Finance & Social Entrepreneurship",
     job: "Bachelor's student in informatics",
-    email: "test@tum.de",
+    email: "jonas.suess@tum.de",
     image: "/src/assets/img/JonasS.jpeg",
+  },
+  {
+    name: "Fabian",
+    role: "Communication Team Member",
+    job: "",
+    email: "",
+    image: "/src/assets/img/Fabian.jpg",
+  },
+  {
+    name: "Joana",
+    role: "Communication Team Member",
+    job: "",
+    email: "",
+    image: "/src/assets/img/Joana2.jpg",
   },
 ];
 

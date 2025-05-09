@@ -29,7 +29,7 @@ export function Slider(props: any) {
         carouselRef.current.scrollWidth - carouselRef.current.offsetWidth + 10
       );
     }
-  }, []); // Recalculate if the number of cards changes
+  }, [width]); // Recalculate if the number of cards changes
 
   // Function to handle clicking the "Next" button
   const handleNextClick = () => {

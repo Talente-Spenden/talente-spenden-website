@@ -76,7 +76,7 @@ export const Home = () => {
       </div>
       <div className="w-full">
         <div
-          className={`bg-black py-24 px-[5vw] ${
+          className={`bg-black md:py-24 py-16 px-[5vw] ${
             width > 1200 ? "flex justify-between" : ""
           }`}
         >
@@ -100,7 +100,7 @@ export const Home = () => {
               </span>
             </Link>
           </div>
-          <div className={`${width > 1200 ? "w-[40%]" : "w-[95%] mt-16"}`}>
+          <div className={`${width > 1200 ? "w-[40%]" : "w-[95%] mt-20"}`}>
             <div className="my-1 h-[2px] w-full bg-grey-light" />
             <div className="flex justify-between px-4">
               <h1 className="text-grey-light md:text-xl text-md">

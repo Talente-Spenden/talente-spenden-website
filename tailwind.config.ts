@@ -7,6 +7,7 @@ export default {
     "text-yellow-mid-light",
     "text-purple-mid-light",
     "text-orange-mid-light",
+    "outline-grey",
   ],
   theme: {
     colors: {

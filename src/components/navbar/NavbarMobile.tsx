@@ -2,7 +2,9 @@ import { useEffect, useState } from "react";
 import { navigationBarConfig } from "../../config/Config";
 import { Link, useLocation } from "react-router-dom";
 
-export const NavbarMobile = (props: any): JSX.Element => {
+export const NavbarMobile: React.FC<{
+  setOverlayOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}> = (props) => {
   const { setOverlayOpen } = props;
   const location = useLocation();
   const [currentPage, setCurrentPage] = useState("/home");

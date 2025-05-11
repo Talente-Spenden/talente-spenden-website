@@ -8,6 +8,7 @@ import {
   enableBodyScroll,
   clearAllBodyScrollLocks,
 } from "body-scroll-lock-upgrade";
+import { useViewport } from "../../contexts/ViewportContext";
 
 export const Navbar = () => {
   const location = useLocation();
@@ -38,7 +39,7 @@ export const Navbar = () => {
     }
   }, [overlayOpen, overlayRef]);
 
-  const [width, setWidth] = useState(window.innerWidth);
+  const { width } = useViewport();
 
   useEffect(() => {
     if (width > 1405) {
@@ -49,14 +50,9 @@ export const Navbar = () => {
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll, { passive: true });
-    const changeWidth = () => {
-      setWidth(window.innerWidth);
-    };
-    window.addEventListener("resize", changeWidth);
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("resize", changeWidth);
     };
   }, []);
 
@@ -64,7 +60,7 @@ export const Navbar = () => {
     <div>
       <div
         className={`px-4 pt-4 pb-4 duration-400 fixed z-[200] top-0 left-0 w-full flex justify-between items-center transition-all ${
-          scrollPosition >= (1 / 2) * window.innerHeight ? "bg-black" : ""
+          scrollPosition >= (1 / 8) * window.innerHeight ? "bg-black" : ""
         }`}
       >
         <div className="navBarLogo">
@@ -80,7 +76,7 @@ export const Navbar = () => {
 
         {width > 1405 ? (
           <div className="text-white">
-            <ul className="flex pt-2 mt-0">
+            <ul className="flex pt-2 mt-0 items-center">
               {navigationBarConfig.map((navLink, index) => (
                 <li className="list-none px-14" key={index}>
                   <Link
@@ -90,11 +86,34 @@ export const Navbar = () => {
                       setOverlayOpen(false);
                     }}
                   >
-                    <div className="flex items-center">
-                      {currentPage.startsWith(navLink.path) && (
-                        <div className="w-2 h-2 rounded-full bg-white mr-3 transition-all group-hover:bg-blue-mid-light" />
+                    <div className="">
+                      {index == navigationBarConfig.length - 1 ? (
+                        <div
+                          className={`border-blue border-[2px] px-4 py-1 ${
+                            currentPage.startsWith(navLink.path)
+                              ? "border-blue"
+                              : ""
+                          }`}
+                        >
+                          {" "}
+                          <span
+                            className={`${
+                              currentPage.startsWith(navLink.path)
+                                ? "text-blue-mid-light"
+                                : ""
+                            }`}
+                          >
+                            {navLink.name}
+                          </span>
+                        </div>
+                      ) : (
+                        <>
+                          <span>{navLink.name}</span>
+                          {currentPage.startsWith(navLink.path) && (
+                            <div className="w-full h-[2px] bg-white mr-3 transition-all group-hover:bg-blue-mid-light" />
+                          )}
+                        </>
                       )}
-                      <span>{navLink.name}</span>
                     </div>
                   </Link>
                 </li>
@@ -128,9 +147,7 @@ export const Navbar = () => {
           </div>
         )}
       </div>
-      {overlayOpen && (
-        <NavbarMobile setOverlayOpen={setOverlayOpen} innerRef={overlayRef} />
-      )}
+      {overlayOpen && <NavbarMobile setOverlayOpen={setOverlayOpen} />}
     </div>
   );
 };

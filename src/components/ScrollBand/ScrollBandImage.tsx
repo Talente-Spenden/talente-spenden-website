@@ -1,11 +1,10 @@
 import useMeasure from "react-use-measure";
-import { ScrollCard } from "./ScrollCard";
 import { useMotionValue, animate, motion } from "framer-motion";
 import { useEffect } from "react";
 
-export const ScrollBandImage: React.FC<{ images: string[] }> = (props) => {
-  const pictures = ["1", "2", "3", "4"];
-
+export const ScrollBandImage: React.FC<{
+  images: string[];
+}> = ({ images }) => {
   let [ref, { width }] = useMeasure();
   const xTranslation = useMotionValue(0);
 
@@ -15,7 +14,7 @@ export const ScrollBandImage: React.FC<{ images: string[] }> = (props) => {
 
     controls = animate(xTranslation, [0, finalPosition], {
       ease: "linear",
-      duration: 15,
+      duration: 30,
       repeat: Infinity,
       repeatType: "loop",
       repeatDelay: 0,
@@ -25,13 +24,19 @@ export const ScrollBandImage: React.FC<{ images: string[] }> = (props) => {
   }, [xTranslation, width]);
 
   return (
-    <div>
-      <motion.div className="flex w-max" ref={ref} style={{ x: xTranslation }}>
-        {[...pictures, ...pictures, ...pictures, ...pictures].map(
-          (element, index) => {
-            return <></>;
-          }
-        )}
+    <div className="h-full">
+      <motion.div
+        className="flex w-max h-full gap-x-4"
+        ref={ref}
+        style={{ x: xTranslation }}
+      >
+        {[...images, ...images, ...images, ...images].map((element) => {
+          return (
+            <div className="w-[15vw] h-[35vh]">
+              <img src={element} className="object-cover w-full h-full" />
+            </div>
+          );
+        })}
       </motion.div>
     </div>
   );

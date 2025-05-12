@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Gradient } from "../../components/gradient/Gradient";
 import { ProjectCard } from "../../components/projectCard/ProjectCard";
 import { projects } from "../../config/Config";
+import { ScrollBandImage } from "../../components/ScrollBand/ScrollBandImage";
 
 export const CharityTrack: React.FC = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -25,7 +26,12 @@ export const CharityTrack: React.FC = () => {
         <h1 className="pl-6 sm:pl-10 pt-[40vh] font-bold font-['Poppins'] text-4xl sm:text-4xl md:text-5xl lg:text-8xl text-white">
           We Create Social Impact.
         </h1>
-      </div>{" "}
+      </div>
+      <div>
+        <ScrollBandImage
+          images={projects.map((project) => "/src/assets/img/" + project.image)}
+        />
+      </div>
       <div className="w-full">
         <div
           className={`py-10 transition-all duration-400 ${

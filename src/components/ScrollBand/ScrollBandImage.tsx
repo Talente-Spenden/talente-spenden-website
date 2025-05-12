@@ -3,9 +3,9 @@ import { ScrollCard } from "./ScrollCard";
 import { useMotionValue, animate, motion } from "framer-motion";
 import { useEffect } from "react";
 
-export const ScrollBandText: React.FC<{
-  texts: { type: "Instagram" | "LinkedIn"; text: string; link: string }[];
-}> = ({ texts }) => {
+export const ScrollBandImage: React.FC<{ images: string[] }> = (props) => {
+  const pictures = ["1", "2", "3", "4"];
+
   let [ref, { width }] = useMeasure();
   const xTranslation = useMotionValue(0);
 
@@ -27,9 +27,11 @@ export const ScrollBandText: React.FC<{
   return (
     <div>
       <motion.div className="flex w-max" ref={ref} style={{ x: xTranslation }}>
-        {[...texts, ...texts, ...texts, ...texts].map((element) => {
-          return <ScrollCard element={element} />;
-        })}
+        {[...pictures, ...pictures, ...pictures, ...pictures].map(
+          (element, index) => {
+            return <></>;
+          }
+        )}
       </motion.div>
     </div>
   );

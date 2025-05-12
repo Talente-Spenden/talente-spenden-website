@@ -1,5 +1,6 @@
 import { DiscordIcon } from "../../assets/discord/DiscordIcon";
 import { Gradient } from "../../components/gradient/Gradient";
+import { ScrollBandImage } from "../../components/ScrollBand/ScrollBandImage";
 import { ScrollBandText } from "../../components/ScrollBand/ScrollBandText";
 
 export const Contact: React.FC = () => {
@@ -24,7 +25,7 @@ export const Contact: React.FC = () => {
                 width={40}
                 className="mr-4 group-hover:fill-white transition-all duration-200"
               />{" "}
-              <h1>Join us on Discord</h1>
+              <h1>Join Talente Spenden on Discord</h1>
             </a>
           </div>
         </div>
@@ -42,7 +43,40 @@ export const Contact: React.FC = () => {
           </div>
         </div>
         <div className="h-[9vh] bg-black flex items-center">
-          <ScrollBandText />
+          <ScrollBandText
+            texts={[
+              {
+                type: "Instagram",
+                text: "@talente.spenden",
+                link: "instgram.com",
+              },
+              {
+                type: "LinkedIn",
+                text: "@talente-spenden",
+                link: "linkedin.com",
+              },
+              {
+                type: "Instagram",
+                text: "@talente.spenden",
+                link: "instgram.com",
+              },
+              {
+                type: "LinkedIn",
+                text: "@talente-spenden",
+                link: "linkedin.com",
+              },
+              {
+                type: "Instagram",
+                text: "@talente.spenden",
+                link: "instgram.com",
+              },
+              {
+                type: "LinkedIn",
+                text: "@talente-spenden",
+                link: "linkedin.com",
+              },
+            ]}
+          />
         </div>
 
         <div className="bg-white min-h-[80vh]"></div>

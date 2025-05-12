@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 
-export const ScrollIndicator: React.FC = () => {
+export const ScrollIndicator: React.FC<{ color: string }> = ({ color }) => {
   return (
     <div className="flex justify-center">
       <motion.div
@@ -16,7 +16,7 @@ export const ScrollIndicator: React.FC = () => {
         }}
         className="text-gray-400" // Tailwind class for text color
       >
-        <ArrowDown className="h-10 w-10 mr-8 text-white" />
+        <ArrowDown className={`h-10 w-10 mr-8 text-${color}`} />
       </motion.div>
     </div>
   );

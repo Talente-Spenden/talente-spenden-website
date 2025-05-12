@@ -1,5 +1,6 @@
 import { Gradient } from "../../components/gradient/Gradient";
 import { Link } from "react-router-dom";
+import { ScrollBandText } from "../../components/ScrollBand/ScrollBandText";
 
 export const EntrepreneurshipTrack: React.FC = () => {
   return (
@@ -20,7 +21,8 @@ export const EntrepreneurshipTrack: React.FC = () => {
           </p>
         </div>
       </div>
-      <div className="bg-black w-screen h-screen fixed top-0 left-0 z-[-1]">
+
+      <div className="bg-black w-screen h-screen fixed top-0 left-0 z-[-3]">
         <Gradient col0="green" col1="blue" col2="yellow" col3="yellow" />
       </div>
     </div>

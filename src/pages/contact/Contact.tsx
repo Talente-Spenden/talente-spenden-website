@@ -2,6 +2,7 @@ import { DiscordIcon } from "../../assets/discord/DiscordIcon";
 import { Gradient } from "../../components/gradient/Gradient";
 import { ScrollBandImage } from "../../components/ScrollBand/ScrollBandImage";
 import { ScrollBandText } from "../../components/ScrollBand/ScrollBandText";
+import { ScrollIndicator } from "../../components/scrollIndicator/ScrollIndicator";
 
 export const Contact: React.FC = () => {
   return (
@@ -15,7 +16,7 @@ export const Contact: React.FC = () => {
             Become part of a vibrant community of comitted students and
             contribute yourself.
           </p>
-          <div>
+          <div className="flex gap-4">
             <a
               href="https://discord.gg/xB7GXg2j4E"
               target="_blank"
@@ -26,6 +27,12 @@ export const Contact: React.FC = () => {
                 className="mr-4 group-hover:fill-white transition-all duration-200"
               />{" "}
               <h1>Join Talente Spenden on Discord</h1>
+            </a>
+            <a
+              href="#contribute"
+              className="border-white border-[2px] flex items-center font-bold text-xl sm:text-xl text-white px-5 py-3 cursor-pointer hover:border-blue hover:text-blue transition-all duration-200"
+            >
+              What can I do at Talente Spenden?
             </a>
           </div>
         </div>
@@ -79,7 +86,18 @@ export const Contact: React.FC = () => {
           />
         </div>
 
-        <div className="bg-white min-h-[80vh]"></div>
+        <div id="contribute" className="bg-white min-h-[80vh] px-6 pt-12">
+          <div className="mb-16">
+            <ScrollIndicator color="black" />
+          </div>
+          <h1 className="font-bold text-xl lg:text-5xl">
+            Open Roles at Talente Spenden
+          </h1>
+          <p className="text-grey-dark text-xl">
+            We are looking for you! All positions at Talente Spenden are
+            volunteer roles - noone is getting payed.
+          </p>
+        </div>
       </div>
       <div className="bg-black w-screen h-screen fixed top-0 left-0 z-[-1]">
         <Gradient col0="blue" col1="blue" col2="purple" col3="purple" />

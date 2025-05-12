@@ -25,8 +25,12 @@ export const ScrollBandText: React.FC<{
   }, [xTranslation, width]);
 
   return (
-    <div>
-      <motion.div className="flex w-max" ref={ref} style={{ x: xTranslation }}>
+    <div className="h-full">
+      <motion.div
+        className="flex w-max h-full"
+        ref={ref}
+        style={{ x: xTranslation }}
+      >
         {[...texts, ...texts, ...texts, ...texts].map((element) => {
           return <ScrollCard element={element} />;
         })}

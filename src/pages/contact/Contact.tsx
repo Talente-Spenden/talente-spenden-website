@@ -1,6 +1,6 @@
 import { DiscordIcon } from "../../assets/discord/DiscordIcon";
+import { DynamicBoxes } from "../../components/dynamicBoxes/DynamicBoxes";
 import { Gradient } from "../../components/gradient/Gradient";
-import { ScrollBandImage } from "../../components/ScrollBand/ScrollBandImage";
 import { ScrollBandText } from "../../components/ScrollBand/ScrollBandText";
 import { ScrollIndicator } from "../../components/scrollIndicator/ScrollIndicator";
 
@@ -43,7 +43,7 @@ export const Contact: React.FC = () => {
             </p>
             <a
               href="mailto:talente-spenden@tum.de"
-              className="text-white bg-black px-1 py-2 text-2xl font-bold"
+              className="text-white hover:bg-blue bg-black px-1 py-2 text-2xl font-bold"
             >
               &rarr; talente-spenden@tum.de
             </a>
@@ -85,15 +85,19 @@ export const Contact: React.FC = () => {
             ]}
           />
         </div>
-
-        <div id="contribute" className="bg-white min-h-[80vh] px-6 pt-12">
+        <div id="contribute" className="bg-white/70 px-6 pt-12 pb-12">
           <div className="mb-16">
             <ScrollIndicator color="black" />
           </div>
-          <h1 className="font-bold text-xl lg:text-5xl">
+          <div className="">
+            <DynamicBoxes />
+          </div>
+        </div>{" "}
+        <div className="bg-blue py-14 px-6">
+          <h1 className="text-white font-bold text-xl lg:text-5xl mb-2">
             Open Roles at Talente Spenden
           </h1>
-          <p className="text-grey-dark text-xl">
+          <p className="text-grey-light text-xl">
             We are looking for you! All positions at Talente Spenden are
             volunteer roles - noone is getting payed.
           </p>

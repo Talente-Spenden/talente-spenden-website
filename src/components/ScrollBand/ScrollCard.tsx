@@ -11,7 +11,7 @@ export const ScrollCard: React.FC<{
     <a
       href={element.link}
       target="_blank"
-      className="font-bold h-full hover:bg-blue transition-all duration-200 text-white px-4 flex gap-x-2 items-center"
+      className="font-bold h-full hover:bg-purple transition-all duration-200 text-white px-4 flex gap-x-2 items-center"
     >
       {element.type == "Instagram" && <Instagram />}
       {element.type == "LinkedIn" && <Linkedin />}

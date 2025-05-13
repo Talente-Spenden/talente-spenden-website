@@ -2,7 +2,10 @@ import { motion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 import { useEffect, useState } from "react";
 
-export const ScrollIndicator: React.FC<{ color: string }> = ({ color }) => {
+export const ScrollIndicator: React.FC<{
+  color: string;
+  hideOnScroll: boolean;
+}> = ({ color, hideOnScroll }) => {
   const [scrollPosition, setScrollPosition] = useState(0);
   const handleScroll = () => {
     const position = window.scrollY;
@@ -18,7 +21,7 @@ export const ScrollIndicator: React.FC<{ color: string }> = ({ color }) => {
 
   return (
     <div className="min-h-10 min-w-10">
-      {scrollPosition <= 100 && (
+      {(!hideOnScroll || scrollPosition <= 100) && (
         <div className="flex justify-center">
           <motion.div
             animate={{

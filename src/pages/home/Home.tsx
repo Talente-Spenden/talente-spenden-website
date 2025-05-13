@@ -70,7 +70,7 @@ export const Home: React.FC = () => {
             </p>
           )}
           <div className="absolute bottom-10 flex justify-center w-screen">
-            <ScrollIndicator color="white" />
+            <ScrollIndicator color="white" hideOnScroll={true} />
           </div>
         </div>
       </div>

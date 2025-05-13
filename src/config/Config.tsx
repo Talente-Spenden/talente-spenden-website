@@ -2,6 +2,7 @@ import {
   ManagementTeamConfig,
   MilestonesConfig,
   NavigationBarConfig,
+  openRolesConfig,
   ProjectsConfig,
   ProjectSpotlightConfig,
   ProjectTagsConfig,
@@ -140,7 +141,27 @@ export const milestones: MilestonesConfig = [
   },
 ];
 
-// Projects Page
+// Join Page
+export const openRoles: openRolesConfig = [
+  {
+    role: "Project Lead Book Donation (Bücherspende)",
+    track: "Charity Track",
+    requirements: "",
+    shortDescription: "",
+  },
+  {
+    role: "Event Team Member",
+    track: "Core",
+    requirements: "",
+    shortDescription: "",
+  },
+  {
+    role: "Technology Team Member",
+    track: "Core",
+    requirements: "",
+    shortDescription: "",
+  },
+];
 
 // News Page
 export const projectTags: ProjectTagsConfig = [

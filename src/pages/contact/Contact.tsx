@@ -1,8 +1,10 @@
 import { DiscordIcon } from "../../assets/discord/DiscordIcon";
 import { DynamicBoxes } from "../../components/dynamicBoxes/DynamicBoxes";
 import { Gradient } from "../../components/gradient/Gradient";
+import { OpenPositions } from "../../components/openPositions/OpenPositions";
 import { ScrollBandText } from "../../components/ScrollBand/ScrollBandText";
 import { ScrollIndicator } from "../../components/scrollIndicator/ScrollIndicator";
+import { openRoles } from "../../config/Config";
 
 export const Contact: React.FC = () => {
   return (
@@ -20,7 +22,7 @@ export const Contact: React.FC = () => {
             <a
               href="https://discord.gg/xB7GXg2j4E"
               target="_blank"
-              className="group bg-white flex items-center font-bold text-xl sm:text-xl text-black px-5 py-3 cursor-pointer hover:bg-blue hover:text-white transition-all duration-200"
+              className="group bg-white flex items-center font-bold text-xl sm:text-xl text-black px-5 py-3 cursor-pointer hover:bg-purple hover:text-white transition-all duration-200"
             >
               <DiscordIcon
                 width={40}
@@ -30,7 +32,7 @@ export const Contact: React.FC = () => {
             </a>
             <a
               href="#contribute"
-              className="border-white border-[2px] flex items-center font-bold text-xl sm:text-xl text-white px-5 py-3 cursor-pointer hover:border-blue hover:text-blue transition-all duration-200"
+              className="border-white border-[2px] flex items-center font-bold text-xl sm:text-xl text-white px-5 py-3 cursor-pointer hover:border-purple hover:text-purple transition-all duration-200"
             >
               What can I do at Talente Spenden?
             </a>
@@ -39,7 +41,7 @@ export const Contact: React.FC = () => {
         <div className="flex justify-end mr-12 mb-12">
           <div className="flex flex-col items-end">
             <p className="text-grey font-semibold text-xl">
-              Any question or other ideas? You can also reach us via mail
+              Any question or other ideas? Feel free to reach us via mail.
             </p>
             <a
               href="mailto:talente-spenden@tum.de"
@@ -84,16 +86,19 @@ export const Contact: React.FC = () => {
               },
             ]}
           />
+        </div>{" "}
+        <div
+          id="contribute"
+          className="pt-6 pb-10 bg-purple/70 flex justify-center items-center"
+        >
+          <ScrollIndicator color="white" hideOnScroll={false} />
         </div>
-        <div id="contribute" className="bg-white/70 px-6 pt-12 pb-12">
-          <div className="mb-16">
-            <ScrollIndicator color="black" />
-          </div>
+        <div className="bg-purple/70 px-2 pt-2 pb-2">
           <div className="">
             <DynamicBoxes />
           </div>
         </div>{" "}
-        <div className="bg-blue py-14 px-6">
+        <div className="bg-black py-14 px-24">
           <h1 className="text-white font-bold text-xl lg:text-5xl mb-2">
             Open Roles at Talente Spenden
           </h1>
@@ -101,6 +106,13 @@ export const Contact: React.FC = () => {
             We are looking for you! All positions at Talente Spenden are
             volunteer roles - noone is getting payed.
           </p>
+          <div className="mt-14">
+            <OpenPositions roles={openRoles} />
+          </div>
+        </div>
+        <div className="bg-purple py-2 ">
+          {" "}
+          <div className="w-full bg-black h-[4px]" />
         </div>
       </div>
       <div className="bg-black w-screen h-screen fixed top-0 left-0 z-[-1]">

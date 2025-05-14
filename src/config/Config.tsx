@@ -144,7 +144,7 @@ export const milestones: MilestonesConfig = [
 // Join Page
 export const openRoles: openRolesConfig = [
   {
-    role: "Project Lead Book Donation (Bücherspende)",
+    role: "Project Lead Bücherspende - Book Donation",
     track: "Charity Track",
     requirements: "",
     shortDescription: "",
@@ -156,7 +156,13 @@ export const openRoles: openRolesConfig = [
     shortDescription: "",
   },
   {
-    role: "Technology Team Member",
+    role: "Technology Team Member - Backend/DevOps",
+    track: "Core",
+    requirements: "",
+    shortDescription: "",
+  },
+  {
+    role: "Entrepreneurship Team Member - Social Entrepreneurship Expert",
     track: "Core",
     requirements: "",
     shortDescription: "",

@@ -7,6 +7,7 @@ import { Team } from "../../pages/team/Team";
 import { Contact } from "../../pages/contact/Contact";
 import { Footer } from "../footer/Footer";
 import { EntrepreneurshipTrack } from "../../pages/entrepreneurshipTrack/EntrepreneurshipTrack";
+import { ScrollToTop } from "../scrollToTop/ScrollToTop";
 
 export default function Routes() {
   const routes = createBrowserRouter([
@@ -14,6 +15,7 @@ export default function Routes() {
       path: "/",
       element: (
         <>
+          <ScrollToTop />
           <Navbar />
           <Outlet />
           <Footer />

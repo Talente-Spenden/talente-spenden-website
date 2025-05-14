@@ -40,7 +40,7 @@ export const DynamicBoxes: React.FC<any> = (props) => {
                   <div className="flex items-center">
                     <ChevronRight className="text-purple w-6 h-6 group-hover:text-purple-mid-light transition-all" />
                     <h1 className="text-purple text-xl group-hover:text-purple-mid-light transition-all">
-                      Read More
+                      Learn More
                     </h1>
                   </div>
                 )}
@@ -60,7 +60,7 @@ export const DynamicBoxes: React.FC<any> = (props) => {
             <div className="flex flex-col justify-between h-full">
               <div>
                 <h1 className="text-purple italic font-bold text-xl sm:text-6xl group-hover:text-purple-mid-light transition-all">
-                  Join an Exisiting Project
+                  Join an Existing Project
                 </h1>
                 <p className="text-grey-dark w-[60%] mt-10 group-hover:text-grey-light text-xl transition-all">
                   In our Charity Track, we offer a wide range of projects you
@@ -73,7 +73,7 @@ export const DynamicBoxes: React.FC<any> = (props) => {
                   <div className="flex items-center">
                     <ChevronRight className="text-purple w-6 h-6 group-hover:text-purple-mid-light transition-all" />
                     <h1 className="text-purple text-xl group-hover:text-purple-mid-light transition-all">
-                      Read More
+                      Learn More
                     </h1>
                   </div>
                 )}
@@ -113,7 +113,7 @@ export const DynamicBoxes: React.FC<any> = (props) => {
                 <div className="flex items-center">
                   <ChevronRight className="text-purple w-6 h-6 group-hover:text-purple-mid-light transition-all" />
                   <h1 className="text-purple text-xl group-hover:text-purple-mid-light transition-all">
-                    Read More
+                    Learn More
                   </h1>
                 </div>
               )}

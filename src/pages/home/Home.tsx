@@ -41,7 +41,7 @@ export const Home: React.FC = () => {
             </p>
           )}
         </div>
-        <div className="pl-6 sm:pl-10 pt-[20vh]">
+        <div className="px-6 sm:px-10 pt-[20vh]">
           <h1 className="font-bold font-['Poppins'] text-4xl sm:text-4xl md:text-5xl lg:text-8xl text-white">
             Join Hands,
             <br />
@@ -69,7 +69,7 @@ export const Home: React.FC = () => {
               .
             </p>
           )}
-          <div className="absolute bottom-10 flex justify-center w-screen">
+          <div className="absolute bottom-10 flex justify-center left-0 w-screen">
             <ScrollIndicator color="white" hideOnScroll={true} />
           </div>
         </div>

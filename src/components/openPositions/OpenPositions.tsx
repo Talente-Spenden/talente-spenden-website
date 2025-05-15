@@ -15,7 +15,7 @@ export const OpenPositions: React.FC<{ roles: openRolesConfig }> = ({
             <div className="my-1 h-[2px] w-full bg-grey-light" />
             <div className="flex justify-between items-start">
               <div className="py-1 w-full">
-                <div className="flex justify-between px-4 gap-x-6">
+                <div className="flex justify-between px-2 gap-x-6">
                   <h1 className="font-bold text-white md:text-2xl sm:text-xl">
                     {role.role}
                   </h1>

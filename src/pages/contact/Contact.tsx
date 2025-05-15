@@ -104,7 +104,7 @@ export const Contact: React.FC = () => {
           <h1 className="text-white font-bold text-xl lg:text-5xl mb-2">
             Open Roles at Talente Spenden
           </h1>
-          <p className="text-grey-light text-xl">
+          <p className="text-grey-light md:text-xl">
             We are looking for you! All positions at Talente Spenden are
             volunteer roles - noone is getting payed.
           </p>

@@ -110,10 +110,7 @@ export const Contact: React.FC = () => {
             <OpenPositions roles={openRoles} />
           </div>
         </div>
-        <div className="bg-purple py-2 ">
-          {" "}
-          <div className="w-full bg-black h-[4px]" />
-        </div>
+        <div className="bg-purple py-1 "> </div>
       </div>
       <div className="bg-black w-screen h-screen fixed top-0 left-0 z-[-1]">
         <Gradient col0="blue" col1="blue" col2="purple" col3="purple" />

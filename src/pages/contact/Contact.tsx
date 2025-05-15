@@ -5,47 +5,49 @@ import { OpenPositions } from "../../components/openPositions/OpenPositions";
 import { ScrollBandText } from "../../components/ScrollBand/ScrollBandText";
 import { ScrollIndicator } from "../../components/scrollIndicator/ScrollIndicator";
 import { openRoles } from "../../config/Config";
+import { useViewport } from "../../contexts/ViewportContext";
 
 export const Contact: React.FC = () => {
+  const { width } = useViewport();
   return (
     <div className="w-screen">
       <div className="min-h-screen">
-        <div className="h-[35vh] mt-[35vh] flex flex-col items-center text-center">
-          <h1 className="font-bold font-['Poppins'] mb-2 text-2xl sm:text-3xl md:text-4xl lg:text-6xl text-white">
+        <div className="h-[35vh] mt-[35vh] md:mt-[35vh] flex flex-col items-center text-center">
+          <h1 className="font-bold max-w-[80%] font-['Poppins'] mb-2 text-2xl sm:text-3xl md:text-4xl lg:text-6xl text-white">
             Let's make a difference, together.
           </h1>
-          <p className="text-grey text-xl mb-4">
+          <p className="text-grey md:text-xl mb-4 max-w-[80%]">
             Become part of a vibrant community of comitted students and
             contribute yourself.
           </p>
-          <div className="flex gap-4">
+          <div className="flex flex-wrap gap-x-4 gap-y-2 justify-center">
             <a
               href="https://discord.gg/xB7GXg2j4E"
               target="_blank"
-              className="group bg-white flex items-center font-bold text-xl sm:text-xl text-black px-5 py-3 cursor-pointer hover:bg-purple hover:text-white transition-all duration-200"
+              className="group bg-white max-w-[85vw] min-w-[250px] flex items-center font-bold md:text-xl text-black px-3 py-3 md:px-5 md:py-3 cursor-pointer hover:bg-purple hover:text-white transition-all duration-200"
             >
               <DiscordIcon
-                width={40}
+                width={width < 500 ? 30 : 40}
                 className="mr-4 group-hover:fill-white transition-all duration-200"
               />{" "}
               <h1>Join Talente Spenden on Discord</h1>
             </a>
             <a
               href="#contribute"
-              className="border-white border-[2px] flex items-center font-bold text-xl sm:text-xl text-white px-5 py-3 cursor-pointer hover:border-purple hover:text-purple transition-all duration-200"
+              className="border-white max-w-[85vw] border-[2px] min-w-[250px] flex items-center font-bold md:text-xl text-white px-3 py-3 md:px-5 md:py-3 cursor-pointer hover:border-purple hover:text-purple transition-all duration-200"
             >
               What can I do at Talente Spenden?
             </a>
           </div>
         </div>
-        <div className="flex justify-end mr-12 mb-12">
+        <div className="flex justify-end mr-4 md:mr-12 mb-12">
           <div className="flex flex-col items-end">
-            <p className="text-grey font-semibold text-xl">
+            <p className="text-grey font-semibold md:text-xl max-w-[80vw]">
               Any question or other ideas? Feel free to reach us via mail.
             </p>
             <a
               href="mailto:talente-spenden@tum.de"
-              className="text-white hover:bg-blue bg-black px-1 py-2 text-2xl font-bold"
+              className="text-white hover:bg-blue bg-black px-1 py-2 md:text-2xl font-bold"
             >
               &rarr; talente-spenden@tum.de
             </a>
@@ -98,7 +100,7 @@ export const Contact: React.FC = () => {
             <DynamicBoxes />
           </div>
         </div>{" "}
-        <div className="bg-black py-14 px-24">
+        <div className="bg-black py-14 px-6 lg:px-20">
           <h1 className="text-white font-bold text-xl lg:text-5xl mb-2">
             Open Roles at Talente Spenden
           </h1>

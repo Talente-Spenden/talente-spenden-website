@@ -101,16 +101,9 @@ export const ProjectSlider: React.FC<{
           dragElastic={0.2} // Controls the elasticity when dragging beyond constraints
         >
           {/* Map over the cards data to render each card */}
-          {selectedContent.map((s) => {
+          {content.map((s) => {
             // Find matching content
-            let current = content.find((e) => e.name === s.id);
-            return (
-              <>
-                {current != undefined && (
-                  <ProjectSliderItem current={current} />
-                )}
-              </>
-            );
+            return <>{<ProjectSliderItem current={s} />}</>;
           })}
         </motion.div>
       </div>

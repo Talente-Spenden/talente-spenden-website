@@ -35,7 +35,7 @@ export const ScrollIndicator: React.FC<{
             }}
             className="text-gray-400" // Tailwind class for text color
           >
-            <ArrowDown className={`h-10 w-10 mr-8 text-${color}`} />
+            <ArrowDown className={`h-10 w-10 text-${color}`} />
           </motion.div>
         </div>
       )}

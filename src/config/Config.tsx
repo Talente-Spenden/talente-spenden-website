@@ -145,7 +145,7 @@ export const milestones: MilestonesConfig = [
 export const openRoles: openRolesConfig = [
   {
     role: "Project Lead Bücherspende - Book Donation",
-    track: "Charity Track",
+    track: "TSCT",
     requirements: "",
     shortDescription: "",
   },

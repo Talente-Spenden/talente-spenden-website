@@ -11,6 +11,12 @@ export const ScrollToTop: React.FC = () => {
     const timer = setTimeout(() => {
       if (navigationType == "PUSH" && !location.hash) {
         window.scrollTo(0, 0);
+      } else if (location.hash) {
+        const element = document.getElementById(location.hash.substring(1));
+
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
       }
     }, 100); // Adjust the delay (milliseconds) as needed
 

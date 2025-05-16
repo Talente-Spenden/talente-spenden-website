@@ -100,7 +100,7 @@ export const Contact: React.FC = () => {
             <DynamicBoxes />
           </div>
         </div>{" "}
-        <div className="bg-black py-14 px-6 lg:px-20">
+        <div id="roles" className="bg-black py-14 px-6 lg:px-20">
           <h1 className="text-white font-bold text-xl lg:text-5xl mb-2">
             Open Roles at Talente Spenden
           </h1>

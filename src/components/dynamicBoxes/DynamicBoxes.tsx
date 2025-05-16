@@ -139,25 +139,42 @@ export const DynamicBoxes: React.FC<any> = (props) => {
                       </p>
                     ) : (
                       <>
+                        <div className="w-full my-2 h-[2px] bg-grey-light" />{" "}
+                        <p className="text-white mb-4 w-full 2xl:w-[90%]">
+                          Volunteering in one of our projects is by far the{" "}
+                          <span className="bg-yellow text-black">
+                            most popular form of committment at Talente Spenden
+                          </span>
+                          . Most of our projects host regular events, that you
+                          can sign up for independently - so you're super free
+                          to choose when you want to help out and when not.
+                        </p>
                         <h2 className="mt-4 text-purple-mid-light font-bold text-xl lg:text-2xl ">
-                          &rarr; How to apply
+                          &rarr; How to Join a Project
                         </h2>
                         <div className="w-full my-2 h-[2px] bg-grey-light" />
                         <p className="text-white">
+                          It's super easy. On{" "}
+                          <span className="bg-white text-black">
+                            joining our Discord Server
+                          </span>
+                          , you'll be asked which projects you're interested in.
+                          Select your favourite projects and you're in!
+                          <br />
+                          <br />
+                          You are then automatically added to the respective
+                          project groups and you'll find all updates and event
+                          announcements on there. Some projects additionally use
+                          Moodle for Event Registration - the respective Project
+                          Leads will explain how to sign up before an event.
+                          <br />
+                          <br />
+                          Many of our projects also highly{" "}
                           <span className="bg-yellow text-black">
-                            Just let us know
+                            appreciate help in the project lead team
                           </span>{" "}
-                          you’re interested in the position and why its a good
-                          fit for you and we’ll take it from there. Also, a
-                          brief introduction about yourself would be amazing!
-                          <br />
-                          <br />
-                          You’ll find open roles at Talente Spenden below -
-                          we’ll list them there, when we're looking for a
-                          specific skill, however, you can still, regardless of
-                          the roles listed below, take the initiative and apply
-                          if you have an idea on how you could benefit the team
-                          with your skillset.
+                          - feel free to contact them if you're looking for a
+                          way to regularly support a project you like.
                         </p>
                       </>
                     )}

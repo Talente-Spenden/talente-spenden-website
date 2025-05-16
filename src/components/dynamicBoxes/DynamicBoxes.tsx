@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import { MoveUpRight, ArrowRight, ChevronRight } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import { useViewport } from "../../contexts/ViewportContext";
 
-export const DynamicBoxes: React.FC<any> = (props) => {
+export const DynamicBoxes: React.FC = () => {
   let [expandedElement, setExpandedElement] = useState(0);
   let [showLeft, setShowLeft] = useState(true);
   let [showRight, setShowRight] = useState(true);

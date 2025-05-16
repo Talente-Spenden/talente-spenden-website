@@ -84,42 +84,48 @@ export const managementTeam: ManagementTeamConfig = [
     role: "Head of Events",
     job: "Bachelor's student in environmental engineering",
     email: "melis.gueler@tum.de",
-    image: "/src/assets/img/Melis.jpeg",
+    image:
+      "https://drive.google.com/thumbnail?id=1EWcs1ynHQcN82dNrWvneCAUEr43sZTM5&sz=w1000",
   },
   {
     name: "Max Huppertz",
     role: "Head of Communication",
     job: "Bachelor's student in informatics",
     email: "max.huppertz@tum.de",
-    image: "/src/assets/img/Max.jpeg",
+    image:
+      "https://drive.google.com/thumbnail?id=1OxnvXVS29GqGkseVTuVkwQbmQe8BjBy9&sz=w1000",
   },
   {
     name: "Jonas Itt",
     role: "Head of Technology",
     job: "Masters's student in informatics",
     email: "jonas.itt@tum.de",
-    image: "/src/assets/img/JonasI.jpeg",
+    image:
+      "https://drive.google.com/thumbnail?id=1rEeW-T_xdnCZ-jhvVbQ5t3amDlbxPwlA&sz=w1000",
   },
   {
     name: "Jonas Süß",
     role: "Head of Finance & Social Entrepreneurship",
     job: "Bachelor's student in informatics",
     email: "jonas.suess@tum.de",
-    image: "/src/assets/img/JonasS.jpeg",
+    image:
+      "https://drive.google.com/thumbnail?id=10LTxMdPqSUb1WwLhhcPysfW2_y1y7g4D&sz=w1000",
   },
   {
     name: "Fabian D’ Cruz",
     role: "Communication Team Member",
     job: "Master's Student Rail, Transport and Logistics",
     email: "",
-    image: "/src/assets/img/Fabian.jpg",
+    image:
+      "https://drive.google.com/thumbnail?id=1iJFmZQQTzzpYY_8PKfaeDZpSfCGlffCJ&sz=w1000",
   },
   {
     name: "Joana",
     role: "Communication Team Member",
     job: "Master's student Consumer Science",
     email: "",
-    image: "/src/assets/img/Joana2.jpg",
+    image:
+      "https://drive.google.com/thumbnail?id=1P1vo20Ji1VPV15_fWLsHNgbxSK4n_cg5&sz=w1000",
   },
   {
     name: "Sajeed",
@@ -236,7 +242,8 @@ export const projects: ProjectsConfig = [
     descriptionShort: "A blood donation initiative to support local hospitals.",
     descriptionLong:
       "Blutspende is a community-driven program focused on collecting blood donations from volunteers to ensure a steady supply for hospitals and medical facilities in need. The initiative helps save lives and supports patients requiring blood transfusions.",
-    image: "blutspende.jpg",
+    image:
+      "https://drive.google.com/thumbnail?id=111jWKJmiCu84Y6tCYwK8g4y0E0xnpjmi&sz=w1000",
     type: "Project",
     tags: ["Donations"],
     track: "TSCT",
@@ -247,7 +254,9 @@ export const projects: ProjectsConfig = [
       "Conservation project focused on maintaining local natural habitats.",
     descriptionLong:
       "Biotoppflege Freising is a local conservation effort aimed at preserving and maintaining biodiversity in the Freising area. Volunteers participate in habitat restoration, protection of native species, and ecological education activities.",
-    image: "biotoppflege.png",
+    image:
+      "https://drive.google.com/thumbnail?id=1bqktoKZh1XNzdyJeISC6y7GacdfH9MeV&sz=w1000",
+
     type: "Project",
     tags: ["Sustainability"],
     track: "TSCT",
@@ -257,7 +266,9 @@ export const projects: ProjectsConfig = [
     descriptionShort: "A food distribution service for people in need.",
     descriptionLong:
       "Tafel is a volunteer-driven organization that collects surplus food from stores and distributes it to individuals and families facing food insecurity. The project helps reduce food waste while supporting those in need with nutritious meals.",
-    image: "tafel.jpg",
+    image:
+      "https://drive.google.com/thumbnail?id=18VCU5ZJFjc0NyW_7A83k7Ieah20mSng9&sz=w1000",
+
     type: "Project",
     tags: ["Donations", "Social"],
     track: "TSCT",
@@ -268,7 +279,9 @@ export const projects: ProjectsConfig = [
       "A program dedicated to enhancing the well-being of the elderly.",
     descriptionLong:
       "Lebensfreude focuses on enriching the lives of senior citizens through activities, social events, and workshops. The project aims to combat loneliness, promote healthy living, and enhance the quality of life for older adults in the community.",
-    image: "lebensfreude.jpg",
+    image:
+      "https://drive.google.com/thumbnail?id=1d26sh7sbH3RFfZ4c6t31HXPvAzVmKEoP&sz=w1000",
+
     type: "Project",
     tags: ["Social"],
     track: "TSCT",
@@ -279,7 +292,9 @@ export const projects: ProjectsConfig = [
       "Mentorship program to support students at Salesianum School.",
     descriptionLong:
       "Mentoring@Salesianum connects students with mentors from various industries to provide guidance, career advice, and personal development support. The initiative aims to empower students to reach their academic and professional goals.",
-    image: "salesianum.png",
+    image:
+      "https://drive.google.com/thumbnail?id=1SLk5P38OeC070LizqBn5MDXAIObh_5p2&sz=w1000",
+
     type: "Project",
     tags: ["Education", "Social"],
     track: "TSCT",
@@ -290,7 +305,9 @@ export const projects: ProjectsConfig = [
       "A project promoting book donations for educational purposes.",
     descriptionLong:
       "Bücherspende is aimed at collecting and distributing books to schools, libraries, and under-resourced communities. The initiative seeks to make educational materials accessible and promote learning opportunities for everyone.",
-    image: "buecherspende.png",
+    image:
+      "https://drive.google.com/thumbnail?id=1QzcGqBx-Qiid9zfzFFJAdBhUY8DjLVD_&sz=w1000",
+
     type: "Project",
     tags: ["Education", "Donations"],
     track: "TSCT",

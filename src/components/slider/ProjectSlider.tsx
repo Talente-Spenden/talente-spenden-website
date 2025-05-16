@@ -9,7 +9,7 @@ export const ProjectSlider: React.FC<{
   content: ProjectsConfig;
   selectedContent: ProjectSpotlightConfig;
 }> = (props) => {
-  const { content, selectedContent } = props;
+  const { content } = props;
   const { width } = useViewport();
   // Array of card data (you can replace this with your actual data)
 

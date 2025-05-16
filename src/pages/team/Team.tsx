@@ -1,11 +1,8 @@
 import { Link } from "react-router-dom";
 import { Gradient } from "../../components/gradient/Gradient";
-import { managementTeam, milestones } from "../../config/Config";
-import { useViewport } from "../../contexts/ViewportContext";
+import { managementTeam } from "../../config/Config";
 
 export const Team: React.FC = () => {
-  const { width } = useViewport();
-
   return (
     <div className="w-screen">
       <div className="pl-6 sm:pl-10 pt-[20vh] mb-10">

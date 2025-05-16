@@ -11,10 +11,7 @@ export const ProjectCard: React.FC<{ project: ProjectItem }> = (props) => {
     >
       <div className="relative w-[100%] h-[500px]">
         {project.image != "" ? (
-          <img
-            src={`src/assets/img/${project.image}`}
-            className=" object-cover w-full h-full"
-          />
+          <img src={project.image} className=" object-cover w-full h-full" />
         ) : (
           <div className=" object-cover w-full h-full bg-blue" />
         )}

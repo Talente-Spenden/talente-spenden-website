@@ -1,6 +1,7 @@
 import { Gradient } from "../../components/gradient/Gradient";
 import { Link } from "react-router-dom";
 import { ScrollBandText } from "../../components/ScrollBand/ScrollBandText";
+import { Instagram, Linkedin } from "lucide-react";
 
 export const EntrepreneurshipTrack: React.FC = () => {
   return (
@@ -19,52 +20,21 @@ export const EntrepreneurshipTrack: React.FC = () => {
             </Link>{" "}
             for exlusive updates on our brand-new Entrepreneurship Track.
           </p>
-        </div>
-        <div className="bg-black h-[9vh] w-full mt-32">
-          <ScrollBandText
-            texts={[
-              {
-                type: "Instagram",
-                text: "@tsetmunich",
-                link: "https://www.instagram.com/tsetmunich/",
-              },
-              {
-                type: "LinkedIn",
-                text: "@tset-munich",
-                link: "https://www.linkedin.com/company/tset-munich/",
-              },
-              {
-                type: "Instagram",
-                text: "@tsetmunich",
-                link: "https://www.instagram.com/tsetmunich/",
-              },
-              {
-                type: "LinkedIn",
-                text: "@tset-munich",
-                link: "https://www.linkedin.com/company/tset-munich/",
-              },
-              {
-                type: "Instagram",
-                text: "@tsetmunich",
-                link: "https://www.instagram.com/tsetmunich/",
-              },
-              {
-                type: "LinkedIn",
-                text: "@tset-munich",
-                link: "https://www.linkedin.com/company/tset-munich/",
-              },
-              {
-                type: "Instagram",
-                text: "@tsetmunich",
-                link: "https://www.instagram.com/tsetmunich/",
-              },
-              {
-                type: "LinkedIn",
-                text: "@tset-munich",
-                link: "https://www.linkedin.com/company/tset-munich/",
-              },
-            ]}
-          />
+          <a
+            href="https://www.instagram.com/tsetmunich/"
+            target="_blank"
+            className="flex w-fit items-center bg-black p-1 hover:bg-green hover:text-black gap-x-2 mt-2 md:text-2xl sm:text-xl text-l text-grey-light"
+          >
+            &rarr; <Instagram /> @tsetmunich
+          </a>
+          <a
+            href="https://www.linkedin.com/company/tset-munich/"
+            target="_blank"
+            className="flex w-fit items-center bg-black p-1 hover:bg-green hover:text-black gap-x-2 mt-2 md:text-2xl sm:text-xl text-l text-grey-light"
+          >
+            &rarr; <Linkedin />
+            @tset-munich
+          </a>
         </div>
       </div>
 

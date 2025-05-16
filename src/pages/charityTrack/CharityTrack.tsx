@@ -7,22 +7,7 @@ import { TagList } from "../../components/tagList/TagList";
 import { projectTags } from "../../config/Config";
 
 export const CharityTrack: React.FC = () => {
-  const [scrollPosition, setScrollPosition] = useState(0);
   const [hiddenTags, setHiddenTags] = useState<string[]>([]);
-
-  const handleScroll = () => {
-    const position = window.scrollY;
-    setScrollPosition(position);
-    console.log(position);
-  };
-
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll, { passive: true });
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
   return (
     <div className="w-screen">
       <div className="h-[70vh] w-full flex justify-center text-center">
@@ -31,11 +16,7 @@ export const CharityTrack: React.FC = () => {
         </h1>
       </div>
       <div>
-        <ScrollBandImage
-          images={projects.map((project) =>
-            project.image != "" ? "/src/assets/img/" + project.image : ""
-          )}
-        />
+        <ScrollBandImage images={projects.map((project) => project.image)} />
       </div>
       <div className="w-full mt-4 bg-black px-6">
         <h1 className="text-3xl text-white font-bold pt-4">Our Projects</h1>
@@ -50,7 +31,7 @@ export const CharityTrack: React.FC = () => {
           />
         </div>
         <div className="flex justify-start">
-          <div className="flex flex-wrap justify-start after:flex-grow max-w-[95vw] mt-4">
+          <div className="flex flex-wrap justify-center lg:justify-start after:flex-grow max-w-[95vw] mt-4">
             {projects
               .filter((p) => {
                 return !p.tags.every((tag) => hiddenTags.includes(tag));

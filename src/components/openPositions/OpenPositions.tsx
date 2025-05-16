@@ -1,6 +1,6 @@
 import { useViewport } from "../../contexts/ViewportContext";
 import { openRolesConfig } from "../../types/Types";
-import { ChevronRight, Dot } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 
 export const OpenPositions: React.FC<{ roles: openRolesConfig }> = ({
   roles,

@@ -32,25 +32,33 @@ export const ProjectSliderItem: React.FC<{
             </div>
             <div className="flex justify-start">
               {current.tags.map((tag) => (
-                <div className="mr-4 border-[2px] border-white group-hover:border-blue transition-all duration-300 rounded-full px-3 py-1">
+                <div className="mr-4 border-[2px] border-white group-hover:border-blue transition-all duration-300 px-3 py-1">
                   <p className="text-m">{tag}</p>
                 </div>
               ))}
             </div>
-          </div>{" "}
-          <img
-            src={`src/assets/img/${current.image}`}
-            className="object-cover w-[40%] h-full pointer-events-none select-none filter grayscale transition duration-300 group-hover:grayscale-0"
-          ></img>
+          </div>
+          {current.image != "" ? (
+            <img
+              src={current.image}
+              className="object-cover w-full h-full pointer-events-none select-none filter grayscale transition duration-300 group-hover:grayscale-0"
+            />
+          ) : (
+            <div className="w-full h-full bg-blue-mid-light" />
+          )}
           <ExternalLink className="text-white w-8 h-8 absolute bottom-4 right-4" />
         </div>
       ) : (
         <div className="w-[70vw] h-[500px] bg-black">
           <div className="w-full h-[70%]">
-            <img
-              src={`src/assets/img/${current.image}`}
-              className="object-cover min-w-full h-full pointer-events-none select-none"
-            />
+            {current.image != "" ? (
+              <img
+                src={current.image}
+                className="object-cover w-full h-full pointer-events-none select-none"
+              />
+            ) : (
+              <div className="w-full h-full bg-blue-mid-light" />
+            )}
           </div>
           <div className="p-3 h-[30%] flex flex-col justify-end">
             <h3 className="text-xl font-semibold mb-2 text-white">
@@ -58,7 +66,7 @@ export const ProjectSliderItem: React.FC<{
             </h3>
             <div className="flex justify-start">
               {current.tags.map((tag) => (
-                <div className="mr-4 border-[2px] text-white border-white group-hover:border-blue transition-all duration-300 rounded-full px-3 py-1">
+                <div className="mr-4 border-[2px] text-white border-white group-hover:border-blue transition-all duration-300 px-3 py-1">
                   <p className="text-m">{tag}</p>
                 </div>
               ))}

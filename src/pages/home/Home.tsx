@@ -34,7 +34,7 @@ export const Home: React.FC = () => {
               striving to create social impact. Our mission is to leverage our
               time and talents to support diverse initiatives, empowering
               students to make{" "}
-              <Link to="/mission" className="font-bold italic hover:bg-yellow">
+              <Link to="/charity" className="font-bold italic hover:bg-yellow">
                 meaningful contributions to society and the environment
               </Link>
               .
@@ -63,7 +63,7 @@ export const Home: React.FC = () => {
               striving to create social impact. Our mission is to leverage our
               time and talents to support diverse initiatives, empowering
               students to make{" "}
-              <Link to="/mission" className="font-bold italic hover:bg-yellow">
+              <Link to="/charity" className="font-bold italic hover:bg-yellow">
                 meaningful contributions to society and the environment
               </Link>
               .
@@ -175,7 +175,7 @@ export const Home: React.FC = () => {
             </div>
             <div>
               <Link
-                to="/mission"
+                to="/join"
                 className="transition-all duration-300 hover:text-yellow font-bold text-5xl sm:text-7xl md:text-8xl lg:text-9xl italic text-blue font-['Poppins']"
               >
                 THE WORLD

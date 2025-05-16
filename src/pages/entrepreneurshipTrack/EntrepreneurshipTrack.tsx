@@ -1,6 +1,5 @@
 import { Gradient } from "../../components/gradient/Gradient";
 import { Link } from "react-router-dom";
-import { ScrollBandText } from "../../components/ScrollBand/ScrollBandText";
 import { Instagram, Linkedin } from "lucide-react";
 
 export const EntrepreneurshipTrack: React.FC = () => {

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Gradient } from "../../components/gradient/Gradient";
 import { ProjectCard } from "../../components/projectCard/ProjectCard";
 import { projects } from "../../config/Config";

@@ -5,8 +5,8 @@ import { ScrollBandText } from "../../components/ScrollBand/ScrollBandText";
 export const EntrepreneurshipTrack: React.FC = () => {
   return (
     <div className="w-screen">
-      <div className="h-screen">
-        <div className="ml-6 sm:ml-10 mt-[40vh]">
+      <div className="min-h-screen">
+        <div className="ml-6 sm:ml-10 pt-[40vh]">
           <h1 className="font-bold font-['Poppins'] text-3xl sm:text-4xl md:text-5xl lg:text-7xl text-white">
             A new chapter awaits – introducing TSET, soon.
           </h1>
@@ -19,6 +19,52 @@ export const EntrepreneurshipTrack: React.FC = () => {
             </Link>{" "}
             for exlusive updates on our brand-new Entrepreneurship Track.
           </p>
+        </div>
+        <div className="bg-black h-[9vh] w-full mt-32">
+          <ScrollBandText
+            texts={[
+              {
+                type: "Instagram",
+                text: "@tsetmunich",
+                link: "https://www.instagram.com/tsetmunich/",
+              },
+              {
+                type: "LinkedIn",
+                text: "@tset-munich",
+                link: "https://www.linkedin.com/company/tset-munich/",
+              },
+              {
+                type: "Instagram",
+                text: "@tsetmunich",
+                link: "https://www.instagram.com/tsetmunich/",
+              },
+              {
+                type: "LinkedIn",
+                text: "@tset-munich",
+                link: "https://www.linkedin.com/company/tset-munich/",
+              },
+              {
+                type: "Instagram",
+                text: "@tsetmunich",
+                link: "https://www.instagram.com/tsetmunich/",
+              },
+              {
+                type: "LinkedIn",
+                text: "@tset-munich",
+                link: "https://www.linkedin.com/company/tset-munich/",
+              },
+              {
+                type: "Instagram",
+                text: "@tsetmunich",
+                link: "https://www.instagram.com/tsetmunich/",
+              },
+              {
+                type: "LinkedIn",
+                text: "@tset-munich",
+                link: "https://www.linkedin.com/company/tset-munich/",
+              },
+            ]}
+          />
         </div>
       </div>
 

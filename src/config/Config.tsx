@@ -108,7 +108,7 @@ export const managementTeam: ManagementTeamConfig = [
     image: "/src/assets/img/JonasS.jpeg",
   },
   {
-    name: "Fabian",
+    name: "Fabian D’ Cruz",
     role: "Communication Team Member",
     job: "Master's Student Rail, Transport and Logistics",
     email: "",
@@ -293,7 +293,7 @@ export const projects: ProjectsConfig = [
       "A mentorship program for students at the Technical University of Munich.",
     descriptionLong:
       "NavigaTUM is designed to assist new students at the Technical University of Munich (TUM) with their transition to university life. This initiative pairs incoming students with experienced mentors who provide advice, guidance, and community support.",
-    image: "navigatum.jpg",
+    image: "",
     type: "Project",
     tags: ["Education"],
     track: "TSCT",

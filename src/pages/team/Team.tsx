@@ -22,13 +22,13 @@ export const Team: React.FC = () => {
           &rarr; Open Roles at Talente Spenden
         </Link>
       </div>
-      <div className="bg-black pt-12 lg:pl-6 sm:pl-10 pb-10 min-h-[80vh]">
+      <div className="bg-black pt-12 xl:pl-6 pb-10 min-h-[80vh]">
         <div className="w-screen flex justify-center">
           <div className="flex flex-wrap justify-center md:justify-start h-full gap-8 lg:after:grow px-4">
             {managementTeam.map((member) => {
               return (
-                <div className="w-[390px]">
-                  <div className="w-[390px] h-[500px]">
+                <div className="w-[80%] md:w-[390px] max-w-[95vw]">
+                  <div className="w-full md:w-[390px] h-[450px] sm:h-[500px] max-w-[95vw]">
                     <img
                       src={member.image}
                       className="object-cover w-full h-full"

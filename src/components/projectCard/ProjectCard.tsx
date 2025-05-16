@@ -5,12 +5,19 @@ export const ProjectCard: React.FC<{ project: ProjectItem }> = (props) => {
   const { project } = props;
 
   return (
-    <div className="pb-2 min-w-[320px] max-w-[450px] w-[22vw] my-10 mx-3 cursor-pointer [&>div>a]:hover:bg-yellow [&>div>a]:hover:text-black [&>div>h1]:hover:text-white [&>div>p]:hover:text-white transition-all">
+    <Link
+      to="/join"
+      className="pb-2 min-w-[320px] md:max-w-[400px] w-[90%] mb-10 mr-3 cursor-pointer [&>div>a]:hover:bg-yellow [&>div>a]:hover:text-black [&>div>h1]:hover:text-white [&>div>p]:hover:text-white transition-all"
+    >
       <div className="relative w-[100%] h-[500px]">
-        <img
-          src={`src/assets/img/${project.image}`}
-          className=" object-cover w-full h-full"
-        ></img>
+        {project.image != "" ? (
+          <img
+            src={`src/assets/img/${project.image}`}
+            className=" object-cover w-full h-full"
+          />
+        ) : (
+          <div className=" object-cover w-full h-full bg-blue" />
+        )}
       </div>{" "}
       <div className="mt-3 w-full h-[2px] bg-grey" />
       <div className="">
@@ -18,10 +25,10 @@ export const ProjectCard: React.FC<{ project: ProjectItem }> = (props) => {
           {project.name}
         </h1>
         <p className="text-grey py-2">{project.descriptionLong}</p>
-        <Link to="" className="text-grey text-xl font-bold">
+        <Link to="/join" className="text-grey text-xl font-bold">
           <span className="text-2xl">&rarr;</span> Learn more
         </Link>
       </div>
-    </div>
+    </Link>
   );
 };

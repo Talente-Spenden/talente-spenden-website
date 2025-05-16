@@ -32,9 +32,13 @@ export const ScrollBandImage: React.FC<{
       >
         {[...images, ...images, ...images, ...images].map((element) => {
           return (
-            <div className="w-[15vw] h-[35vh]">
-              <img src={element} className="object-cover w-full h-full" />
-            </div>
+            <>
+              {element != "" && (
+                <div className="min-w-[220px] w-[15vw] h-[35vh]">
+                  <img src={element} className="object-cover w-full h-full" />
+                </div>
+              )}
+            </>
           );
         })}
       </motion.div>

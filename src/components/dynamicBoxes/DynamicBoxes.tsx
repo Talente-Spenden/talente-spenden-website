@@ -86,7 +86,28 @@ export const DynamicBoxes: React.FC<any> = (props) => {
                         via [...]
                       </p>
                     ) : (
-                      <></>
+                      <>
+                        <div className="w-full my-2 h-[2px] bg-grey-light" />{" "}
+                        <p className="text-white mb-4 w-full 2xl:w-[90%]">
+                          We always try to find innovative ways to create scoial
+                          value. We're super open to hear about your ideas and
+                          concepts for new projects.
+                        </p>
+                        <h2 className="mt-4 text-purple-mid-light font-bold text-xl lg:text-2xl ">
+                          &rarr; How to Start a Project
+                        </h2>
+                        <div className="w-full my-2 h-[2px] bg-grey-light" />
+                        <p className="text-white mb-4 w-full 2xl:w-[90%]">
+                          No matter what stadium your project idea is in - just
+                          the raw idea (as well as high motivation) is more than
+                          enough - just let us know about your idea and after
+                          checking that the idea aligns with our values, we'll
+                          help you realise your project! You can additionally
+                          post your idea in our new-project-ideas forum on our
+                          Discord, so you not only convince us but also find
+                          like-minded others to join your project.
+                        </p>
+                      </>
                     )}
                   </div>
                   <div className="flex justify-end">

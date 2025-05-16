@@ -12,7 +12,7 @@ export const Contact: React.FC = () => {
   return (
     <div className="w-screen">
       <div className="min-h-screen">
-        <div className="h-[35vh] mt-[35vh] md:mt-[35vh] flex flex-col items-center text-center">
+        <div className="h-[65vh] flex flex-col items-center justify-center text-center">
           <h1 className="font-bold max-w-[80%] font-['Poppins'] mb-2 text-2xl sm:text-3xl md:text-4xl lg:text-6xl text-white">
             Let's make a difference, together.
           </h1>
@@ -24,19 +24,25 @@ export const Contact: React.FC = () => {
             <a
               href="https://discord.gg/xB7GXg2j4E"
               target="_blank"
-              className="group bg-white max-w-[85vw] min-w-[250px] flex items-center font-bold md:text-xl text-black px-3 py-3 md:px-5 md:py-3 cursor-pointer hover:bg-purple hover:text-white transition-all duration-200"
+              className="group bg-white max-w-[80vw] min-w-[250px] flex justify-evenly items-center font-bold md:text-xl text-black px-3 py-3 md:px-5 md:py-3 cursor-pointer hover:bg-purple hover:text-white transition-all duration-200"
             >
               <DiscordIcon
                 width={width < 500 ? 30 : 40}
                 className="mr-4 group-hover:fill-white transition-all duration-200"
               />{" "}
-              <h1>Join Talente Spenden on Discord</h1>
+              <h1>
+                {width > 500
+                  ? "Join Talente Spenden on Discord"
+                  : "Join us on Discord"}
+              </h1>
             </a>
             <a
               href="#contribute"
-              className="border-white max-w-[85vw] border-[2px] min-w-[250px] flex items-center font-bold md:text-xl text-white px-3 py-3 md:px-5 md:py-3 cursor-pointer hover:border-purple hover:text-purple transition-all duration-200"
+              className="border-white max-w-[80vw] border-[2px] min-w-[250px] flex justify-evenly items-center font-bold md:text-xl text-white px-3 py-3 md:px-5 md:py-3 cursor-pointer hover:border-purple hover:text-purple transition-all duration-200"
             >
-              What can I do at Talente Spenden?
+              {width > 500
+                ? "What can I do at Talente Spenden?"
+                : "What can I do at TS?"}
             </a>
           </div>
         </div>
@@ -59,32 +65,42 @@ export const Contact: React.FC = () => {
               {
                 type: "Instagram",
                 text: "@talente.spenden",
-                link: "instgram.com",
+                link: "https://www.instagram.com/talente.spenden/",
               },
               {
                 type: "LinkedIn",
                 text: "@talente-spenden",
-                link: "linkedin.com",
+                link: "https://www.linkedin.com/company/talente-spenden/",
               },
               {
                 type: "Instagram",
                 text: "@talente.spenden",
-                link: "instgram.com",
+                link: "https://www.instagram.com/talente.spenden/",
               },
               {
                 type: "LinkedIn",
                 text: "@talente-spenden",
-                link: "linkedin.com",
+                link: "https://www.linkedin.com/company/talente-spenden/",
               },
               {
                 type: "Instagram",
                 text: "@talente.spenden",
-                link: "instgram.com",
+                link: "https://www.instagram.com/talente.spenden/",
               },
               {
                 type: "LinkedIn",
                 text: "@talente-spenden",
-                link: "linkedin.com",
+                link: "https://www.linkedin.com/company/talente-spenden/",
+              },
+              {
+                type: "Instagram",
+                text: "@talente.spenden",
+                link: "https://www.instagram.com/talente.spenden/",
+              },
+              {
+                type: "LinkedIn",
+                text: "@talente-spenden",
+                link: "https://www.linkedin.com/company/talente-spenden/",
               },
             ]}
           />

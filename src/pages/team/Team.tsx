@@ -42,12 +42,14 @@ export const Team: React.FC = () => {
                     {member.role}
                   </p>
                   <p className="text-grey">{member.job}</p>
-                  <a
-                    href={`mailto:${member.email}`}
-                    className="text-grey-dark hover:bg-yellow hover:text-black"
-                  >
-                    &rarr; {member.email}
-                  </a>
+                  {member.email != "" && (
+                    <a
+                      href={`mailto:${member.email}`}
+                      className="text-grey-dark hover:bg-yellow hover:text-black"
+                    >
+                      &rarr; {member.email}
+                    </a>
+                  )}
                 </div>
               );
             })}

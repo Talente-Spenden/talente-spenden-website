@@ -110,16 +110,49 @@ export const managementTeam: ManagementTeamConfig = [
   {
     name: "Fabian",
     role: "Communication Team Member",
-    job: "",
+    job: "Master's Student Rail, Transport and Logistics",
     email: "",
     image: "/src/assets/img/Fabian.jpg",
   },
   {
     name: "Joana",
     role: "Communication Team Member",
-    job: "",
+    job: "Master's student Consumer Science",
     email: "",
     image: "/src/assets/img/Joana2.jpg",
+  },
+  {
+    name: "Sajeed",
+    role: "Project Lead Bücherspende",
+    job: "",
+    email: "",
+    image:
+      "https://drive.google.com/thumbnail?id=1n9-pmSWrwAex1hTbRgg2GxAwIhLvsZYA&sz=w1000",
+  },
+  {
+    name: "Mona Schneider",
+    role: "Project Lead Navigatum",
+    job: "",
+    email: "",
+    image:
+      "https://drive.google.com/thumbnail?id=1p5ys4zWAyJsVPFkxjkzgiTw6-UZq9NM1&sz=w1000",
+  },
+
+  {
+    name: "Sebastian Doctor",
+    role: "Project Lead Tafel",
+    job: "",
+    email: "",
+    image:
+      "https://drive.google.com/thumbnail?id=1WRWB5GiTlzi_6Bz8ppmMHT2Vw5rOdMSF&sz=w1000",
+  },
+  {
+    name: "Daniel Zeitner",
+    role: "Project Lead Bücherspende",
+    job: "",
+    email: "",
+    image:
+      "https://drive.google.com/thumbnail?id=1BOd7gnd2NrlyowLNNtfzZzhsdHkO8vb2&sz=w1000",
   },
 ];
 

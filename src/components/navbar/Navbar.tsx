@@ -90,7 +90,7 @@ export const Navbar = () => {
                         <div
                           className={`border-blue border-[2px] px-4 py-1 ${
                             currentPage.startsWith(navLink.path)
-                              ? "border-blue"
+                              ? "border-blue-mid-light"
                               : ""
                           }`}
                         >

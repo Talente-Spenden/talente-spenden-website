@@ -139,6 +139,14 @@ export const managementTeam: ManagementTeamConfig = [
   },
 
   {
+    name: "Daniel Zeitner",
+    role: "Project Lead Bücherspende",
+    job: "",
+    email: "",
+    image:
+      "https://drive.google.com/thumbnail?id=1BOd7gnd2NrlyowLNNtfzZzhsdHkO8vb2&sz=w1000",
+  },
+  {
     name: "Sebastian Doctor",
     role: "Project Lead Tafel",
     job: "",
@@ -147,12 +155,12 @@ export const managementTeam: ManagementTeamConfig = [
       "https://drive.google.com/thumbnail?id=1WRWB5GiTlzi_6Bz8ppmMHT2Vw5rOdMSF&sz=w1000",
   },
   {
-    name: "Daniel Zeitner",
-    role: "Project Lead Bücherspende",
-    job: "",
+    name: "Caroline Lange",
+    role: "Project Lead Lebensfreude",
+    job: "Bachelor's Student Engineering Science",
     email: "",
     image:
-      "https://drive.google.com/thumbnail?id=1BOd7gnd2NrlyowLNNtfzZzhsdHkO8vb2&sz=w1000",
+      "https://drive.google.com/thumbnail?id=1dJcMrC7_mDvr71QUeJlgoYo56TQFCUMR&sz=w1000",
   },
 ];
 

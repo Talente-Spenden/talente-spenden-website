@@ -92,8 +92,7 @@ export const DynamicBoxes: React.FC = () => {
                     {expandedElement != 1 ? (
                       <p className="text-grey-light w-full md:w-[85%] 2xl:w-[60%] lg:text-xl mt-2 lg:mt-10 group-hover:text-grey-dark transition-all">
                         Let us know about your idea to make the world a better
-                        place - and we'll help you make it work. Share your idea
-                        via [...]
+                        place - we'll help you make it work and [...]
                       </p>
                     ) : (
                       <>

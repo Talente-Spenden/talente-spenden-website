@@ -8,6 +8,7 @@ import { Contact } from "../../pages/contact/Contact";
 import { Footer } from "../footer/Footer";
 import { EntrepreneurshipTrack } from "../../pages/entrepreneurshipTrack/EntrepreneurshipTrack";
 import { ScrollToTop } from "../scrollToTop/ScrollToTop";
+import { Imprint } from "../../pages/imprint/Imprint";
 
 export default function Routes() {
   const routes = createBrowserRouter([
@@ -48,6 +49,11 @@ export default function Routes() {
         {
           path: "/join",
           element: <Contact />,
+          children: [],
+        },
+        {
+          path: "/imprint",
+          element: <Imprint />,
           children: [],
         },
       ],

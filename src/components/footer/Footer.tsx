@@ -115,7 +115,15 @@ export const Footer = () => {
             <div>
               <p className="font-bold">Legal</p>
               <ul>
-                <li>Imprint</li>
+                <li>
+                  {" "}
+                  <Link
+                    to="/imprint"
+                    className="hover:text-blue-mid-light transition-all"
+                  >
+                    Imprint
+                  </Link>
+                </li>
                 <li>Data protection</li>
               </ul>
             </div>

@@ -86,7 +86,7 @@ export const TimeGradient = memo(
     
     `;
     const fragmentShader: string = `
-      precision highp float;
+      
       uniform float uTime;
       uniform float uRandom;
       uniform vec2 uMouse;
@@ -210,7 +210,7 @@ export const TimeGradient = memo(
   
       //vec3 col = first_col*smoothstep(0.0,1.0,vec3(noise)) + second_col*(1.0-noise);
       float fade = smoothstep(0.0, 1.0, uTime*0.002);
-      gl_FragColor = vec4((1.0 - fade)*vec3(0.0,0.0,0.0) + (fade)*( min(noise * 1.2,1.0)*vec3(1.0,0.0,0.0)),1.0);
+      gl_FragColor = vec4((1.0 - fade)*vec3(0.0,0.0,0.0) + (fade)*(vec3(rand(vUv))*0.12 + clamp(noise * 1.2,0.0,1.0)*c2),noise);
       }
     
       `;

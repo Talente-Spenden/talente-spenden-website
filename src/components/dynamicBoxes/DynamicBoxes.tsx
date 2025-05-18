@@ -39,7 +39,7 @@ export const DynamicBoxes: React.FC = () => {
 
   return (
     <div>
-      <div className="w-full bg-white h-[4px] mb-2" />
+      <div className="w-full bg-black h-[4px] mb-2" />
 
       <div className="flex gap-2 w-full h-[600px] lg:h-[700px]">
         {showLeft && (
@@ -54,8 +54,8 @@ export const DynamicBoxes: React.FC = () => {
               <div
                 className={`${
                   expandedElement == 1
-                    ? "h-[300%] bg-black text-black [&>*>*>*>h1]:!text-blue-mid-light"
-                    : "h-full bg-white hover:bg-black"
+                    ? "h-[300%] bg-white text-black [&>*>*>*>h1]:!text-blue"
+                    : "h-full bg-black hover:bg-blue"
                 } group transition-all cursor-pointer py-2 px-4 overflow-scroll`}
                 onClick={() => {
                   if (width < 700) {
@@ -73,39 +73,39 @@ export const DynamicBoxes: React.FC = () => {
                   <div>
                     <div className="flex justify-between">
                       <h1
-                        className={`text-blue italic font-bold ${
+                        className={`text-white italic font-bold ${
                           expandedElement != 1 && expandedElement != 0
                             ? "text-xl md:text-2xl"
-                            : "text-xl sm:text-2xl md:text-3xl lg:text-4xl 2xl:text-6xl"
-                        } group-hover:text-blue-mid-light transition-all`}
+                            : "text-2xl md:text-3xl lg:text-4xl 2xl:text-6xl"
+                        } group-hover:text-blue-mid-light-mid-light transition-all`}
                       >
                         Start a New Project
                       </h1>
                       {expandedElement == 1 && (
                         <div className="group/close">
-                          <X className="text-white w-8 h-8 group-hover/close:text-blue-mid-light transition-all" />
+                          <X className="text-black w-10 h-10 group-hover/close:text-blue transition-all" />
                         </div>
                       )}
                     </div>
                     {expandedElement != 1 ? (
-                      <p className="text-grey-dark w-full md:w-[85%] 2xl:w-[60%] lg:text-xl mt-2 lg:mt-10 group-hover:text-grey-light transition-all">
+                      <p className="text-grey-light w-full md:w-[85%] 2xl:w-[60%] lg:text-xl mt-2 lg:mt-10 group-hover:text-grey-light transition-all">
                         Let us know about your idea to make the world a better
                         place - and we'll help you make it work. Share your idea
                         via [...]
                       </p>
                     ) : (
                       <>
-                        <div className="w-full my-2 h-[2px] bg-grey-light" />{" "}
-                        <p className="text-white mb-4 w-full 2xl:w-[90%]">
+                        <div className="w-full my-2 h-[2px] bg-grey-dark" />{" "}
+                        <p className="mb-4 w-full 2xl:w-[90%]">
                           We always try to find innovative ways to create scoial
                           value. We're super open to hear about your ideas and
                           concepts for new projects.
                         </p>
-                        <h2 className="mt-4 text-blue-mid-light font-bold text-xl lg:text-2xl ">
-                          &rarr; How to Start a Project
+                        <h2 className="mt-4 text-blue-mid-light-mid-light font-bold text-xl lg:text-2xl ">
+                          How to Start a Project
                         </h2>
-                        <div className="w-full my-2 h-[2px] bg-grey-light" />
-                        <p className="text-white mb-4 w-full 2xl:w-[90%]">
+                        <div className="w-full my-2 h-[2px] bg-grey-dark" />
+                        <p className="mb-4 w-full 2xl:w-[90%]">
                           No matter what stadium your project idea is in - just
                           the raw idea (as well as high motivation) is more than
                           enough - just let us know about your idea and after
@@ -121,8 +121,8 @@ export const DynamicBoxes: React.FC = () => {
                   <div className="flex justify-end">
                     {expandedElement != 1 && (
                       <div className="flex items-center">
-                        <ChevronRight className="text-blue w-6 h-6 group-hover:text-blue-mid-light transition-all" />
-                        <h1 className="text-blue lg:text-xl group-hover:text-blue-mid-light transition-all">
+                        <ChevronRight className="text-white w-6 h-6 group-hover:text-blue-mid-light-mid-light transition-all" />
+                        <h1 className="text-white lg:text-xl group-hover:text-blue-mid-light-mid-light transition-all">
                           Learn More
                         </h1>
                       </div>
@@ -135,8 +135,8 @@ export const DynamicBoxes: React.FC = () => {
               <div
                 className={` ${
                   expandedElement == 2
-                    ? "h-[300%] bg-black [&>*>*>*>h1]:!text-blue-mid-light"
-                    : "h-full bg-white hover:bg-black"
+                    ? "h-[300%] bg-white [&>*>*>*>h1]:!text-blue"
+                    : "h-full bg-black hover:bg-blue"
                 } group transition-all cursor-pointer py-2 px-4 overflow-scroll`}
                 onClick={() => {
                   if (width < 700) {
@@ -154,29 +154,29 @@ export const DynamicBoxes: React.FC = () => {
                   <div>
                     <div className="flex justify-between">
                       <h1
-                        className={`text-blue italic font-bold ${
+                        className={`text-white italic font-bold ${
                           expandedElement != 2 && expandedElement != 0
                             ? "text-xl md:text-2xl"
-                            : "text-xl sm:text-2xl md:text-3xl lg:text-4xl 2xl:text-6xl"
-                        } group-hover:text-blue-mid-light transition-all`}
+                            : "text-2xl md:text-3xl lg:text-4xl 2xl:text-6xl"
+                        } group-hover:text-blue-mid-light-mid-light transition-all`}
                       >
                         Join an Existing Project
                       </h1>
                       {expandedElement == 2 && (
                         <div className="group/close">
-                          <X className="text-white w-8 h-8 group-hover/close:text-blue-mid-light transition-all" />
+                          <X className="text-black w-10 h-10 group-hover/close:text-blue transition-all" />
                         </div>
                       )}
                     </div>
                     {expandedElement != 2 ? (
-                      <p className="text-grey-dark lg:text-xl w-full md:w-[85%] 2xl:w-[60%] mt-2 lg:mt-10 group-hover:text-grey-light transition-all">
+                      <p className="text-grey-light lg:text-xl w-full md:w-[85%] 2xl:w-[60%] mt-2 lg:mt-10 group-hover:text-grey-light transition-all">
                         We offer a range of already existing project you can
                         volunteer at. To join [...]
                       </p>
                     ) : (
                       <>
-                        <div className="w-full my-2 h-[2px] bg-grey-light" />{" "}
-                        <p className="text-white mb-4 w-full 2xl:w-[90%]">
+                        <div className="w-full my-2 h-[2px] bg-grey-dark" />{" "}
+                        <p className="mb-4 w-full 2xl:w-[90%]">
                           Volunteering in one of our projects is by far the{" "}
                           <span className="bg-yellow text-black">
                             most popular form of committment at Talente Spenden
@@ -185,13 +185,13 @@ export const DynamicBoxes: React.FC = () => {
                           can sign up for independently - so you're super free
                           to choose when you want to help out and when not.
                         </p>
-                        <h2 className="mt-4 text-blue-mid-light font-bold text-xl lg:text-2xl ">
-                          &rarr; How to Join a Project
+                        <h2 className="mt-4 text-blue-mid-light-mid-light font-bold text-xl lg:text-2xl ">
+                          How to Join a Project
                         </h2>
-                        <div className="w-full my-2 h-[2px] bg-grey-light" />
-                        <p className="text-white">
+                        <div className="w-full my-2 h-[2px] bg-grey-dark" />
+                        <p className="">
                           It's super easy. On{" "}
-                          <span className="bg-white text-black">
+                          <span className="bg-yellow text-black">
                             joining our Discord Server
                           </span>
                           , you'll be asked which projects you're interested in.
@@ -218,8 +218,8 @@ export const DynamicBoxes: React.FC = () => {
                   <div className="flex justify-end">
                     {expandedElement != 2 && (
                       <div className="flex items-center">
-                        <ChevronRight className="text-blue w-6 h-6 group-hover:text-blue-mid-light transition-all" />
-                        <h1 className="text-blue lg:text-xl group-hover:text-blue-mid-light transition-all">
+                        <ChevronRight className="text-white w-6 h-6 group-hover:text-blue-mid-light-mid-light transition-all" />
+                        <h1 className="text-white lg:text-xl group-hover:text-blue-mid-light-mid-light transition-all">
                           Learn More
                         </h1>
                       </div>
@@ -234,8 +234,8 @@ export const DynamicBoxes: React.FC = () => {
           <div
             className={` ${
               expandedElement == 3
-                ? "w-[300%] bg-black [&>*>*>*>h1]:!text-blue-mid-light"
-                : "w-full xl:w-[66%] bg-white hover:bg-black"
+                ? "w-[300%] bg-white [&>*>*>*>h1]:!text-blue"
+                : "w-full xl:w-[66%] bg-black hover:bg-blue"
             } group h-full transition-all cursor-pointer py-2 px-4 overflow-scroll`}
             onClick={() => {
               if (width < 700) {
@@ -252,22 +252,22 @@ export const DynamicBoxes: React.FC = () => {
               <div className="h-full">
                 <div className="flex justify-between">
                   <h1
-                    className={`text-blue italic font-bold ${
+                    className={`text-white italic font-bold ${
                       expandedElement != 3 && expandedElement != 0
                         ? "text-xl md:text-2xl"
-                        : "text-xl sm:text-2xl md:text-3xl lg:text-4xl 2xl:text-6xl"
-                    } group-hover:text-blue-mid-light transition-all`}
+                        : "text-2xl md:text-3xl lg:text-4xl 2xl:text-6xl"
+                    } group-hover:text-blue-mid-light-mid-light transition-all`}
                   >
                     Apply to the Talente Spenden Core
                   </h1>
                   {expandedElement == 3 && (
                     <div className="group/close">
-                      <X className="text-white w-8 h-8 group-hover/close:text-blue-mid-light transition-all" />
+                      <X className="text-black w-10 h-10 group-hover/close:text-blue transition-all" />
                     </div>
                   )}
                 </div>
                 {expandedElement != 3 ? (
-                  <p className="text-grey-dark mt-2 lg:mt-10 group-hover:text-grey-light lg:text-xl transition-all">
+                  <p className="text-grey-light mt-2 lg:mt-10 group-hover:text-grey-light lg:text-xl transition-all">
                     Our Core Teams are the heart of Talente Spenden - and your
                     chance for regularly committment in one of the following
                     area: Technology, Events, Communication and Social
@@ -276,12 +276,12 @@ export const DynamicBoxes: React.FC = () => {
                 ) : (
                   <div className="">
                     <div>
-                      <div className="w-full my-2 h-[2px] bg-grey-light" />{" "}
-                      <p className="text-white mb-4 w-full 2xl:w-[90%]">
+                      <div className="w-full my-2 h-[2px] bg-grey-dark" />{" "}
+                      <p className="mb-4 w-full 2xl:w-[90%]">
                         The Talente Spenden Core consists of everyone working on
                         supporting Talente Spenden as a whole. Joining the Core
                         provides you with the possibitlity to have a{" "}
-                        <span className="bg-white text-black">
+                        <span className="bg-yellow text-black">
                           great impact on Talente Spenden
                         </span>
                         . Currently, for each of the following areas there is
@@ -289,13 +289,13 @@ export const DynamicBoxes: React.FC = () => {
                         and Entrepreneurship. There's also the Management Team
                         consisting of the Team Leads of the former four teams.
                       </p>
-                      <h2 className="mt-4 text-blue-mid-light font-bold text-xl lg:text-2xl ">
-                        &rarr; What are the Core Teams Doing?
+                      <h2 className="mt-4 text-blue-mid-light-mid-light font-bold text-xl lg:text-2xl ">
+                        What are the Core Teams Doing?
                       </h2>
-                      <div className="w-full my-2 h-[2px] bg-grey-light" />{" "}
+                      <div className="w-full my-2 h-[2px] bg-grey-dark" />{" "}
                       <div className="lg:flex gap-x-2 justify-between  w-full 2xl:w-[90%]">
-                        <p className="text-white font-semibold">Technology</p>
-                        <p className="text-white w-full lg:w-[80%]">
+                        <p className=" font-semibold">Technology</p>
+                        <p className=" w-full lg:w-[80%]">
                           Our Technology Team develops{" "}
                           <span className="bg-yellow text-black">
                             software that creates social value
@@ -307,22 +307,20 @@ export const DynamicBoxes: React.FC = () => {
                         </p>
                       </div>
                       <div className="mt-3 gap-x-2 lg:flex justify-between w-full 2xl:w-[90%]">
-                        <p className="text-white font-semibold">Event</p>{" "}
-                        <p className="text-white  w-full lg:w-[80%]">
+                        <p className=" font-semibold">Event</p>{" "}
+                        <p className="  w-full lg:w-[80%]">
                           The Event Team organizes and innovates Talente
                           Spenden's events, including our regular events such as
                           our Summer Fest, Semester Kick-Off. The Team also
-                          <span className="bg-white text-black">
+                          <span className="bg-yellow text-black">
                             explores and develops brand-new event concepts
                           </span>{" "}
                           for Talente Spenden.
                         </p>
                       </div>
                       <div className="mt-3 gap-x-2 lg:flex justify-between w-full 2xl:w-[90%]">
-                        <p className="text-white font-semibold">
-                          Communication
-                        </p>
-                        <p className="text-white w-full lg:w-[80%]">
+                        <p className=" font-semibold">Communication</p>
+                        <p className=" w-full lg:w-[80%]">
                           Our Communication Team keeps everyone updated on what
                           happens at Talente Spenden - internally as well as
                           externally. From developing marketing strategies to
@@ -334,12 +332,10 @@ export const DynamicBoxes: React.FC = () => {
                         </p>
                       </div>
                       <div className="mt-3 gap-x-2 lg:flex justify-between w-full 2xl:w-[90%]">
-                        <p className="text-white font-semibold">
-                          Entrepreneurship
-                        </p>
-                        <p className="text-white w-full lg:w-[80%]">
+                        <p className=" font-semibold">Entrepreneurship</p>
+                        <p className=" w-full lg:w-[80%]">
                           Our Entrepreneurship Team focusses on how{" "}
-                          <span className="bg-white text-black">
+                          <span className="bg-yellow text-black">
                             social value can be created in an economically
                             attractive way
                           </span>
@@ -351,11 +347,11 @@ export const DynamicBoxes: React.FC = () => {
                     </div>
                     <div className="lg:flex mt-2 gap-6 w-full">
                       <div className="lg:w-[50%]">
-                        <h2 className="mt-4 text-blue-mid-light font-bold text-xl lg:text-2xl ">
-                          &rarr; How to apply
+                        <h2 className="mt-4 text-blue-mid-light-mid-light font-bold text-xl lg:text-2xl ">
+                          How to apply
                         </h2>
-                        <div className="w-full my-2 h-[2px] bg-grey-light" />
-                        <p className="text-white">
+                        <div className="w-full my-2 h-[2px] bg-grey-dark" />
+                        <p className="">
                           <span className="bg-yellow text-black">
                             Just let us know
                           </span>{" "}
@@ -373,11 +369,11 @@ export const DynamicBoxes: React.FC = () => {
                         </p>
                       </div>
                       <div className="lg:w-[50%]">
-                        <h2 className="mt-4 text-blue-mid-light font-bold text-xl lg:text-2xl">
-                          &rarr; What we expect
+                        <h2 className="mt-4 text-blue-mid-light-mid-light font-bold text-xl lg:text-2xl">
+                          What we expect
                         </h2>
-                        <div className="w-full my-2 h-[2px] bg-grey-light" />
-                        <p className="text-white pb-4">
+                        <div className="w-full my-2 h-[2px] bg-grey-dark" />
+                        <p className=" pb-4">
                           In the Talente Spenden Core, you have the possibitlity
                           to greatly impact Talente Spenden as a whole, so we
                           expect the following from you: <br />
@@ -398,8 +394,8 @@ export const DynamicBoxes: React.FC = () => {
               <div className="flex justify-end">
                 {expandedElement != 3 && (
                   <div className="flex items-center">
-                    <ChevronRight className="text-blue w-6 h-6 group-hover:text-blue-mid-light transition-all" />
-                    <h1 className="text-blue lg:text-xl group-hover:text-blue-mid-light transition-all">
+                    <ChevronRight className="text-white w-6 h-6 group-hover:text-blue-mid-light-mid-light transition-all" />
+                    <h1 className="text-white lg:text-xl group-hover:text-blue-mid-light-mid-light transition-all">
                       Learn More
                     </h1>
                   </div>
@@ -409,7 +405,7 @@ export const DynamicBoxes: React.FC = () => {
           </div>
         )}
       </div>
-      <div className="w-full bg-white h-[4px] mt-2" />
+      <div className="w-full bg-black h-[4px] mt-2" />
     </div>
   );
 };

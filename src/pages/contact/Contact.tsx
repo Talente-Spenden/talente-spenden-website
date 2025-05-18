@@ -107,11 +107,11 @@ export const Contact: React.FC = () => {
         </div>{" "}
         <div
           id="contribute"
-          className="pt-6 pb-10 bg-blue/70 flex justify-center items-center"
+          className="pt-6 pb-10 bg-blue-mid-light flex justify-center items-center"
         >
-          <ScrollIndicator color="white" hideOnScroll={false} />
+          <ScrollIndicator color="black" hideOnScroll={false} />
         </div>
-        <div className="bg-blue/70 px-2 pt-2 pb-2">
+        <div className="bg-blue-mid-light px-2 pt-2 pb-2">
           <div className="">
             <DynamicBoxes />
           </div>
@@ -128,7 +128,7 @@ export const Contact: React.FC = () => {
             <OpenPositions roles={openRoles} />
           </div>
         </div>
-        <div className="bg-blue py-1 "> </div>
+        <div className="bg-blue-mid-light py-1 "> </div>
       </div>
       <div className="bg-black w-screen h-screen fixed top-0 left-0 z-[-1]">
         <Gradient col0="blue" col1="blue" col2="blue" col3="blue" />

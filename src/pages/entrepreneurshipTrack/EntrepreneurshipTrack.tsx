@@ -38,7 +38,7 @@ export const EntrepreneurshipTrack: React.FC = () => {
       </div>
 
       <div className="bg-black w-screen h-screen fixed top-0 left-0 z-[-3]">
-        <Gradient col0="green" col1="blue" col2="yellow" col3="yellow" />
+        <Gradient col0="green" col1="blue" col2="yellow" col3="blue" />
       </div>
     </div>
   );

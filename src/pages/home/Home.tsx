@@ -13,16 +13,16 @@ export const Home: React.FC = () => {
       <div className="min-h-screen">
         <div className=" pt-[20vh] flex justify-between pl-10 pr-[10vw]">
           <div>
-            <p className="text-purple italic text-lg md:text-3xl font-bold">
+            <p className="text-blue italic text-lg md:text-3xl font-bold">
               Social Impact
             </p>
 
-            <p className="text-grey text-md md:text-lg">
+            <p className="text-grey-light text-md md:text-lg">
               &rarr; Significant, positive change by solving social challenges.
             </p>
           </div>{" "}
           {width > 1020 && (
-            <p className=" text-grey w-[30vw] text-xl">
+            <p className=" text-grey-light w-[30vw] text-xl">
               We are a vibrant student community at the
               <a
                 href="https://www.tum.de"
@@ -34,7 +34,7 @@ export const Home: React.FC = () => {
               striving to create social impact. Our mission is to leverage our
               time and talents to support diverse initiatives, empowering
               students to make{" "}
-              <Link to="/charity" className="font-bold italic hover:bg-yellow">
+              <Link to="/charity" className="font-bold italic hover:bg-blue">
                 meaningful contributions to society and the environment
               </Link>
               .
@@ -45,13 +45,13 @@ export const Home: React.FC = () => {
           <h1 className="font-bold font-['Poppins'] text-4xl sm:text-4xl md:text-5xl lg:text-8xl text-white">
             Join Hands,
             <br />
-            Share <span className="italic text-purple">Talents</span>,
+            Share <span className="italic text-blue">Talents</span>,
             <br />
             Make a Difference.
             <br />
           </h1>
           {width < 1020 && (
-            <p className="text-grey w-[85vw] md:text-xl text-md pt-10 pb-4">
+            <p className="text-grey-light w-[85vw] md:text-xl text-md pt-10 pb-4">
               We are a vibrant student community at the
               <a
                 href="https://www.tum.de"

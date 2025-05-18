@@ -71,22 +71,6 @@ export const ProjectSlider: React.FC<{
     <div className="flex flex-col items-center justify-center bg-gray-100 pl-[5vw] pr-4">
       <div className="w-full">
         {/* Navigation Buttons */}
-        <div className="flex justify-end">
-          <div className="flex space-x-2">
-            <button
-              onClick={handlePrevClick}
-              className="px-3 py-3 bg-grey-light text-black hover:bg-black hover:text-white font-semibold rounded-full focus:outline-none transition duration-300"
-            >
-              <ChevronLeft />
-            </button>
-            <button
-              onClick={handleNextClick}
-              className="px-3 py-3 bg-grey-light text-black hover:bg-black hover:text-white font-semibold rounded-full focus:outline-none focus:ring-opacity-50 transition duration-300"
-            >
-              <ChevronRight />
-            </button>
-          </div>
-        </div>
         {/* Draggable carousel container */}
         <motion.div
           ref={carouselRef}
@@ -105,7 +89,23 @@ export const ProjectSlider: React.FC<{
             // Find matching content
             return <>{<ProjectSliderItem current={s} />}</>;
           })}
-        </motion.div>
+        </motion.div>{" "}
+        <div className="flex justify-center">
+          <div className="flex space-x-2">
+            <button
+              onClick={handlePrevClick}
+              className="px-3 py-3 bg-black text-white hover:bg-blue-mid-light hover:text-black font-semibold focus:outline-none transition duration-300"
+            >
+              <ChevronLeft />
+            </button>
+            <button
+              onClick={handleNextClick}
+              className="px-3 py-3 bg-black text-white hover:bg-blue-mid-light hover:text-black font-semibold focus:outline-none focus:ring-opacity-50 transition duration-300"
+            >
+              <ChevronRight />
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );

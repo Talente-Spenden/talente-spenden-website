@@ -32,7 +32,7 @@ export const ProjectSliderItem: React.FC<{
             </div>
             <div className="flex justify-start">
               {current.tags.map((tag) => (
-                <div className="mr-4 border-[2px] border-white group-hover:border-blue transition-all duration-300 px-3 py-1">
+                <div className="mr-4 border-[2px] border-white transition-all duration-300 px-3 py-1">
                   <p className="text-m">{tag}</p>
                 </div>
               ))}
@@ -46,7 +46,6 @@ export const ProjectSliderItem: React.FC<{
           ) : (
             <div className="w-full h-full bg-blue-mid-light" />
           )}
-          <ExternalLink className="text-white w-8 h-8 absolute bottom-4 right-4" />
         </div>
       ) : (
         <div className="w-[70vw] h-[500px] bg-black">
@@ -66,7 +65,7 @@ export const ProjectSliderItem: React.FC<{
             </h3>
             <div className="flex justify-start">
               {current.tags.map((tag) => (
-                <div className="mr-4 border-[2px] text-white border-white group-hover:border-blue transition-all duration-300 px-3 py-1">
+                <div className="mr-4 border-[2px] text-white border-white transition-all duration-300 px-3 py-1">
                   <p className="text-m">{tag}</p>
                 </div>
               ))}

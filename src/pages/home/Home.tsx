@@ -10,7 +10,7 @@ export const Home: React.FC = () => {
   const { width } = useViewport();
   return (
     <div className="w-screen">
-      <div className="h-screen">
+      <div className="min-h-screen">
         <div className=" pt-[20vh] flex justify-between pl-10 pr-[10vw]">
           <div>
             <p className="text-purple italic text-lg md:text-3xl font-bold">
@@ -51,7 +51,7 @@ export const Home: React.FC = () => {
             <br />
           </h1>
           {width < 1020 && (
-            <p className="text-grey w-[85vw] md:text-xl text-md pt-10">
+            <p className="text-grey w-[85vw] md:text-xl text-md pt-10 pb-4">
               We are a vibrant student community at the
               <a
                 href="https://www.tum.de"

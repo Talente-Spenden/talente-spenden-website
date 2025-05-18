@@ -214,7 +214,7 @@ export const InteractiveGradient = memo(
   
       //vec3 col = first_col*smoothstep(0.0,1.0,vec3(noise)) + second_col*(1.0-noise);
       float fade = smoothstep(0.0, 1.0, uTime*0.001);
-      gl_FragColor = vec4((1.0 - fade)*vec3(0.0,0.0,0.0) + (fade)*(vec3(rand(vUv))*0.12 + min(noise*1.1,1.0)*c2),noise);
+      gl_FragColor = vec4((1.0 - fade)*vec3(0.0,0.0,0.0) + (fade)*(vec3(rand(vUv))*0.12 + min(noise*1.1,1.0)*vec3(1.0,0.0,0.0)),noise);
       }
 
       `;

@@ -86,7 +86,7 @@ export const TimeGradient = memo(
     
     `;
     const fragmentShader: string = `
-      
+      precision highp float;
       uniform float uTime;
       uniform float uRandom;
       uniform vec2 uMouse;

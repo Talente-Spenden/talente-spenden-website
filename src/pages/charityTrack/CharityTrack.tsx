@@ -42,7 +42,7 @@ export const CharityTrack: React.FC = () => {
           </div>
         </div>
       </div>
-      <div className="w-full h-[4px] bg-orange" />
+      <div className="w-full h-[4px] bg-blue-mid-light" />
       <div className="bg-black w-screen h-screen fixed top-0 left-0 z-[-1]">
         <Gradient col0="orange" col1="orange" col2="orange" col3="purple" />
       </div>

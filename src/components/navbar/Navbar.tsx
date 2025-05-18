@@ -102,7 +102,7 @@ export const Navbar = () => {
                                 : ""
                             }`}
                           >
-                            {navLink.name}
+                            &rarr; {navLink.name}
                           </span>
                         </div>
                       ) : (

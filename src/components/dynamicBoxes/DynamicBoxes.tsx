@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { ChevronRight } from "lucide-react";
 import { useViewport } from "../../contexts/ViewportContext";
+import { X } from "lucide-react";
 
 export const DynamicBoxes: React.FC = () => {
   let [expandedElement, setExpandedElement] = useState(0);
@@ -53,7 +54,7 @@ export const DynamicBoxes: React.FC = () => {
               <div
                 className={`${
                   expandedElement == 1
-                    ? "h-[300%] bg-black text-black [&>*>*>h1]:!text-purple-mid-light"
+                    ? "h-[300%] bg-black text-black [&>*>*>*>h1]:!text-blue-mid-light"
                     : "h-full bg-white hover:bg-black"
                 } group transition-all cursor-pointer py-2 px-4 overflow-scroll`}
                 onClick={() => {
@@ -70,15 +71,22 @@ export const DynamicBoxes: React.FC = () => {
                 {" "}
                 <div className="flex flex-col justify-between h-full">
                   <div>
-                    <h1
-                      className={`text-purple italic font-bold ${
-                        expandedElement != 1 && expandedElement != 0
-                          ? "text-xl md:text-2xl"
-                          : "text-xl sm:text-2xl md:text-3xl lg:text-4xl 2xl:text-6xl"
-                      } group-hover:text-purple-mid-light transition-all`}
-                    >
-                      Start a New Project
-                    </h1>
+                    <div className="flex justify-between">
+                      <h1
+                        className={`text-blue italic font-bold ${
+                          expandedElement != 1 && expandedElement != 0
+                            ? "text-xl md:text-2xl"
+                            : "text-xl sm:text-2xl md:text-3xl lg:text-4xl 2xl:text-6xl"
+                        } group-hover:text-blue-mid-light transition-all`}
+                      >
+                        Start a New Project
+                      </h1>
+                      {expandedElement == 1 && (
+                        <div className="group/close">
+                          <X className="text-white w-8 h-8 group-hover/close:text-blue-mid-light transition-all" />
+                        </div>
+                      )}
+                    </div>
                     {expandedElement != 1 ? (
                       <p className="text-grey-dark w-full md:w-[85%] 2xl:w-[60%] lg:text-xl mt-2 lg:mt-10 group-hover:text-grey-light transition-all">
                         Let us know about your idea to make the world a better
@@ -93,7 +101,7 @@ export const DynamicBoxes: React.FC = () => {
                           value. We're super open to hear about your ideas and
                           concepts for new projects.
                         </p>
-                        <h2 className="mt-4 text-purple-mid-light font-bold text-xl lg:text-2xl ">
+                        <h2 className="mt-4 text-blue-mid-light font-bold text-xl lg:text-2xl ">
                           &rarr; How to Start a Project
                         </h2>
                         <div className="w-full my-2 h-[2px] bg-grey-light" />
@@ -113,8 +121,8 @@ export const DynamicBoxes: React.FC = () => {
                   <div className="flex justify-end">
                     {expandedElement != 1 && (
                       <div className="flex items-center">
-                        <ChevronRight className="text-purple w-6 h-6 group-hover:text-purple-mid-light transition-all" />
-                        <h1 className="text-purple lg:text-xl group-hover:text-purple-mid-light transition-all">
+                        <ChevronRight className="text-blue w-6 h-6 group-hover:text-blue-mid-light transition-all" />
+                        <h1 className="text-blue lg:text-xl group-hover:text-blue-mid-light transition-all">
                           Learn More
                         </h1>
                       </div>
@@ -127,7 +135,7 @@ export const DynamicBoxes: React.FC = () => {
               <div
                 className={` ${
                   expandedElement == 2
-                    ? "h-[300%] bg-black [&>*>*>h1]:!text-purple-mid-light"
+                    ? "h-[300%] bg-black [&>*>*>*>h1]:!text-blue-mid-light"
                     : "h-full bg-white hover:bg-black"
                 } group transition-all cursor-pointer py-2 px-4 overflow-scroll`}
                 onClick={() => {
@@ -144,15 +152,22 @@ export const DynamicBoxes: React.FC = () => {
               >
                 <div className="flex flex-col justify-between h-full">
                   <div>
-                    <h1
-                      className={`text-purple italic font-bold ${
-                        expandedElement != 2 && expandedElement != 0
-                          ? "text-xl md:text-2xl"
-                          : "text-xl sm:text-2xl md:text-3xl lg:text-4xl 2xl:text-6xl"
-                      } group-hover:text-purple-mid-light transition-all`}
-                    >
-                      Join an Existing Project
-                    </h1>
+                    <div className="flex justify-between">
+                      <h1
+                        className={`text-blue italic font-bold ${
+                          expandedElement != 2 && expandedElement != 0
+                            ? "text-xl md:text-2xl"
+                            : "text-xl sm:text-2xl md:text-3xl lg:text-4xl 2xl:text-6xl"
+                        } group-hover:text-blue-mid-light transition-all`}
+                      >
+                        Join an Existing Project
+                      </h1>
+                      {expandedElement == 2 && (
+                        <div className="group/close">
+                          <X className="text-white w-8 h-8 group-hover/close:text-blue-mid-light transition-all" />
+                        </div>
+                      )}
+                    </div>
                     {expandedElement != 2 ? (
                       <p className="text-grey-dark lg:text-xl w-full md:w-[85%] 2xl:w-[60%] mt-2 lg:mt-10 group-hover:text-grey-light transition-all">
                         We offer a range of already existing project you can
@@ -170,7 +185,7 @@ export const DynamicBoxes: React.FC = () => {
                           can sign up for independently - so you're super free
                           to choose when you want to help out and when not.
                         </p>
-                        <h2 className="mt-4 text-purple-mid-light font-bold text-xl lg:text-2xl ">
+                        <h2 className="mt-4 text-blue-mid-light font-bold text-xl lg:text-2xl ">
                           &rarr; How to Join a Project
                         </h2>
                         <div className="w-full my-2 h-[2px] bg-grey-light" />
@@ -203,8 +218,8 @@ export const DynamicBoxes: React.FC = () => {
                   <div className="flex justify-end">
                     {expandedElement != 2 && (
                       <div className="flex items-center">
-                        <ChevronRight className="text-purple w-6 h-6 group-hover:text-purple-mid-light transition-all" />
-                        <h1 className="text-purple lg:text-xl group-hover:text-purple-mid-light transition-all">
+                        <ChevronRight className="text-blue w-6 h-6 group-hover:text-blue-mid-light transition-all" />
+                        <h1 className="text-blue lg:text-xl group-hover:text-blue-mid-light transition-all">
                           Learn More
                         </h1>
                       </div>
@@ -219,7 +234,7 @@ export const DynamicBoxes: React.FC = () => {
           <div
             className={` ${
               expandedElement == 3
-                ? "w-[300%] bg-black [&>*>*>h1]:!text-purple-mid-light"
+                ? "w-[300%] bg-black [&>*>*>*>h1]:!text-blue-mid-light"
                 : "w-full xl:w-[66%] bg-white hover:bg-black"
             } group h-full transition-all cursor-pointer py-2 px-4 overflow-scroll`}
             onClick={() => {
@@ -235,15 +250,22 @@ export const DynamicBoxes: React.FC = () => {
           >
             <div className="flex flex-col justify-between h-full">
               <div className="h-full">
-                <h1
-                  className={`text-purple italic font-bold ${
-                    expandedElement != 3 && expandedElement != 0
-                      ? "text-xl md:text-2xl"
-                      : "text-xl sm:text-2xl md:text-3xl lg:text-4xl 2xl:text-6xl"
-                  } group-hover:text-purple-mid-light transition-all`}
-                >
-                  Apply to the Talente Spenden Core
-                </h1>
+                <div className="flex justify-between">
+                  <h1
+                    className={`text-blue italic font-bold ${
+                      expandedElement != 3 && expandedElement != 0
+                        ? "text-xl md:text-2xl"
+                        : "text-xl sm:text-2xl md:text-3xl lg:text-4xl 2xl:text-6xl"
+                    } group-hover:text-blue-mid-light transition-all`}
+                  >
+                    Apply to the Talente Spenden Core
+                  </h1>
+                  {expandedElement == 3 && (
+                    <div className="group/close">
+                      <X className="text-white w-8 h-8 group-hover/close:text-blue-mid-light transition-all" />
+                    </div>
+                  )}
+                </div>
                 {expandedElement != 3 ? (
                   <p className="text-grey-dark mt-2 lg:mt-10 group-hover:text-grey-light lg:text-xl transition-all">
                     Our Core Teams are the heart of Talente Spenden - and your
@@ -267,7 +289,7 @@ export const DynamicBoxes: React.FC = () => {
                         and Entrepreneurship. There's also the Management Team
                         consisting of the Team Leads of the former four teams.
                       </p>
-                      <h2 className="mt-4 text-purple-mid-light font-bold text-xl lg:text-2xl ">
+                      <h2 className="mt-4 text-blue-mid-light font-bold text-xl lg:text-2xl ">
                         &rarr; What are the Core Teams Doing?
                       </h2>
                       <div className="w-full my-2 h-[2px] bg-grey-light" />{" "}
@@ -329,7 +351,7 @@ export const DynamicBoxes: React.FC = () => {
                     </div>
                     <div className="lg:flex mt-2 gap-6 w-full">
                       <div className="lg:w-[50%]">
-                        <h2 className="mt-4 text-purple-mid-light font-bold text-xl lg:text-2xl ">
+                        <h2 className="mt-4 text-blue-mid-light font-bold text-xl lg:text-2xl ">
                           &rarr; How to apply
                         </h2>
                         <div className="w-full my-2 h-[2px] bg-grey-light" />
@@ -351,7 +373,7 @@ export const DynamicBoxes: React.FC = () => {
                         </p>
                       </div>
                       <div className="lg:w-[50%]">
-                        <h2 className="mt-4 text-purple-mid-light font-bold text-xl lg:text-2xl">
+                        <h2 className="mt-4 text-blue-mid-light font-bold text-xl lg:text-2xl">
                           &rarr; What we expect
                         </h2>
                         <div className="w-full my-2 h-[2px] bg-grey-light" />
@@ -376,8 +398,8 @@ export const DynamicBoxes: React.FC = () => {
               <div className="flex justify-end">
                 {expandedElement != 3 && (
                   <div className="flex items-center">
-                    <ChevronRight className="text-purple w-6 h-6 group-hover:text-purple-mid-light transition-all" />
-                    <h1 className="text-purple lg:text-xl group-hover:text-purple-mid-light transition-all">
+                    <ChevronRight className="text-blue w-6 h-6 group-hover:text-blue-mid-light transition-all" />
+                    <h1 className="text-blue lg:text-xl group-hover:text-blue-mid-light transition-all">
                       Learn More
                     </h1>
                   </div>

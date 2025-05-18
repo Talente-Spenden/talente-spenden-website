@@ -24,7 +24,7 @@ export const Contact: React.FC = () => {
             <a
               href="https://discord.gg/xB7GXg2j4E"
               target="_blank"
-              className="group bg-white max-w-[80vw] min-w-[250px] flex justify-evenly items-center font-bold md:text-xl text-black px-3 py-3 md:px-5 md:py-3 cursor-pointer hover:bg-purple hover:text-white transition-all duration-200"
+              className="group bg-white max-w-[80vw] min-w-[250px] flex justify-evenly items-center font-bold md:text-xl text-black px-3 py-3 md:px-5 md:py-3 cursor-pointer hover:bg-blue hover:text-white transition-all duration-200"
             >
               <DiscordIcon
                 width={width < 500 ? 30 : 40}
@@ -38,7 +38,7 @@ export const Contact: React.FC = () => {
             </a>
             <a
               href="#contribute"
-              className="border-white max-w-[80vw] border-[2px] min-w-[250px] flex justify-evenly items-center font-bold md:text-xl text-white px-3 py-3 md:px-5 md:py-3 cursor-pointer hover:border-purple hover:text-purple transition-all duration-200"
+              className="border-white max-w-[80vw] border-[2px] min-w-[250px] flex justify-evenly items-center font-bold md:text-xl text-white px-3 py-3 md:px-5 md:py-3 cursor-pointer hover:border-blue-mid-light hover:text-blue-mid-light transition-all duration-200"
             >
               {width > 500
                 ? "What can I do at Talente Spenden?"
@@ -107,11 +107,11 @@ export const Contact: React.FC = () => {
         </div>{" "}
         <div
           id="contribute"
-          className="pt-6 pb-10 bg-purple/70 flex justify-center items-center"
+          className="pt-6 pb-10 bg-blue/70 flex justify-center items-center"
         >
           <ScrollIndicator color="white" hideOnScroll={false} />
         </div>
-        <div className="bg-purple/70 px-2 pt-2 pb-2">
+        <div className="bg-blue/70 px-2 pt-2 pb-2">
           <div className="">
             <DynamicBoxes />
           </div>
@@ -128,10 +128,10 @@ export const Contact: React.FC = () => {
             <OpenPositions roles={openRoles} />
           </div>
         </div>
-        <div className="bg-purple py-1 "> </div>
+        <div className="bg-blue py-1 "> </div>
       </div>
       <div className="bg-black w-screen h-screen fixed top-0 left-0 z-[-1]">
-        <Gradient col0="blue" col1="blue" col2="purple" col3="purple" />
+        <Gradient col0="blue" col1="blue" col2="blue" col3="blue" />
       </div>
     </div>
   );

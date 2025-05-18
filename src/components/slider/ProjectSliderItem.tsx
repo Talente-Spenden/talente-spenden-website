@@ -32,8 +32,8 @@ export const ProjectSliderItem: React.FC<{
             </div>
             <div className="flex justify-start">
               {current.tags.map((tag) => (
-                <div className="mr-4 border-[2px] border-white transition-all duration-300 px-3 py-1">
-                  <p className="text-m">{tag}</p>
+                <div className="mr-4 border-[2px] rounded-full border-blue-mid-light transition-all duration-300 px-3 py-1">
+                  <p className="text-m text-blue-mid-light">{tag}</p>
                 </div>
               ))}
             </div>

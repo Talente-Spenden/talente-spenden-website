@@ -34,7 +34,10 @@ export const Home: React.FC = () => {
               striving to create social impact. Our mission is to leverage our
               time and talents to support diverse initiatives, empowering
               students to make{" "}
-              <Link to="/charity" className="font-bold italic hover:bg-blue">
+              <Link
+                to="/charity"
+                className="font-bold italic hover:bg-blue text-blue-mid-light"
+              >
                 meaningful contributions to society and the environment
               </Link>
               .
@@ -190,13 +193,13 @@ export const Home: React.FC = () => {
               to="/join"
               className="p-3 border-black border-2 hover:bg-white transition-all duration-300"
             >
-              <span className="text-medium text-l">Join our mission</span>
+              <span className="text-medium text-l">Join us</span>
             </Link>
           </div>
         </div>
       </div>
       <div className="bg-black w-screen h-screen fixed top-0 left-0 z-[-1]">
-        <Gradient />
+        <Gradient col0="blue" col1="purple" col2="purple" col3="yellow" />
       </div>
     </div>
   );

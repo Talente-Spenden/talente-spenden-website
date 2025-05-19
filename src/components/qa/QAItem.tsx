@@ -22,7 +22,7 @@ export const QAElement: React.FC<{ question: QAItem; index: number }> = (
           <div className="flex justify-start max-w-[90%]">
             <h2 className="text-white text-xl">{`0${index + 1}`}</h2>
             <div className="ml-[5vw] overflow-hidden">
-              <h1 className="text-white font-['Inter'] font-medium text-xl lg:text-2xl">
+              <h1 className="text-white font-['Inter'] font-medium text-lg lg:text-xl">
                 {question.question}
               </h1>{" "}
               <AnimatePresence initial={false}>

@@ -1,5 +1,5 @@
 import { useRef, useEffect, useState } from "react";
-import { motion, useMotionValue } from "framer-motion";
+import { motion, useMotionValue, useSpring } from "framer-motion";
 import { ChevronRight, ChevronLeft } from "lucide-react";
 import { useViewport } from "../../contexts/ViewportContext";
 import { ProjectSliderItem } from "./ProjectSliderItem";
@@ -21,6 +21,7 @@ export const ProjectSlider: React.FC<{
   // Motion value for the x-position of the carousel
   const x = useMotionValue(0);
   // Spring animation for the x-position
+  const springX = useSpring(x, { stiffness: 3000, damping: 80 });
 
   // Effect to calculate the carousel width after the component mounts
   useEffect(() => {
@@ -79,8 +80,7 @@ export const ProjectSlider: React.FC<{
           // Set drag constraints based on the calculated carousel width
           dragConstraints={{ right: 0, left: -carouselWidth }}
           // Apply the spring animation to the x-position
-          dragTransition={{ bounceDamping: 30 }}
-          transition={{ duration: 0.2, ease: "easeInOut" }}
+          style={{ x: springX }}
           // Prevent default touch behavior to avoid scrolling conflicts
           dragElastic={0.2} // Controls the elasticity when dragging beyond constraints
         >

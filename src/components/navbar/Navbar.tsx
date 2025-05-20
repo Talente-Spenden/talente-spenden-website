@@ -24,7 +24,6 @@ export const Navbar = () => {
   const handleScroll = () => {
     const position = window.scrollY;
     setScrollPosition(position);
-    console.log(position);
   };
 
   const handleButtonClick = () => {
@@ -91,7 +90,7 @@ export const Navbar = () => {
                         <div
                           className={`border-blue border-[2px] px-4 py-1 ${
                             currentPage.startsWith(navLink.path)
-                              ? "border-blue"
+                              ? "border-blue-mid-light"
                               : ""
                           }`}
                         >
@@ -103,7 +102,7 @@ export const Navbar = () => {
                                 : ""
                             }`}
                           >
-                            {navLink.name}
+                            &rarr; {navLink.name}
                           </span>
                         </div>
                       ) : (

@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { QAItem } from "../../types/Types";
+import { AnimatePresence, motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 export const QAElement: React.FC<{ question: QAItem; index: number }> = (
   props
@@ -20,13 +22,47 @@ export const QAElement: React.FC<{ question: QAItem; index: number }> = (
         <div className="w-full flex items-start justify-between pb-10 pt-6">
           <div className="flex justify-start max-w-[90%]">
             <h2 className="text-white text-xl">{`0${index + 1}`}</h2>
-            <div className="ml-[5vw]">
-              <h1 className="text-white font-['Inter'] font-medium text-xl lg:text-2xl">
+            <div className="ml-[5vw] overflow-hidden">
+              <h1 className="text-white font-['Inter'] font-medium text-lg lg:text-xl">
                 {question.question}
               </h1>{" "}
-              {open && (
-                <p className="text-white pt-6 max-w-[80%]">{question.answer}</p>
-              )}
+              <AnimatePresence initial={false}>
+                {open && (
+                  <motion.div
+                    initial={{ height: 0 }}
+                    animate={{ height: "auto" }}
+                    exit={{ height: 0 }}
+                    transition={{ type: "spring", duration: 0.2, bounce: 0.1 }}
+                  >
+                    <p className="text-white pt-6 max-w-[80%] mb-4 lg:text-lg">
+                      {question.answer}
+                    </p>
+                    {question.links.map((link) => {
+                      return (
+                        <>
+                          {" "}
+                          {link.type == "internal" ? (
+                            <Link
+                              to={link.url}
+                              className="text-white mb-2 py-1 max-w-[80%] border-[2px] border-blue px-3 hover:bg-blue transition-all lg:text-lg"
+                            >
+                              &rarr; {link.text}
+                            </Link>
+                          ) : (
+                            <a
+                              href={link.url}
+                              className="text-white mb-2 py-1 max-w-[80%] border-[2px] border-white px-3 hover:bg-white hover:text-black transition-all lg:text-lg"
+                            >
+                              &rarr; {link.text}
+                            </a>
+                          )}
+                        </>
+                      );
+                    })}{" "}
+                    <div className="mt-2 w-full h-[2px]" />
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
           </div>
 

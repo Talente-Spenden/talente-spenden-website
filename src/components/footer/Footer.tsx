@@ -80,34 +80,26 @@ export const Footer = () => {
                 </li>
                 <li>
                   <Link
-                    to="/news"
+                    to="/charity"
                     className="hover:text-blue-mid-light transition-all"
                   >
-                    News
+                    Charity Track
                   </Link>
                 </li>
                 <li>
                   <Link
-                    to="/projects"
+                    to="/entrepreneurship"
                     className="hover:text-blue-mid-light transition-all"
                   >
-                    Projects
+                    Entrepreneurship Track
                   </Link>
                 </li>
                 <li>
                   <Link
-                    to="/mission"
+                    to="/team"
                     className="hover:text-blue-mid-light transition-all"
                   >
-                    Our Mission
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/story"
-                    className="hover:text-blue-mid-light transition-all"
-                  >
-                    Our Story
+                    Team
                   </Link>
                 </li>
                 <li>
@@ -123,8 +115,23 @@ export const Footer = () => {
             <div>
               <p className="font-bold">Legal</p>
               <ul>
-                <li>Imprint</li>
-                <li>Data protection</li>
+                <li>
+                  {" "}
+                  <Link
+                    to="/imprint"
+                    className="hover:text-blue-mid-light transition-all"
+                  >
+                    Imprint
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/dataprotection"
+                    className="hover:text-blue-mid-light transition-all"
+                  >
+                    Data Protection
+                  </Link>
+                </li>
               </ul>
             </div>
           </div>

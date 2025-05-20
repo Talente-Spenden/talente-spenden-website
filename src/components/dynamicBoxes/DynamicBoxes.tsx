@@ -1,0 +1,413 @@
+import { useEffect, useState } from "react";
+import { useViewport } from "../../contexts/ViewportContext";
+import { X } from "lucide-react";
+
+export const DynamicBoxes: React.FC = () => {
+  let [expandedElement, setExpandedElement] = useState(0);
+  let [showLeft, setShowLeft] = useState(true);
+  let [showRight, setShowRight] = useState(true);
+  let [showUpper, setShowUpper] = useState(true);
+  let [showLower, setShowLower] = useState(true);
+  let { width } = useViewport();
+
+  useEffect(() => {
+    if (width < 700) {
+      if (expandedElement != 0) {
+        if (expandedElement == 1) {
+          setShowLower(false);
+          setShowRight(false);
+        } else if (expandedElement == 2) {
+          setShowUpper(false);
+          setShowRight(false);
+        } else {
+          setShowLeft(false);
+        }
+      }
+    } else {
+      if (expandedElement == 1) {
+        setShowLower(true);
+        setShowRight(true);
+      } else if (expandedElement == 2) {
+        setShowUpper(true);
+        setShowRight(true);
+      } else {
+        setShowLeft(true);
+      }
+    }
+  }, [width, expandedElement]);
+
+  return (
+    <div>
+      <div
+        className={`w-full ${
+          expandedElement != 0 ? "bg-white" : "bg-black"
+        } h-[4px] mb-2 transition all`}
+      />
+      <div className="flex gap-2 w-full h-[600px] lg:h-[700px]">
+        {showLeft && (
+          <div
+            className={`h-full flex flex-col gap-y-2 transition-all ${
+              expandedElement == 1 || expandedElement == 2
+                ? "w-[300%]"
+                : "w-full"
+            }`}
+          >
+            {showUpper && (
+              <div
+                className={`${
+                  expandedElement == 1
+                    ? "h-[300%] bg-white text-black [&>*>*>*>h1]:!text-blue"
+                    : "h-full bg-black hover:bg-white"
+                } group transition-all cursor-pointer py-2 px-4 overflow-scroll`}
+                onClick={() => {
+                  if (width < 700) {
+                    setShowLower((state) => !state);
+                    setShowRight((state) => !state);
+                  } else {
+                    setShowLower(true);
+                    setShowRight(true);
+                  }
+                  setExpandedElement((element) => (element == 1 ? 0 : 1));
+                }}
+              >
+                {" "}
+                <div className="flex flex-col justify-between h-full">
+                  <div>
+                    <div className="flex justify-between">
+                      <h1
+                        className={`text-white italic font-bold ${
+                          expandedElement != 1 && expandedElement != 0
+                            ? "text-xl md:text-2xl"
+                            : "text-2xl md:text-3xl lg:text-4xl 2xl:text-6xl"
+                        } group-hover:text-blue transition-all`}
+                      >
+                        Start a New Project
+                      </h1>
+                      {expandedElement == 1 && (
+                        <div className="group/close">
+                          <X className="text-black w-10 h-10 group-hover/close:text-blue transition-all" />
+                        </div>
+                      )}
+                    </div>
+                    {expandedElement != 1 ? (
+                      <p className="text-grey-light w-full md:w-[85%] 2xl:w-[60%] lg:text-xl mt-2 lg:mt-10 group-hover:text-grey-dark transition-all">
+                        Let us know about your idea to make the world a better
+                        place - we'll help you make it work and [...]
+                      </p>
+                    ) : (
+                      <>
+                        <div className="w-full my-2 h-[2px] bg-grey-dark" />{" "}
+                        <p className="mb-4 w-full 2xl:w-[90%]">
+                          We always try to find innovative ways to create scoial
+                          value. We're super open to hear about your ideas and
+                          concepts for new projects.
+                        </p>
+                        <h2 className="mt-4 text-blue-mid-light-mid-light font-bold text-xl lg:text-2xl ">
+                          How to Start a Project
+                        </h2>
+                        <div className="w-full my-2 h-[2px] bg-grey-dark" />
+                        <p className="mb-4 w-full 2xl:w-[90%]">
+                          No matter what stadium your project idea is in - just
+                          the raw idea (as well as high motivation) is more than
+                          enough - just let us know about your idea and after
+                          checking that the idea aligns with our values, we'll
+                          help you realise your project! You can additionally
+                          post your idea in our new-project-ideas forum on our
+                          Discord, so you not only convince us but also find
+                          like-minded others to join your project.
+                        </p>
+                      </>
+                    )}
+                  </div>
+                  <div className="flex justify-end">
+                    {expandedElement != 1 && (
+                      <div className="flex items-center border-[2px] border-white group-hover:border-blue px-3 py-1 transition-all">
+                        <h1 className="text-white lg:text-xl group-hover:text-blue transition-all">
+                          &rarr; Learn More
+                        </h1>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+            )}
+            {showLower && (
+              <div
+                className={` ${
+                  expandedElement == 2
+                    ? "h-[300%] bg-white [&>*>*>*>h1]:!text-blue"
+                    : "h-full bg-black hover:bg-white"
+                } group transition-all cursor-pointer py-2 px-4 overflow-scroll`}
+                onClick={() => {
+                  if (width < 700) {
+                    setShowUpper((state) => !state);
+
+                    setShowRight((state) => !state);
+                  } else {
+                    setShowUpper(true);
+                    setShowRight(true);
+                  }
+                  setExpandedElement((element) => (element == 2 ? 0 : 2));
+                }}
+              >
+                <div className="flex flex-col justify-between h-full">
+                  <div>
+                    <div className="flex justify-between">
+                      <h1
+                        className={`text-white italic font-bold ${
+                          expandedElement != 2 && expandedElement != 0
+                            ? "text-xl md:text-2xl"
+                            : "text-2xl md:text-3xl lg:text-4xl 2xl:text-6xl"
+                        } group-hover:text-blue transition-all`}
+                      >
+                        Join an Existing Project
+                      </h1>
+                      {expandedElement == 2 && (
+                        <div className="group/close">
+                          <X className="text-black w-10 h-10 group-hover/close:text-blue transition-all" />
+                        </div>
+                      )}
+                    </div>
+                    {expandedElement != 2 ? (
+                      <p className="text-grey-light lg:text-xl w-full md:w-[85%] 2xl:w-[60%] mt-2 lg:mt-10 group-hover:text-grey-dark transition-all">
+                        We offer a range of already existing project you can
+                        volunteer at. To join [...]
+                      </p>
+                    ) : (
+                      <>
+                        <div className="w-full my-2 h-[2px] bg-grey-dark" />{" "}
+                        <p className="mb-4 w-full 2xl:w-[90%]">
+                          Volunteering in one of our projects is by far the{" "}
+                          <span className="bg-yellow text-black">
+                            most popular form of committment at Talente Spenden
+                          </span>
+                          . Most of our projects host regular events, that you
+                          can sign up for independently - so you're super free
+                          to choose when you want to help out and when not.
+                        </p>
+                        <h2 className="mt-4 text-blue-mid-light-mid-light font-bold text-xl lg:text-2xl ">
+                          How to Join a Project
+                        </h2>
+                        <div className="w-full my-2 h-[2px] bg-grey-dark" />
+                        <p className="">
+                          It's super easy. On{" "}
+                          <span className="bg-yellow text-black">
+                            joining our Discord Server
+                          </span>
+                          , you'll be asked which projects you're interested in.
+                          Select your favourite projects and you're in!
+                          <br />
+                          <br />
+                          You are then automatically added to the respective
+                          project groups and you'll find all updates and event
+                          announcements on there. Some projects additionally use
+                          Moodle for Event Registration - the respective Project
+                          Leads will explain how to sign up before an event.
+                          <br />
+                          <br />
+                          Many of our projects also highly{" "}
+                          <span className="bg-yellow text-black">
+                            appreciate help in the project lead team
+                          </span>{" "}
+                          - feel free to contact them if you're looking for a
+                          way to regularly support a project you like.
+                        </p>
+                      </>
+                    )}
+                  </div>
+                  <div className="flex justify-end">
+                    {expandedElement != 2 && (
+                      <div className="flex items-center border-[2px] border-white group-hover:border-blue px-3 py-1 transition-all">
+                        <h1 className="text-white lg:text-xl group-hover:text-blue transition-all">
+                          &rarr; Learn More
+                        </h1>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+        )}
+        {showRight && (
+          <div
+            className={` ${
+              expandedElement == 3
+                ? "w-[300%] bg-white [&>*>*>*>h1]:!text-blue"
+                : "w-full xl:w-[66%] bg-black hover:bg-white"
+            } group h-full transition-all cursor-pointer py-2 px-4 overflow-scroll`}
+            onClick={() => {
+              if (width < 700) {
+                setShowLeft((state) => !state);
+              } else {
+                setShowLeft(true);
+                setShowLower(true);
+                setShowRight(true);
+              }
+              setExpandedElement((element) => (element == 3 ? 0 : 3));
+            }}
+          >
+            <div className="flex flex-col justify-between h-full">
+              <div className="h-full">
+                <div className="flex justify-between">
+                  <h1
+                    className={`text-white italic font-bold ${
+                      expandedElement != 3 && expandedElement != 0
+                        ? "text-xl md:text-2xl"
+                        : "text-2xl md:text-3xl lg:text-4xl 2xl:text-6xl"
+                    } group-hover:text-blue transition-all`}
+                  >
+                    Apply to the Talente Spenden Core
+                  </h1>
+                  {expandedElement == 3 && (
+                    <div className="group/close">
+                      <X className="text-black w-10 h-10 group-hover/close:text-blue transition-all" />
+                    </div>
+                  )}
+                </div>
+                {expandedElement != 3 ? (
+                  <p className="text-grey-light mt-2 lg:mt-10 group-hover:text-grey-dark lg:text-xl transition-all">
+                    Our Core Teams are the heart of Talente Spenden - and your
+                    chance for regularly committment in one of the following
+                    area: Technology, Events, Communication and Social
+                    Entrepreneurship. We require you to [...]
+                  </p>
+                ) : (
+                  <div className="">
+                    <div>
+                      <div className="w-full my-2 h-[2px] bg-grey-dark" />{" "}
+                      <p className="mb-4 w-full 2xl:w-[90%]">
+                        The Talente Spenden Core consists of everyone working on
+                        supporting Talente Spenden as a whole. Joining the Core
+                        provides you with the possibitlity to have a{" "}
+                        <span className="bg-yellow text-black">
+                          great impact on Talente Spenden
+                        </span>
+                        . Currently, for each of the following areas there is
+                        one team respectively - Communication, Technology, Event
+                        and Entrepreneurship. There's also the Management Team
+                        consisting of the Team Leads of the former four teams.
+                      </p>
+                      <h2 className="mt-4 text-blue-mid-light-mid-light font-bold text-xl lg:text-2xl ">
+                        What are the Core Teams Doing?
+                      </h2>
+                      <div className="w-full my-2 h-[2px] bg-grey-dark" />{" "}
+                      <div className="lg:flex gap-x-2 justify-between  w-full 2xl:w-[90%]">
+                        <p className=" font-semibold">Technology</p>
+                        <p className=" w-full lg:w-[80%]">
+                          Our Technology Team develops{" "}
+                          <span className="bg-yellow text-black">
+                            software that creates social value
+                          </span>
+                          . It's main purpose is to create and manage tools to
+                          push Talente Spenden's impact - however also project
+                          that directy contribute to social value might be
+                          realised.
+                        </p>
+                      </div>
+                      <div className="mt-3 gap-x-2 lg:flex justify-between w-full 2xl:w-[90%]">
+                        <p className=" font-semibold">Event</p>{" "}
+                        <p className="  w-full lg:w-[80%]">
+                          The Event Team organizes and innovates Talente
+                          Spenden's events, including our regular events such as
+                          our Summer Fest, Semester Kick-Off. The Team also
+                          <span className="bg-yellow text-black">
+                            explores and develops brand-new event concepts
+                          </span>{" "}
+                          for Talente Spenden.
+                        </p>
+                      </div>
+                      <div className="mt-3 gap-x-2 lg:flex justify-between w-full 2xl:w-[90%]">
+                        <p className=" font-semibold">Communication</p>
+                        <p className=" w-full lg:w-[80%]">
+                          Our Communication Team keeps everyone updated on what
+                          happens at Talente Spenden - internally as well as
+                          externally. From developing marketing strategies to
+                          making creative designs the{" "}
+                          <span className="bg-yellow text-black">
+                            Communication Team keeps Talente Spenden connected
+                          </span>
+                          .
+                        </p>
+                      </div>
+                      <div className="mt-3 gap-x-2 lg:flex justify-between w-full 2xl:w-[90%]">
+                        <p className=" font-semibold">Entrepreneurship</p>
+                        <p className=" w-full lg:w-[80%]">
+                          Our Entrepreneurship Team focusses on how{" "}
+                          <span className="bg-yellow text-black">
+                            social value can be created in an economically
+                            attractive way
+                          </span>
+                          . It is responsible for our newest Track - the TSET,
+                          where supporting innovative Social Entrepreneurship is
+                          the goal.
+                        </p>
+                      </div>
+                    </div>
+                    <div className="lg:flex mt-2 gap-6 w-full">
+                      <div className="lg:w-[50%]">
+                        <h2 className="mt-4 text-blue-mid-light-mid-light font-bold text-xl lg:text-2xl ">
+                          How to apply
+                        </h2>
+                        <div className="w-full my-2 h-[2px] bg-grey-dark" />
+                        <p className="">
+                          <span className="bg-yellow text-black">
+                            Just let us know
+                          </span>{" "}
+                          you’re interested in the position and why its a good
+                          fit for you and we’ll take it from there. Also, a
+                          brief introduction about yourself would be amazing!
+                          <br />
+                          <br />
+                          You’ll find open roles at Talente Spenden below -
+                          we’ll list them there, when we're looking for a
+                          specific skill, however, you can still, regardless of
+                          the roles listed below, take the initiative and apply
+                          if you have an idea on how you could benefit the team
+                          with your skillset.
+                        </p>
+                      </div>
+                      <div className="lg:w-[50%]">
+                        <h2 className="mt-4 text-blue-mid-light-mid-light font-bold text-xl lg:text-2xl">
+                          What we expect
+                        </h2>
+                        <div className="w-full my-2 h-[2px] bg-grey-dark" />
+                        <p className=" pb-4">
+                          In the Talente Spenden Core, you have the possibitlity
+                          to greatly impact Talente Spenden as a whole, so we
+                          expect the following from you: <br />
+                          <br />- Proactive Working Attitude
+                          <br />- Reliability
+                          <br />- High Motivation
+                          <br />- Good Team Skills
+                          <br />
+                          <br /> There's no fixed amount of hours you have put
+                          in each week - we all know how stressful studying can
+                          be, so don't worry about that!
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+              <div className="flex justify-end">
+                {expandedElement != 3 && (
+                  <div className="flex items-center border-[2px] border-white group-hover:border-blue px-3 py-1 transition-all">
+                    <h1 className="text-white lg:text-xl group-hover:text-blue transition-all">
+                      &rarr; Learn More
+                    </h1>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+      <div
+        className={`w-full ${
+          expandedElement != 0 ? "bg-white" : "bg-black"
+        } h-[4px] mt-2 transition all`}
+      />{" "}
+    </div>
+  );
+};

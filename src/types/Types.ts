@@ -89,6 +89,14 @@ export interface ProjectItem {
 // Define the type for the projects array
 export type ProjectsConfig = ProjectItem[];
 
+export interface openRole {
+  role: string;
+  track: string;
+  requirements: string;
+  shortDescription: string;
+}
+
+export type openRolesConfig = openRole[];
 // Exporting all configs as types
 // This allows you to import them like:
 // import { NavigationBarConfig, QaHomeConfig, etc. } from './types/config';

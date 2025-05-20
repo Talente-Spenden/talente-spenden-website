@@ -10,19 +10,19 @@ export const Home: React.FC = () => {
   const { width } = useViewport();
   return (
     <div className="w-screen">
-      <div className="h-screen">
+      <div className="min-h-screen">
         <div className=" pt-[20vh] flex justify-between pl-10 pr-[10vw]">
           <div>
-            <p className="text-purple italic text-lg md:text-3xl font-bold">
+            <p className="text-blue italic text-lg md:text-3xl font-bold">
               Social Impact
             </p>
 
-            <p className="text-grey text-md md:text-lg">
+            <p className="text-grey-light text-md md:text-lg">
               &rarr; Significant, positive change by solving social challenges.
             </p>
           </div>{" "}
           {width > 1020 && (
-            <p className=" text-grey w-[30vw] text-xl">
+            <p className=" text-grey-light w-[30vw] text-xl">
               We are a vibrant student community at the
               <a
                 href="https://www.tum.de"
@@ -34,24 +34,27 @@ export const Home: React.FC = () => {
               striving to create social impact. Our mission is to leverage our
               time and talents to support diverse initiatives, empowering
               students to make{" "}
-              <Link to="/mission" className="font-bold italic hover:bg-yellow">
+              <Link
+                to="/charity"
+                className="font-bold italic hover:bg-white hover:text-blue text-blue-mid-light"
+              >
                 meaningful contributions to society and the environment
               </Link>
               .
             </p>
           )}
         </div>
-        <div className="pl-6 sm:pl-10 pt-[20vh]">
+        <div className="px-6 sm:px-10 pt-[20vh]">
           <h1 className="font-bold font-['Poppins'] text-4xl sm:text-4xl md:text-5xl lg:text-8xl text-white">
             Join Hands,
             <br />
-            Share <span className="italic text-purple">Talents</span>,
+            Share <span className="italic text-blue">Talents</span>,
             <br />
             Make a Difference.
             <br />
           </h1>
           {width < 1020 && (
-            <p className="text-grey w-[85vw] md:text-xl text-md pt-10">
+            <p className="text-grey-light w-[85vw] md:text-xl text-md pt-10 pb-4">
               We are a vibrant student community at the
               <a
                 href="https://www.tum.de"
@@ -63,14 +66,14 @@ export const Home: React.FC = () => {
               striving to create social impact. Our mission is to leverage our
               time and talents to support diverse initiatives, empowering
               students to make{" "}
-              <Link to="/mission" className="font-bold italic hover:bg-yellow">
+              <Link to="/charity" className="font-bold italic hover:bg-yellow">
                 meaningful contributions to society and the environment
               </Link>
               .
             </p>
           )}
-          <div className="absolute bottom-10 flex justify-center w-screen">
-            <ScrollIndicator />
+          <div className="absolute bottom-10 flex justify-center left-0 w-screen">
+            <ScrollIndicator color="white" hideOnScroll={true} />
           </div>
         </div>
       </div>
@@ -175,7 +178,7 @@ export const Home: React.FC = () => {
             </div>
             <div>
               <Link
-                to="/mission"
+                to="/join"
                 className="transition-all duration-300 hover:text-yellow font-bold text-5xl sm:text-7xl md:text-8xl lg:text-9xl italic text-blue font-['Poppins']"
               >
                 THE WORLD
@@ -190,13 +193,13 @@ export const Home: React.FC = () => {
               to="/join"
               className="p-3 border-black border-2 hover:bg-white transition-all duration-300"
             >
-              <span className="text-medium text-l">Join our mission</span>
+              <span className="text-medium text-l">Join us</span>
             </Link>
           </div>
         </div>
       </div>
       <div className="bg-black w-screen h-screen fixed top-0 left-0 z-[-1]">
-        <Gradient />
+        <Gradient col0="blue" col1="purple" col2="purple" col3="yellow" />
       </div>
     </div>
   );

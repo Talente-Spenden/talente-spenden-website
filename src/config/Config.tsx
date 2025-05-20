@@ -2,6 +2,7 @@ import {
   ManagementTeamConfig,
   MilestonesConfig,
   NavigationBarConfig,
+  openRolesConfig,
   ProjectsConfig,
   ProjectSpotlightConfig,
   ProjectTagsConfig,
@@ -28,18 +29,19 @@ export const qaHome: QaHomeConfig = [
   {
     question: "How can I get involved at Talente Spenden?",
     answer:
-      "You can join any project of our Charity Track, start your own Charity Track project (email us!), or apply to a position in our core teams. Let's make a difference, together.",
+      "You can join any project in our Charity Track, start your own Charity Track project, or apply to a position in one of our core teams.",
     links: [
       {
         type: "internal",
-        text: "Join us",
-        url: "/join",
+        text: "Learn how to contribute at Talente Spenden",
+        url: "/join#contribute",
       },
     ],
   },
   {
-    question: "Can I start my own project at Talente Spendens Charity Track?",
-    answer: "Absolutely. We'd be super happy to know about about your ideas!",
+    question: "Can I start my own project at Talente Spenden",
+    answer:
+      "Absolutely. We'd be super happy to know about about your ideas for a new Charity Track Project!",
     links: [
       {
         type: "external",
@@ -51,13 +53,13 @@ export const qaHome: QaHomeConfig = [
   {
     question: "Will my voluntary work at Talente Spenden be certified?",
     answer:
-      "Of course. All volunteers at Talente Spenden can request an official certificate for their work that is accepted e.g. by the Deutschlandstipendium at TUM. Just let the Project Leads of your project know!",
+      "Of course. All volunteers at Talente Spenden can request an official certificate for their work that is also accepted by the Deutschlandstipendium at TUM. Just let the Project Leads of your project know and they'll get you a certificate for your work!",
     links: [],
   },
   {
     question:
       "Is Talente Spenden open to collaborations with other organisations?",
-    answer: "Yes! You can reach us via mail",
+    answer: "Yes, we'd be glad to talk to you! Feel free to reach out to us.",
     links: [
       {
         type: "external",
@@ -83,42 +85,97 @@ export const managementTeam: ManagementTeamConfig = [
     role: "Head of Events",
     job: "Bachelor's student in environmental engineering",
     email: "melis.gueler@tum.de",
-    image: "/src/assets/img/Melis.jpeg",
+    image:
+      "https://drive.google.com/thumbnail?id=1EWcs1ynHQcN82dNrWvneCAUEr43sZTM5&sz=w1000",
   },
   {
     name: "Max Huppertz",
     role: "Head of Communication",
     job: "Bachelor's student in informatics",
     email: "max.huppertz@tum.de",
-    image: "/src/assets/img/Max.jpeg",
+    image:
+      "https://drive.google.com/thumbnail?id=1OxnvXVS29GqGkseVTuVkwQbmQe8BjBy9&sz=w1000",
   },
   {
     name: "Jonas Itt",
     role: "Head of Technology",
     job: "Masters's student in informatics",
     email: "jonas.itt@tum.de",
-    image: "/src/assets/img/JonasI.jpeg",
+    image:
+      "https://drive.google.com/thumbnail?id=1rEeW-T_xdnCZ-jhvVbQ5t3amDlbxPwlA&sz=w1000",
   },
   {
     name: "Jonas Süß",
     role: "Head of Finance & Social Entrepreneurship",
     job: "Bachelor's student in informatics",
     email: "jonas.suess@tum.de",
-    image: "/src/assets/img/JonasS.jpeg",
+    image:
+      "https://drive.google.com/thumbnail?id=10LTxMdPqSUb1WwLhhcPysfW2_y1y7g4D&sz=w1000",
   },
   {
-    name: "Fabian",
+    name: "Fabian D’ Cruz",
     role: "Communication Team Member",
-    job: "",
+    job: "Master's Student Rail, Transport and Logistics",
     email: "",
-    image: "/src/assets/img/Fabian.jpg",
+    image:
+      "https://drive.google.com/thumbnail?id=1iJFmZQQTzzpYY_8PKfaeDZpSfCGlffCJ&sz=w1000",
   },
   {
-    name: "Joana",
+    name: "Joana Brecko",
     role: "Communication Team Member",
+    job: "Master's student Consumer Science",
+    email: "",
+    image:
+      "https://drive.google.com/thumbnail?id=1P1vo20Ji1VPV15_fWLsHNgbxSK4n_cg5&sz=w1000",
+  },
+  {
+    name: "Sajeed",
+    role: "Project Lead Bücherspende",
     job: "",
     email: "",
-    image: "/src/assets/img/Joana2.jpg",
+    image:
+      "https://drive.google.com/thumbnail?id=1n9-pmSWrwAex1hTbRgg2GxAwIhLvsZYA&sz=w1000",
+  },
+  {
+    name: "Mona Schneider",
+    role: "Project Lead Navigatum",
+    job: "",
+    email: "",
+    image:
+      "https://drive.google.com/thumbnail?id=1p5ys4zWAyJsVPFkxjkzgiTw6-UZq9NM1&sz=w1000",
+  },
+
+  {
+    name: "Daniel Zeitner",
+    role: "Project Lead Biotoppflege Freising",
+    job: "",
+    email: "",
+    image:
+      "https://drive.google.com/thumbnail?id=1BOd7gnd2NrlyowLNNtfzZzhsdHkO8vb2&sz=w1000",
+  },
+  {
+    name: "Sebastian Doctor",
+    role: "Project Lead Tafel",
+    job: "",
+    email: "",
+    image:
+      "https://drive.google.com/thumbnail?id=1WRWB5GiTlzi_6Bz8ppmMHT2Vw5rOdMSF&sz=w1000",
+  },
+  {
+    name: "Caroline Lange",
+    role: "Project Lead Lebensfreude",
+    job: "Bachelor's Student Engineering Science",
+    email: "",
+    image:
+      "https://drive.google.com/thumbnail?id=1dJcMrC7_mDvr71QUeJlgoYo56TQFCUMR&sz=w1000",
+  },
+  {
+    name: "Sarah",
+    role: "Project Lead Blutspende am Campus",
+    job: "Bachelor's Student Civil Engineering",
+    email: "",
+    image:
+      "https://drive.google.com/thumbnail?id=1hylDQrIFgJk8BKeqoqU6AsWo5Jbt6Pjz&sz=w1000",
   },
 ];
 
@@ -140,7 +197,33 @@ export const milestones: MilestonesConfig = [
   },
 ];
 
-// Projects Page
+// Join Page
+export const openRoles: openRolesConfig = [
+  {
+    role: "Project Lead Bücherspende - Book Donation",
+    track: "TSCT",
+    requirements: "",
+    shortDescription: "",
+  },
+  {
+    role: "Event Team Member",
+    track: "Core",
+    requirements: "",
+    shortDescription: "",
+  },
+  {
+    role: "Technology Team Member - Backend/DevOps",
+    track: "Core",
+    requirements: "",
+    shortDescription: "",
+  },
+  {
+    role: "Entrepreneurship Team Member - Social Entrepreneurship Expert",
+    track: "Core",
+    requirements: "",
+    shortDescription: "",
+  },
+];
 
 // News Page
 export const projectTags: ProjectTagsConfig = [
@@ -168,7 +251,8 @@ export const projects: ProjectsConfig = [
     descriptionShort: "A blood donation initiative to support local hospitals.",
     descriptionLong:
       "Blutspende is a community-driven program focused on collecting blood donations from volunteers to ensure a steady supply for hospitals and medical facilities in need. The initiative helps save lives and supports patients requiring blood transfusions.",
-    image: "blutspende.jpg",
+    image:
+      "https://drive.google.com/thumbnail?id=111jWKJmiCu84Y6tCYwK8g4y0E0xnpjmi&sz=w1000",
     type: "Project",
     tags: ["Donations"],
     track: "TSCT",
@@ -179,7 +263,9 @@ export const projects: ProjectsConfig = [
       "Conservation project focused on maintaining local natural habitats.",
     descriptionLong:
       "Biotoppflege Freising is a local conservation effort aimed at preserving and maintaining biodiversity in the Freising area. Volunteers participate in habitat restoration, protection of native species, and ecological education activities.",
-    image: "biotoppflege.png",
+    image:
+      "https://drive.google.com/thumbnail?id=1bqktoKZh1XNzdyJeISC6y7GacdfH9MeV&sz=w1000",
+
     type: "Project",
     tags: ["Sustainability"],
     track: "TSCT",
@@ -189,7 +275,9 @@ export const projects: ProjectsConfig = [
     descriptionShort: "A food distribution service for people in need.",
     descriptionLong:
       "Tafel is a volunteer-driven organization that collects surplus food from stores and distributes it to individuals and families facing food insecurity. The project helps reduce food waste while supporting those in need with nutritious meals.",
-    image: "tafel.jpg",
+    image:
+      "https://drive.google.com/thumbnail?id=18VCU5ZJFjc0NyW_7A83k7Ieah20mSng9&sz=w1000",
+
     type: "Project",
     tags: ["Donations", "Social"],
     track: "TSCT",
@@ -200,7 +288,9 @@ export const projects: ProjectsConfig = [
       "A program dedicated to enhancing the well-being of the elderly.",
     descriptionLong:
       "Lebensfreude focuses on enriching the lives of senior citizens through activities, social events, and workshops. The project aims to combat loneliness, promote healthy living, and enhance the quality of life for older adults in the community.",
-    image: "lebensfreude.jpg",
+    image:
+      "https://drive.google.com/thumbnail?id=1d26sh7sbH3RFfZ4c6t31HXPvAzVmKEoP&sz=w1000",
+
     type: "Project",
     tags: ["Social"],
     track: "TSCT",
@@ -211,7 +301,9 @@ export const projects: ProjectsConfig = [
       "Mentorship program to support students at Salesianum School.",
     descriptionLong:
       "Mentoring@Salesianum connects students with mentors from various industries to provide guidance, career advice, and personal development support. The initiative aims to empower students to reach their academic and professional goals.",
-    image: "salesianum.png",
+    image:
+      "https://drive.google.com/thumbnail?id=1SLk5P38OeC070LizqBn5MDXAIObh_5p2&sz=w1000",
+
     type: "Project",
     tags: ["Education", "Social"],
     track: "TSCT",
@@ -222,7 +314,9 @@ export const projects: ProjectsConfig = [
       "A project promoting book donations for educational purposes.",
     descriptionLong:
       "Bücherspende is aimed at collecting and distributing books to schools, libraries, and under-resourced communities. The initiative seeks to make educational materials accessible and promote learning opportunities for everyone.",
-    image: "buecherspende.png",
+    image:
+      "https://drive.google.com/thumbnail?id=1QzcGqBx-Qiid9zfzFFJAdBhUY8DjLVD_&sz=w1000",
+
     type: "Project",
     tags: ["Education", "Donations"],
     track: "TSCT",
@@ -233,7 +327,7 @@ export const projects: ProjectsConfig = [
       "A mentorship program for students at the Technical University of Munich.",
     descriptionLong:
       "NavigaTUM is designed to assist new students at the Technical University of Munich (TUM) with their transition to university life. This initiative pairs incoming students with experienced mentors who provide advice, guidance, and community support.",
-    image: "navigatum.jpg",
+    image: "",
     type: "Project",
     tags: ["Education"],
     track: "TSCT",
@@ -241,3 +335,20 @@ export const projects: ProjectsConfig = [
 ];
 // ------------ Design -------------
 // Colors can be edited in /tailwind.config.js
+
+export const scrollBandImages: string[] = [
+  "https://drive.google.com/thumbnail?id=1ky-_Onq-cYwx-LlBjgQZ6xEuIUuZJLQ8&sz=w1000",
+  "https://drive.google.com/thumbnail?id=1176Waj3tOiHOHX0RAPKyIOYxgNbmP1US&sz=w1000",
+  "https://drive.google.com/thumbnail?id=1W65bM2c8pbVkXCEFG2QZRJZNTonxy4pM&sz=w1000",
+  "https://drive.google.com/thumbnail?id=18LuU7JIYtHURxmhLTj8NkIlRcu8p6eD3&sz=w1000",
+  "https://drive.google.com/thumbnail?id=1_P0AMwWVmRYSFuR63fgRWFeqvH1vAb48&sz=w1000",
+  "https://drive.google.com/thumbnail?id=1QzcGqBx-Qiid9zfzFFJAdBhUY8DjLVD_&sz=w1000",
+  "https://drive.google.com/thumbnail?id=1bqktoKZh1XNzdyJeISC6y7GacdfH9MeV&sz=w1000",
+  "https://drive.google.com/thumbnail?id=1PX2cci1FMiL0v1WwGmYXuNAuaWnN0uCw&sz=w1000",
+  "https://drive.google.com/thumbnail?id=1Gc0TDEPNM117TmjMz77H20SWVO9iRmEW&sz=w1000",
+  "https://drive.google.com/thumbnail?id=1UXFHRTOh4IWZ6DhZfw4MAynxu_eGuEHj&sz=w1000",
+  "https://drive.google.com/thumbnail?id=1FeMCAHCHdO0aQhq5Ai3sZAhb7DG3TLYW&sz=w1000",
+  "https://drive.google.com/thumbnail?id=1fd1Ecggsp4ntRaV-Pnbla4tweLfjYkFi&sz=w1000",
+  "https://drive.google.com/thumbnail?id=13YoeSVxL2EWFITn25j8CTpAtGSsMwJEV&sz=w1000",
+  "https://drive.google.com/thumbnail?id=111jWKJmiCu84Y6tCYwK8g4y0E0xnpjmi&sz=w1000",
+];

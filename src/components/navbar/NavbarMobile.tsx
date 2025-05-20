@@ -19,7 +19,7 @@ export const NavbarMobile: React.FC<{
         {navigationBarConfig.map((navLink) => {
           return (
             <Link
-              className="text-white text-3xl"
+              className="text-white text-xl md:text-2xl lg:text-3xl"
               to={navLink.path}
               onClick={() => {
                 setOverlayOpen(false);

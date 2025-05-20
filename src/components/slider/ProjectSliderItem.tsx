@@ -23,8 +23,8 @@ export const ProjectSliderItem: React.FC<{
     >
       <div className="bg-grey-light h-[2px] w-full mb-2" />
       {width > 800 ? (
-        <div className="group relative flex justify-between min-w-[600px] h-[400px] bg-black">
-          <div className=" text-white p-6 flex flex-col justify-between">
+        <div className="group relative flex justify-between w-[600px] h-[400px] bg-black">
+          <div className=" text-white p-6 flex flex-col justify-between max-w-[50%]">
             <div>
               <h3 className="text-xl font-semibold mb-2">{current.name}</h3>
               <p>{current.descriptionShort}</p>
@@ -37,14 +37,16 @@ export const ProjectSliderItem: React.FC<{
               ))}
             </div>
           </div>
-          {current.image != "" ? (
-            <img
-              src={current.image}
-              className="object-cover w-full h-full pointer-events-none select-none filter grayscale transition duration-300 group-hover:grayscale-0"
-            />
-          ) : (
-            <div className="w-full h-full bg-blue-mid-light" />
-          )}
+          <div className="w-[50%]">
+            {current.image != "" ? (
+              <img
+                src={current.image}
+                className="object-cover w-full h-full pointer-events-none select-none filter grayscale transition duration-300 group-hover:grayscale-0"
+              />
+            ) : (
+              <div className="w-full h-full bg-blue-mid-light" />
+            )}
+          </div>
         </div>
       ) : (
         <div className="w-[70vw] h-[500px] bg-black">

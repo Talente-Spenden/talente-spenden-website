@@ -44,16 +44,20 @@ export const QAElement: React.FC<{ question: QAItem; index: number }> = (
                           {link.type == "internal" ? (
                             <Link
                               to={link.url}
-                              className="text-white mb-2 py-1 max-w-[80%] border-[2px] border-blue px-3 hover:bg-blue transition-all lg:text-lg"
+                              className="text-white mb-2  max-w-[80%] lg:text-lg"
                             >
-                              &rarr; {link.text}
+                              <div className="w-fit border-[2px] py-1 border-blue px-3 hover:bg-blue transition-all">
+                                &rarr; {link.text}
+                              </div>
                             </Link>
                           ) : (
                             <a
                               href={link.url}
-                              className="text-white mb-2 py-1 max-w-[80%] border-[2px] border-white px-3 hover:bg-white hover:text-black transition-all lg:text-lg"
+                              className="text-white mb-2 max-w-[80%] transition-all lg:text-lg"
                             >
-                              &rarr; {link.text}
+                              <div className="w-fit border-[2px] py-1 border-blue px-3 hover:bg-blue transition-all">
+                                &rarr; {link.text}{" "}
+                              </div>
                             </a>
                           )}
                         </>

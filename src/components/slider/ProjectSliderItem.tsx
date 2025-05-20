@@ -10,7 +10,7 @@ export const ProjectSliderItem: React.FC<{
 
   return (
     <motion.div
-      className="mr-8 my-4"
+      className="my-4"
       key={current.name}
       // Initial animation state
       initial={{ opacity: 0, scale: 0.9 }}

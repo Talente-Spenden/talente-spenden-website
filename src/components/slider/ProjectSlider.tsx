@@ -83,7 +83,7 @@ export const ProjectSlider: React.FC<{
         {/* Draggable carousel container */}
         <motion.div
           ref={carouselRef}
-          className="flex cursor-grab active:cursor-grabbing"
+          className="flex cursor-grab active:cursor-grabbing gap-x-6"
           // Enable horizontal dragging
           drag="x"
           // Set drag constraints based on the calculated carousel width
@@ -96,7 +96,7 @@ export const ProjectSlider: React.FC<{
           {/* Map over the cards data to render each card */}
           {content.map((s) => {
             // Find matching content
-            return <>{<ProjectSliderItem current={s} />}</>;
+            return <ProjectSliderItem current={s} />;
           })}
         </motion.div>{" "}
         <div className="flex justify-center">

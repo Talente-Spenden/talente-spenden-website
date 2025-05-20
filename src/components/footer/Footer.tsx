@@ -124,7 +124,14 @@ export const Footer = () => {
                     Imprint
                   </Link>
                 </li>
-                <li>Data protection</li>
+                <li>
+                  <Link
+                    to="/dataprotection"
+                    className="hover:text-blue-mid-light transition-all"
+                  >
+                    Data Protection
+                  </Link>
+                </li>
               </ul>
             </div>
           </div>

@@ -9,6 +9,7 @@ import { Footer } from "../footer/Footer";
 import { EntrepreneurshipTrack } from "../../pages/entrepreneurshipTrack/EntrepreneurshipTrack";
 import { ScrollToTop } from "../scrollToTop/ScrollToTop";
 import { Imprint } from "../../pages/imprint/Imprint";
+import { DataProtection } from "../../pages/dataProtection/DataProtection";
 
 export default function Routes() {
   const routes = createBrowserRouter([
@@ -54,6 +55,11 @@ export default function Routes() {
         {
           path: "/imprint",
           element: <Imprint />,
+          children: [],
+        },
+        {
+          path: "/dataprotection",
+          element: <DataProtection />,
           children: [],
         },
       ],

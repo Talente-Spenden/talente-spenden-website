@@ -7,9 +7,9 @@ export const ProjectCard: React.FC<{ project: ProjectItem }> = (props) => {
   return (
     <Link
       to="/join"
-      className="pb-2 min-w-[320px] md:max-w-[400px] w-[90%] mb-10 mr-3 cursor-pointer [&>div>a]:hover:bg-yellow [&>div>a]:hover:text-black [&>div>h1]:hover:text-white [&>div>p]:hover:text-white transition-all"
+      className="pb-2 min-w-[280px] md:max-w-[350px] w-[30vw] mb-10 mr-3 cursor-pointer [&>div>a]:hover:bg-yellow [&>div>a]:hover:text-black [&>div>h1]:hover:text-white [&>div>p]:hover:text-white transition-all"
     >
-      <div className="relative w-[100%] h-[500px]">
+      <div className="relative w-[100%] h-[350px]">
         {project.image != "" ? (
           <img src={project.image} className=" object-cover w-full h-full" />
         ) : (

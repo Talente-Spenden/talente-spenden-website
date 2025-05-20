@@ -24,7 +24,7 @@ export const TagList: React.FC<{
         return (
           <li className="pr-3">
             <button
-              className={`py-1 px-5 ${
+              className={`py-1 px-5 rounded-full ${
                 !hiddenTags.includes(tag)
                   ? "bg-white text-black"
                   : "bg-black text-grey"

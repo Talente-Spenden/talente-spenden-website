@@ -36,7 +36,7 @@ export const Home: React.FC = () => {
               students to make{" "}
               <Link
                 to="/charity"
-                className="font-bold italic hover:bg-blue text-blue-mid-light"
+                className="font-bold italic hover:bg-white hover:text-blue text-blue-mid-light"
               >
                 meaningful contributions to society and the environment
               </Link>

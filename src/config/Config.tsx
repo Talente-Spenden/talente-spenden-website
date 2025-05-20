@@ -29,18 +29,19 @@ export const qaHome: QaHomeConfig = [
   {
     question: "How can I get involved at Talente Spenden?",
     answer:
-      "You can join any project of our Charity Track, start your own Charity Track project (email us!), or apply to a position in our core teams. Let's make a difference, together.",
+      "You can join any project in our Charity Track, start your own Charity Track project, or apply to a position in one of our core teams.",
     links: [
       {
         type: "internal",
-        text: "Join us",
-        url: "/join",
+        text: "Learn how to contribute at Talente Spenden",
+        url: "/join#contribute",
       },
     ],
   },
   {
-    question: "Can I start my own project at Talente Spendens Charity Track?",
-    answer: "Absolutely. We'd be super happy to know about about your ideas!",
+    question: "Can I start my own project at Talente Spenden",
+    answer:
+      "Absolutely. We'd be super happy to know about about your ideas for a new Charity Track Project!",
     links: [
       {
         type: "external",
@@ -52,13 +53,13 @@ export const qaHome: QaHomeConfig = [
   {
     question: "Will my voluntary work at Talente Spenden be certified?",
     answer:
-      "Of course. All volunteers at Talente Spenden can request an official certificate for their work that is accepted e.g. by the Deutschlandstipendium at TUM. Just let the Project Leads of your project know!",
+      "Of course. All volunteers at Talente Spenden can request an official certificate for their work that is also accepted by the Deutschlandstipendium at TUM. Just let the Project Leads of your project know and they'll get you a certificate for your work!",
     links: [],
   },
   {
     question:
       "Is Talente Spenden open to collaborations with other organisations?",
-    answer: "Yes! You can reach us via mail",
+    answer: "Yes, we'd be glad to talk to you! Feel free to reach out to us.",
     links: [
       {
         type: "external",
@@ -120,7 +121,7 @@ export const managementTeam: ManagementTeamConfig = [
       "https://drive.google.com/thumbnail?id=1iJFmZQQTzzpYY_8PKfaeDZpSfCGlffCJ&sz=w1000",
   },
   {
-    name: "Joana",
+    name: "Joana Brecko",
     role: "Communication Team Member",
     job: "Master's student Consumer Science",
     email: "",
@@ -146,7 +147,7 @@ export const managementTeam: ManagementTeamConfig = [
 
   {
     name: "Daniel Zeitner",
-    role: "Project Lead Bücherspende",
+    role: "Project Lead Biotoppflege Freising",
     job: "",
     email: "",
     image:
@@ -167,6 +168,14 @@ export const managementTeam: ManagementTeamConfig = [
     email: "",
     image:
       "https://drive.google.com/thumbnail?id=1dJcMrC7_mDvr71QUeJlgoYo56TQFCUMR&sz=w1000",
+  },
+  {
+    name: "Sarah",
+    role: "Project Lead Blutspende am Campus",
+    job: "Bachelor's Student Civil Engineering",
+    email: "",
+    image:
+      "https://drive.google.com/thumbnail?id=1hylDQrIFgJk8BKeqoqU6AsWo5Jbt6Pjz&sz=w1000",
   },
 ];
 
@@ -326,3 +335,20 @@ export const projects: ProjectsConfig = [
 ];
 // ------------ Design -------------
 // Colors can be edited in /tailwind.config.js
+
+export const scrollBandImages: string[] = [
+  "https://drive.google.com/thumbnail?id=1ky-_Onq-cYwx-LlBjgQZ6xEuIUuZJLQ8&sz=w1000",
+  "https://drive.google.com/thumbnail?id=1176Waj3tOiHOHX0RAPKyIOYxgNbmP1US&sz=w1000",
+  "https://drive.google.com/thumbnail?id=1W65bM2c8pbVkXCEFG2QZRJZNTonxy4pM&sz=w1000",
+  "https://drive.google.com/thumbnail?id=18LuU7JIYtHURxmhLTj8NkIlRcu8p6eD3&sz=w1000",
+  "https://drive.google.com/thumbnail?id=1_P0AMwWVmRYSFuR63fgRWFeqvH1vAb48&sz=w1000",
+  "https://drive.google.com/thumbnail?id=1QzcGqBx-Qiid9zfzFFJAdBhUY8DjLVD_&sz=w1000",
+  "https://drive.google.com/thumbnail?id=1bqktoKZh1XNzdyJeISC6y7GacdfH9MeV&sz=w1000",
+  "https://drive.google.com/thumbnail?id=1PX2cci1FMiL0v1WwGmYXuNAuaWnN0uCw&sz=w1000",
+  "https://drive.google.com/thumbnail?id=1Gc0TDEPNM117TmjMz77H20SWVO9iRmEW&sz=w1000",
+  "https://drive.google.com/thumbnail?id=1UXFHRTOh4IWZ6DhZfw4MAynxu_eGuEHj&sz=w1000",
+  "https://drive.google.com/thumbnail?id=1FeMCAHCHdO0aQhq5Ai3sZAhb7DG3TLYW&sz=w1000",
+  "https://drive.google.com/thumbnail?id=1fd1Ecggsp4ntRaV-Pnbla4tweLfjYkFi&sz=w1000",
+  "https://drive.google.com/thumbnail?id=13YoeSVxL2EWFITn25j8CTpAtGSsMwJEV&sz=w1000",
+  "https://drive.google.com/thumbnail?id=111jWKJmiCu84Y6tCYwK8g4y0E0xnpjmi&sz=w1000",
+];

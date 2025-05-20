@@ -17,7 +17,8 @@ export const EntrepreneurshipTrack: React.FC = () => {
             >
               <span>&rarr;</span> Join our Discord Server
             </Link>{" "}
-            for exlusive updates on our brand-new Entrepreneurship Track.
+            for exlusive updates on our brand-new Talente Spenden
+            Entrepreneurship Track.
           </p>
           <a
             href="https://www.instagram.com/tsetmunich/"

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Gradient } from "../../components/gradient/Gradient";
 import { ProjectCard } from "../../components/projectCard/ProjectCard";
-import { projects } from "../../config/Config";
+import { projects, scrollBandImages } from "../../config/Config";
 import { ScrollBandImage } from "../../components/ScrollBand/ScrollBandImage";
 import { TagList } from "../../components/tagList/TagList";
 import { projectTags } from "../../config/Config";
@@ -16,14 +16,17 @@ export const CharityTrack: React.FC = () => {
         </h1>
       </div>
       <div>
-        <ScrollBandImage images={projects.map((project) => project.image)} />
+        <ScrollBandImage images={scrollBandImages} />
       </div>
       <div className="w-full mt-4 bg-black px-6">
         <h1 className="text-3xl text-white font-bold pt-4">Our Projects</h1>
-        <p className="text-grey-light md:text-xl pt-2">
-          Our Charity Track has a wide range of projects you can volunteer at.
-        </p>
-        <div className="mt-2 flex w-full">
+        <p className="text-grey-light md:text-xl pt-2 mb-10">
+          In our Charity Track we offer a wide range of projects you can
+          volunteer at. Learn more about them below.
+        </p>{" "}
+        <div className="mt-2 flex w-full items-center gap-x-4">
+          {" "}
+          <p className="text-grey md:text-xl font-bold">Filter</p>
           <TagList
             tags={projectTags.map((tag) => tag.name)}
             hiddenTags={hiddenTags}

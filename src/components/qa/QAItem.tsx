@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { QAItem } from "../../types/Types";
 import { AnimatePresence, motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 export const QAElement: React.FC<{ question: QAItem; index: number }> = (
   props
@@ -33,9 +34,32 @@ export const QAElement: React.FC<{ question: QAItem; index: number }> = (
                     exit={{ height: 0 }}
                     transition={{ type: "spring", duration: 0.2, bounce: 0.1 }}
                   >
-                    <p className="text-white pt-6 max-w-[80%]">
+                    <p className="text-white pt-6 max-w-[80%] mb-4 lg:text-lg">
                       {question.answer}
                     </p>
+                    {question.links.map((link) => {
+                      return (
+                        <>
+                          {" "}
+                          {link.type == "internal" ? (
+                            <Link
+                              to={link.url}
+                              className="text-white mb-2 py-1 max-w-[80%] border-[2px] border-blue px-3 hover:bg-blue transition-all lg:text-lg"
+                            >
+                              &rarr; {link.text}
+                            </Link>
+                          ) : (
+                            <a
+                              href={link.url}
+                              className="text-white mb-2 py-1 max-w-[80%] border-[2px] border-white px-3 hover:bg-white hover:text-black transition-all lg:text-lg"
+                            >
+                              &rarr; {link.text}
+                            </a>
+                          )}
+                        </>
+                      );
+                    })}{" "}
+                    <div className="mt-2 w-full h-[2px]" />
                   </motion.div>
                 )}
               </AnimatePresence>

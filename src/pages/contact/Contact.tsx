@@ -121,8 +121,9 @@ export const Contact: React.FC = () => {
             Open Roles at Talente Spenden
           </h1>
           <p className="text-grey-light md:text-xl">
-            We are looking for you! All positions at Talente Spenden are
-            volunteer roles - noone is getting payed.
+            We are looking for{" "}
+            <span className="font-bold text-blue-mid-light">you</span>! Become
+            part of a highly motivated team of volunteers.
           </p>
           <div className="mt-14">
             <OpenPositions roles={openRoles} />

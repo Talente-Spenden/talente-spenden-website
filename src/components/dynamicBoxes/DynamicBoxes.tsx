@@ -310,7 +310,7 @@ export const DynamicBoxes: React.FC = () => {
                         <p className="  w-full lg:w-[80%]">
                           The Event Team organizes and innovates Talente
                           Spenden's events, including our regular events such as
-                          our Summer Fest, Semester Kick-Off. The Team also
+                          our Summer Fest, Semester Kick-Off. The Team also{" "}
                           <span className="bg-yellow text-black">
                             explores and develops brand-new event concepts
                           </span>{" "}

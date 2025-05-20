@@ -34,7 +34,7 @@ export const CharityTrack: React.FC = () => {
           />
         </div>
         <div className="flex justify-start">
-          <div className="flex flex-wrap justify-center lg:justify-start after:flex-grow max-w-[95vw] mt-4">
+          <div className="flex flex-wrap justify-center lg:justify-start lg:after:flex-grow max-w-[95vw] mt-4">
             {projects
               .filter((p) => {
                 return !p.tags.every((tag) => hiddenTags.includes(tag));

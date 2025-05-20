@@ -530,8 +530,12 @@ noreferrer"
           <br />
           talente-spenden@tum.de
           <br />
-          <a href="www.talente-spenden.com/imprint" target="_blank">
-            Impressum unter www.talente-spenden.com/imprint
+          <a
+            href="https://talente-spenden.com/imprint"
+            target="_blank"
+            className="text-blue-mid-light"
+          >
+            Impressum unter https://talente-spenden.com/imprint
           </a>
         </p>
         <h3>2. Zwecke und Rechtsgrundlagen der Datenverarbeitung</h3>

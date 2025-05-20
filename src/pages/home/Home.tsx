@@ -166,7 +166,7 @@ export const Home: React.FC = () => {
         </div>
         <div className="py-14 w-full bg-white/50 flex justify-center">
           <div className="w-[90vw]">
-            <div className="flex justify-between w-full min-w-[20vw] max-w-[65vw]">
+            <div className="flex justify-start w-full gap-x-2 md:gap-x-8 lg:gap-x-24">
               <h1 className="font-bold font-['Poppins'] text-5xl sm:text-7xl md:text-8xl lg:text-9xl">
                 WE
               </h1>

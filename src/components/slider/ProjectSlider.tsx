@@ -1,5 +1,5 @@
 import { useRef, useEffect, useState } from "react";
-import { motion, useMotionValue, useSpring } from "framer-motion";
+import { motion, useMotionValue, animate } from "framer-motion";
 import { ChevronRight, ChevronLeft } from "lucide-react";
 import { useViewport } from "../../contexts/ViewportContext";
 import { ProjectSliderItem } from "./ProjectSliderItem";
@@ -21,7 +21,6 @@ export const ProjectSlider: React.FC<{
   // Motion value for the x-position of the carousel
   const x = useMotionValue(0);
   // Spring animation for the x-position
-  const springX = useSpring(x, { stiffness: 3000, damping: 80 });
 
   // Effect to calculate the carousel width after the component mounts
   useEffect(() => {
@@ -39,7 +38,7 @@ export const ProjectSlider: React.FC<{
   const handleNextClick = () => {
     const currentX = x.get(); // Get the current x position
     // Estimate the width of one card including margin (adjust if your styling changes)
-    const cardStep = 300 + 16 * 2; // min-w-[300px] + m-4 (16px left/right) * 2
+    const cardStep = 600 + 16 * 2; // min-w-[300px] + m-4 (16px left/right) * 2
     let newX = currentX - cardStep; // Move left by one card width
 
     // Ensure the new position does not go beyond the left constraint
@@ -48,14 +47,19 @@ export const ProjectSlider: React.FC<{
       newX = constraintsLeft; // Snap to the end if we go too far
     }
 
-    x.set(newX); // Animate to the new position
+    // Animate the x motion value to the new position
+    animate(x, newX, {
+      type: "tween",
+      ease: "easeInOut",
+      duration: 0.2, // Slightly increased duration for a smoother feel
+    });
   };
 
   // Function to handle clicking the "Previous" button
   const handlePrevClick = () => {
     const currentX = x.get(); // Get the current x position
     // Estimate the width of one card including margin (adjust if your styling changes)
-    const cardStep = 300 + 16 * 2; // min-w-[300px] + m-4 (16px left/right) * 2
+    const cardStep = 600 + 16 * 2; // min-w-[300px] + m-4 (16px left/right) * 2
     let newX = currentX + cardStep; // Move right by one card width
 
     // Ensure the new position does not go beyond the right constraint (0)
@@ -64,7 +68,12 @@ export const ProjectSlider: React.FC<{
       newX = constraintsRight; // Snap to the beginning if we go too far
     }
 
-    x.set(newX); // Animate to the new position
+    // Animate the x motion value to the new position
+    animate(x, newX, {
+      type: "tween",
+      ease: "easeInOut",
+      duration: 0.2, // Slightly increased duration
+    });
   };
 
   return (
@@ -80,7 +89,7 @@ export const ProjectSlider: React.FC<{
           // Set drag constraints based on the calculated carousel width
           dragConstraints={{ right: 0, left: -carouselWidth }}
           // Apply the spring animation to the x-position
-          style={{ x: springX }}
+          style={{ x }}
           // Prevent default touch behavior to avoid scrolling conflicts
           dragElastic={0.2} // Controls the elasticity when dragging beyond constraints
         >

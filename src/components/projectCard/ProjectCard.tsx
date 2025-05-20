@@ -1,0 +1,31 @@
+import { Link } from "react-router-dom";
+import { ProjectItem } from "../../types/Types";
+
+export const ProjectCard: React.FC<{ project: ProjectItem }> = (props) => {
+  const { project } = props;
+
+  return (
+    <Link
+      to="/join"
+      className="pb-2 min-w-[280px] md:max-w-[350px] w-[30vw] mb-10 mr-3 cursor-pointer [&>div>a]:hover:bg-yellow [&>div>a]:hover:text-black [&>div>h1]:hover:text-white [&>div>p]:hover:text-white transition-all"
+    >
+      <div className="relative w-[100%] h-[350px]">
+        {project.image != "" ? (
+          <img src={project.image} className=" object-cover w-full h-full" />
+        ) : (
+          <div className=" object-cover w-full h-full bg-blue" />
+        )}
+      </div>{" "}
+      <div className="mt-3 w-full h-[2px] bg-grey" />
+      <div className="">
+        <h1 className="text-3xl font-semibold text-grey pt-2">
+          {project.name}
+        </h1>
+        <p className="text-grey py-2">{project.descriptionLong}</p>
+        <Link to="/join" className="text-grey text-xl font-bold">
+          <span className="text-2xl">&rarr;</span> Learn more
+        </Link>
+      </div>
+    </Link>
+  );
+};

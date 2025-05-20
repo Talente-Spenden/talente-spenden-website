@@ -1,28 +1,14 @@
 import "./App.css";
-import TSLogo from "./assets/ts-logo-standard";
+import Routes from "./components/router/Routes";
+import { ViewportProvider } from "./contexts/ViewportContext";
 
 function App() {
   return (
-    <div>
-      <TSLogo />
-      <h1>
-        We're glad to have you here! We're currently working hard to finish the
-        Talente Spenden website.
-      </h1>
-      <div>
-        <p>
-          Until then, you can find more information about Talente Spenden at the
-          official website of the TUM Deutschlandstipendium:{" "}
-          <a href="https://www.tum.de/studium/studienfinanzierung/stipendien/stipendien-der-tum/deutschlandstipendium/initiativen">
-            TUM Deutschlandstipendium: Talente Spenden (tum.de)
-          </a>
-        </p>
-        <p>
-          You have an idea and want to talk to us? Feel free to contact us here:{" "}
-          <a href="mailto:talente-spenden@tum.de">talente-spenden@tum.de</a>
-        </p>
+    <ViewportProvider>
+      <div className="top-0 left-0 w-screen h-full overflow-x-hidden overflow-y-visible">
+        <Routes />
       </div>
-    </div>
+    </ViewportProvider>
   );
 }
 

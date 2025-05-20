@@ -26,13 +26,15 @@ export const ProjectSliderItem: React.FC<{
         <div className="group relative flex justify-between w-[600px] h-[400px] bg-black">
           <div className=" text-white p-6 flex flex-col justify-between max-w-[50%]">
             <div>
-              <h3 className="text-xl font-semibold mb-2">{current.name}</h3>
-              <p>{current.descriptionShort}</p>
+              <h3 className="text-lg md:text-xl font-semibold mb-2">
+                {current.name}
+              </h3>
+              <p className="md:text-lg">{current.descriptionShort}</p>
             </div>
             <div className="flex justify-start">
               {current.tags.map((tag) => (
                 <div className="mr-4 border-[2px] rounded-full border-blue-mid-light transition-all duration-300 px-3 py-1">
-                  <p className="text-m text-blue-mid-light">{tag}</p>
+                  <p className="md:text-lg text-blue-mid-light">{tag}</p>
                 </div>
               ))}
             </div>

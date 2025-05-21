@@ -214,12 +214,6 @@ export const openRoles: openRolesConfig = [
     shortDescription: "",
   },
   {
-    role: "Event Team Member",
-    track: "Core",
-    requirements: "",
-    shortDescription: "",
-  },
-  {
     role: "Technology Team Member - Backend/DevOps",
     track: "Core",
     requirements: "",

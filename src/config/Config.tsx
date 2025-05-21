@@ -83,7 +83,7 @@ export const managementTeam: ManagementTeamConfig = [
   {
     name: "Melis Güler",
     role: "Head of Events",
-    job: "Bachelor's student in environmental engineering",
+    job: "Bachelor's Student Environmental Engineering",
     email: "melis.gueler@tum.de",
     image:
       "https://drive.google.com/thumbnail?id=1EWcs1ynHQcN82dNrWvneCAUEr43sZTM5&sz=w1000",
@@ -91,7 +91,7 @@ export const managementTeam: ManagementTeamConfig = [
   {
     name: "Max Huppertz",
     role: "Head of Communication",
-    job: "Bachelor's student in informatics",
+    job: "Bachelor's Student Informatics",
     email: "max.huppertz@tum.de",
     image:
       "https://drive.google.com/thumbnail?id=1OxnvXVS29GqGkseVTuVkwQbmQe8BjBy9&sz=w1000",
@@ -99,7 +99,7 @@ export const managementTeam: ManagementTeamConfig = [
   {
     name: "Jonas Itt",
     role: "Head of Technology",
-    job: "Masters's student in informatics",
+    job: "Masters's Student Informatics",
     email: "jonas.itt@tum.de",
     image:
       "https://drive.google.com/thumbnail?id=1rEeW-T_xdnCZ-jhvVbQ5t3amDlbxPwlA&sz=w1000",
@@ -107,7 +107,7 @@ export const managementTeam: ManagementTeamConfig = [
   {
     name: "Jonas Süß",
     role: "Head of Finance & Social Entrepreneurship",
-    job: "Bachelor's student in informatics",
+    job: "Bachelor's Student Informatics",
     email: "jonas.suess@tum.de",
     image:
       "https://drive.google.com/thumbnail?id=10LTxMdPqSUb1WwLhhcPysfW2_y1y7g4D&sz=w1000",
@@ -123,10 +123,18 @@ export const managementTeam: ManagementTeamConfig = [
   {
     name: "Joana Brecko",
     role: "Communication Team Member",
-    job: "Master's student Consumer Science",
+    job: "Master's Student Consumer Science",
     email: "",
     image:
       "https://drive.google.com/thumbnail?id=1P1vo20Ji1VPV15_fWLsHNgbxSK4n_cg5&sz=w1000",
+  },
+  {
+    name: "Selin Wendt",
+    role: "Event Team Member",
+    job: "Master's Student Information Systems",
+    email: "",
+    image:
+      "https://drive.google.com/thumbnail?id=18WYT_dulHXXij3FbXmpb8T793unTrMPZ&sz=w1000",
   },
   {
     name: "Sajeed",

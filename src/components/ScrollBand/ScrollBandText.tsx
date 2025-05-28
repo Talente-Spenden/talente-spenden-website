@@ -7,8 +7,8 @@ export const ScrollBandText: React.FC<{
   // Component adapted from tutorial:"https://www.youtube.com/watch?v=Ot4nZ6UjJLE"
   texts: { type: "Instagram" | "LinkedIn"; text: string; link: string }[];
 }> = ({ texts }) => {
-  const FAST_DURATION = 15;
-  const SLOW_DURATION = 30;
+  const FAST_DURATION = 20;
+  const SLOW_DURATION = 40;
 
   const [duration, setDuration] = useState(SLOW_DURATION);
   let [ref, { width }] = useMeasure();

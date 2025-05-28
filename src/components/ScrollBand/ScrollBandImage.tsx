@@ -14,7 +14,7 @@ export const ScrollBandImage: React.FC<{
 
     controls = animate(xTranslation, [0, finalPosition], {
       ease: "linear",
-      duration: 30,
+      duration: 50,
       repeat: Infinity,
       repeatType: "loop",
       repeatDelay: 0,

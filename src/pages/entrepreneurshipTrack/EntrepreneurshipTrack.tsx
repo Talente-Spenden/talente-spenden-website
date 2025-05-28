@@ -1,7 +1,6 @@
 import { Gradient } from "../../components/gradient/Gradient";
-import { Link } from "react-router-dom";
-import { Instagram, Linkedin } from "lucide-react";
 import { QA } from "../../components/qa/QA";
+import { ScrollBandText } from "../../components/ScrollBand/ScrollBandText";
 import { tsetQuestions } from "../../config/Config";
 
 export const EntrepreneurshipTrack: React.FC = () => {
@@ -12,7 +11,7 @@ export const EntrepreneurshipTrack: React.FC = () => {
           <h1 className="font-bold font-['Poppins'] text-3xl md:text-4xl lg:text-5xl text-white">
             TSET - Entrepreneurship Meets Social Value
           </h1>
-          <p className="mt-2 md:text-xl text-lg text-grey-light">
+          <p className="mt-2 md:text-xl text-lg text-grey-light max-w-[800px]">
             The Talente Spenden Entrepreneurship Track equips future founders
             with the best tools and access to an exclusive network for driving
             social impact.
@@ -24,6 +23,7 @@ export const EntrepreneurshipTrack: React.FC = () => {
           Applications open June 1, 2025.
         </h1>
       </div>
+
       <div className="bg-black pt-16 lg:pb-16 lg:flex gap-x-8 justify-between">
         <div className="px-6 lg:px-12 pb-16 lg:pb-0">
           <h1 className="font-['Inter'] font-bold text-xl lg:text-3xl text-white mb-4">
@@ -148,7 +148,54 @@ export const EntrepreneurshipTrack: React.FC = () => {
           </div>
         </div>
       </div>
-      <div className="bg-blue h-[4px] w-full" />
+      <div className="lg:bg-blue bg-white h-[4px] w-full" />
+      <div className="bg-black h-[9vh] flex items-center justify-center">
+        <ScrollBandText
+          texts={[
+            {
+              type: "Instagram",
+              text: "@tsetmunich",
+              link: "https://www.instagram.com/tsetmunich/",
+            },
+            {
+              type: "LinkedIn",
+              text: "@tset-munich",
+              link: "https://www.linkedin.com/company/tset-munich",
+            },
+            {
+              type: "Instagram",
+              text: "@tsetmunich",
+              link: "https://www.instagram.com/tsetmunich/",
+            },
+            {
+              type: "LinkedIn",
+              text: "@tset-munich",
+              link: "https://www.linkedin.com/company/tset-munich",
+            },
+            {
+              type: "Instagram",
+              text: "@tsetmunich",
+              link: "https://www.instagram.com/tsetmunich/",
+            },
+            {
+              type: "LinkedIn",
+              text: "@tset-munich",
+              link: "https://www.linkedin.com/company/tset-munich",
+            },
+            {
+              type: "Instagram",
+              text: "@tsetmunich",
+              link: "https://www.instagram.com/tsetmunich/",
+            },
+            {
+              type: "LinkedIn",
+              text: "@tset-munich",
+              link: "https://www.linkedin.com/company/tset-munich",
+            },
+          ]}
+        />
+      </div>
+      <div className="lg:bg-blue bg-white h-[4px] w-full" />
 
       <div className="bg-black pt-10 pb-10">
         <h1 className="ml-[5vw] font-['Inter'] font-medium text-xl lg:text-3xl text-white mb-8">

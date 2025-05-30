@@ -70,6 +70,45 @@ export const qaHome: QaHomeConfig = [
   },
 ];
 
+export const tsetQuestions: QaHomeConfig = [
+  {
+    question: "I can’t code. Is that a problem?",
+    answer:
+      "Not at all! You don’t need technical skills to join — curiosity, initiative, and a drive to learn are what count.",
+    links: [],
+  },
+  {
+    question: "Does “social” mean nonprofit or NGO?",
+    answer:
+      "Not necessarily. “Social impact” can also mean scalable, for-profit ideas with a strong positive effect on society or the environment.",
+    links: [],
+  },
+  {
+    question: "Do I have to study at TUM?",
+    answer: "No — any student enrolled at a Munich university can apply.",
+    links: [],
+  },
+  {
+    question:
+      "Do I have to be a Deutschlandstipendium (scholarship holder) to participate?",
+    answer:
+      "No — the application to the program is open to all motivated students, regardless of scholarship status.",
+    links: [],
+  },
+  {
+    question: "How much time do I need to invest per week?",
+    answer: "You decide! but the more you put in, the more you’ll get out. 😉",
+    links: [],
+  },
+  {
+    question:
+      "I’ll be abroad/interning during part of the program. Can I still join?",
+    answer:
+      "Yes — as long as you're able to stay engaged and participate in key sessions remotely or asynchronously, you’re welcome to apply.",
+    links: [],
+  },
+];
+
 export const projectSpotlight: ProjectSpotlightConfig = [
   { id: "Blutspende", text: "Collecting blood cells for the good" },
   { id: "Bücherspende", text: "Old Books deserve to be read" },
@@ -135,6 +174,14 @@ export const managementTeam: ManagementTeamConfig = [
     email: "",
     image:
       "https://drive.google.com/thumbnail?id=18WYT_dulHXXij3FbXmpb8T793unTrMPZ&sz=w1000",
+  },
+  {
+    name: "Esther Johanna Schmid",
+    role: "Entrepreneurship Team Member",
+    job: "Bachelor's Student Biochemistry",
+    email: "",
+    image:
+      "https://drive.google.com/thumbnail?id=1cYGj7CCO_08iUwEF9BKovxEaPeZFKAkX&sz=w1000",
   },
   {
     name: "Sajeed",

@@ -50,7 +50,7 @@ export const EntrepreneurshipTrack: React.FC = () => {
             🌐 Access to a unique network of high-achieving students, founders &
             partners
             <br />
-            🎤 Final pitch event to showcase your venture What you'll bring
+            🎤 Final pitch event to showcase your venture
           </p>
           <p className="text-lg text-white font-bold pt-8 pb-2">
             What you'll bring
@@ -136,7 +136,7 @@ export const EntrepreneurshipTrack: React.FC = () => {
               <div className="flex flex-col pl-2 lg:pl-8 justify-center h-[120px]">
                 <h2 className="text-xl font-semibold">Working Phase</h2>
                 <h2 className="md:text-lg text-grey-light">
-                  Develop your ideas into a comprehensive concepts and prepare
+                  Develop your ideas into comprehensive concepts and prepare
                   your final pitches.
                 </h2>
               </div>

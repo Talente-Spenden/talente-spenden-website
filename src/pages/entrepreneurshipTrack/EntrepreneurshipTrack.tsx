@@ -22,7 +22,7 @@ export const EntrepreneurshipTrack: React.FC = () => {
         <div className="px-6 lg:px-12 flex justify-center">
           <div className="text-center">
             <h1 className=" font-['Inter'] font-bold text-xl lg:text-2xl text-white">
-              <span className="bg-yellow text-black">
+              <span className="bg-purple text-white">
                 TSET Applications are open
               </span>{" "}
               until July 10, 2025.

@@ -22,7 +22,7 @@ export const EntrepreneurshipTrack: React.FC = () => {
         <div className="px-6 lg:px-12 flex justify-center">
           <div className="text-center">
             <h1 className=" font-['Inter'] font-bold text-xl lg:text-2xl text-white">
-              The Application Phase for our first TSET has ended.
+              The application phase for our first TSET iteration has ended.
             </h1>
             <p className="md:text-lg text-white">
               Now, all applications will be carefully reviewed.

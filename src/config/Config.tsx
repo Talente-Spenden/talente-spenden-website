@@ -146,7 +146,7 @@ export const managementTeam: ManagementTeamConfig = [
   {
     name: "Jonas Süß",
     role: "Head of Finance & Social Entrepreneurship",
-    job: "Bachelor's Student Informatics",
+    job: "Master's Student Computer Science",
     email: "jonas.suess@tum.de",
     image:
       "https://drive.google.com/thumbnail?id=10LTxMdPqSUb1WwLhhcPysfW2_y1y7g4D&sz=w1000",
@@ -182,6 +182,14 @@ export const managementTeam: ManagementTeamConfig = [
     email: "",
     image:
       "https://drive.google.com/thumbnail?id=1cYGj7CCO_08iUwEF9BKovxEaPeZFKAkX&sz=w1000",
+  },
+    {
+    name: "Elena Teissier",
+    role: "Entrepreneurship Team Member",
+    job: "Bachelor's Student Molecular Biotechnology",
+    email: "",
+    image:
+      "https://drive.google.com/thumbnail?id=1PEjsu1XGTjUb-zW0dveiMmOBEOggDk2u&sz=w1000",
   },
   {
     name: "Sajeed",
@@ -326,6 +334,18 @@ export const projects: ProjectsConfig = [
       "Tafel is a volunteer-driven organization that collects surplus food from stores and distributes it to individuals and families facing food insecurity. The project helps reduce food waste while supporting those in need with nutritious meals.",
     image:
       "https://drive.google.com/thumbnail?id=18VCU5ZJFjc0NyW_7A83k7Ieah20mSng9&sz=w1000",
+
+    type: "Project",
+    tags: ["Donations", "Social"],
+    track: "TSCT",
+  },
+    {
+    name: "Lesepatenschaft",
+    descriptionShort: "Reading support to help kids enjoy reading.",
+    descriptionLong:
+      "One-on-one reading support to help kids enjoy reading and improve their reading skills in cooperation with 2 local non-profit organizations in Freising and Munich.",
+    image:
+      "",
 
     type: "Project",
     tags: ["Donations", "Social"],

@@ -18,18 +18,7 @@ export const EntrepreneurshipTrack: React.FC = () => {
           </p>
         </div>
       </div>
-      <div className="bg-blue items-center py-8 justify-center">
-        <div className="px-6 lg:px-12 flex justify-center">
-          <div className="text-center">
-            <h1 className=" font-['Inter'] font-bold text-xl lg:text-2xl text-white">
-              The application phase for our first TSET iteration has ended.
-            </h1>
-            <p className="md:text-lg text-white">
-              Now, all applications will be carefully reviewed.
-            </p>
-          </div>
-        </div>
-      </div>
+
       <div className="bg-black pt-16 lg:pb-16 lg:flex gap-x-8 justify-between">
         <div className="px-6 lg:px-12 pb-16 lg:pb-0">
           <h1 className="font-['Inter'] font-bold text-xl lg:text-3xl text-white mb-4">
@@ -89,11 +78,11 @@ export const EntrepreneurshipTrack: React.FC = () => {
                 <div className="h-[120px] w-[4px] bg-white" />
               </div>
               <div className="flex flex-col items-center">
-                <div className="w-[50px] h-[50px] lg:bg-blue bg-white rounded-full  border-[4px] border-white" />
+                <div className="w-[50px] h-[50px] rounded-full  border-[4px] border-white" />
                 <div className="h-[120px] w-[4px] bg-white" />
               </div>
               <div className="flex flex-col items-center">
-                <div className="w-[50px] h-[50px] rounded-full  border-[4px] border-white" />
+                <div className="w-[50px] h-[50px] lg:bg-blue bg-white rounded-full  border-[4px] border-white" />
                 <div className="h-[120px] w-[4px] bg-white" />
               </div>
               <div className="flex flex-col items-center">

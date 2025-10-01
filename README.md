@@ -96,4 +96,4 @@ Distributed under the MIT License. See the `LICENSE` file for more information.
 
 This website was designed, developed and is maintained by **[ji20](https://github.com/ji20)**.
 
-Project Link: [https://github.com/ji20/[your-repo-name]](https://github.com/ji20/[your-repo-name])
+Project Link: [https://github.com/Talente-Spenden/talente-spenden-website](https://github.com/Talente-Spenden/talente-spenden-website)

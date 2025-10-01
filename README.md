@@ -1,6 +1,7 @@
 # 🚀 Talente Spenden - Official Website
 
 The official open-source website for Talente Spenden, a social student initiative at the Technical University of Munich (TUM) dedicated to creating a positive social impact in fields like sustainability and education.
+
 <img width="2493" height="1346" alt="image" src="https://github.com/user-attachments/assets/7b5aea68-3f9c-4559-a50d-58d5ecef232e" />
 
 ---

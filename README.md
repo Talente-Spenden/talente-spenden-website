@@ -10,8 +10,6 @@ The official open-source website for Talente Spenden, a social student initiativ
 
 Check out the live website: **[www.talente-spenden.com](https://www.talente-spenden.com/)**
 
-![Website Screenshot](https://via.placeholder.com/800x400.png?text=Drag+and+Drop+a+Screenshot+Here)
-
 ## 📚 About The Project
 
 This repository contains the source code for the digital home of Talente Spenden. It serves as a central hub for our members, partners, and anyone interested in our mission to make the world a better place. The website showcases our projects, announces upcoming events, and provides a platform for our community.

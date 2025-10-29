@@ -183,7 +183,7 @@ export const managementTeam: ManagementTeamConfig = [
     image:
       "https://drive.google.com/thumbnail?id=1cYGj7CCO_08iUwEF9BKovxEaPeZFKAkX&sz=w1000",
   },
-    {
+  {
     name: "Elena Teissier",
     role: "Entrepreneurship Team Member",
     job: "Bachelor's Student Molecular Biotechnology",
@@ -263,19 +263,7 @@ export const milestones: MilestonesConfig = [
 // Join Page
 export const openRoles: openRolesConfig = [
   {
-    role: "Project Lead Bücherspende - Book Donation",
-    track: "TSCT",
-    requirements: "",
-    shortDescription: "",
-  },
-  {
     role: "Technology Team Member - Backend/DevOps",
-    track: "Core",
-    requirements: "",
-    shortDescription: "",
-  },
-  {
-    role: "Entrepreneurship Team Member - Social Entrepreneurship Expert",
     track: "Core",
     requirements: "",
     shortDescription: "",
@@ -339,13 +327,12 @@ export const projects: ProjectsConfig = [
     tags: ["Donations", "Social"],
     track: "TSCT",
   },
-    {
+  {
     name: "Lesepatenschaft",
     descriptionShort: "Reading support to help kids enjoy reading.",
     descriptionLong:
       "One-on-one reading support to help kids enjoy reading and improve their reading skills in cooperation with 2 local non-profit organizations in Freising and Munich.",
-    image:
-      "",
+    image: "",
 
     type: "Project",
     tags: ["Donations", "Social"],

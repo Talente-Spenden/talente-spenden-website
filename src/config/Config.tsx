@@ -263,7 +263,19 @@ export const milestones: MilestonesConfig = [
 // Join Page
 export const openRoles: openRolesConfig = [
   {
-    role: "Technology Team Member - Backend/DevOps",
+    role: "Culture Team Member - Culture and Growth at TS",
+    track: "Core",
+    requirements: "",
+    shortDescription: "",
+  },
+  {
+    role: "Coding for Society - Project Lead",
+    track: "Core",
+    requirements: "",
+    shortDescription: "",
+  },
+  {
+    role: "Event Team Member - Event Planning",
     track: "Core",
     requirements: "",
     shortDescription: "",

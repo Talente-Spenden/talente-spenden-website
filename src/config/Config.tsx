@@ -200,12 +200,20 @@ export const managementTeam: ManagementTeamConfig = [
       "https://drive.google.com/thumbnail?id=1n9-pmSWrwAex1hTbRgg2GxAwIhLvsZYA&sz=w1000",
   },
   {
-    name: "Mona Schneider",
+    name: "Saniya",
     role: "Project Lead Navigatum",
-    job: "",
+    job: "M.Sc. Environmental Engineering",
     email: "",
     image:
-      "https://drive.google.com/thumbnail?id=1p5ys4zWAyJsVPFkxjkzgiTw6-UZq9NM1&sz=w1000",
+      "https://drive.google.com/thumbnail?id=1cYMyH_ZvqMDxOuqTiGCTOKkJbZaP6G0r&sz=w1000",
+  },
+  {
+    name: "Alena",
+    role: "Project Lead Lesepatenschaft",
+    job: "B.Sc. Molecular Biotechnology",
+    email: "",
+    image:
+      "https://drive.google.com/thumbnail?id=1KXhIi8vbOuEJU82yDdiPYYM37UIx2F9Q&sz=w1000",
   },
 
   {
@@ -332,7 +340,8 @@ export const projects: ProjectsConfig = [
     descriptionShort: "Reading support to help kids enjoy reading.",
     descriptionLong:
       "One-on-one reading support to help kids enjoy reading and improve their reading skills in cooperation with 2 local non-profit organizations in Freising and Munich.",
-    image: "",
+    image:
+      "https://drive.google.com/thumbnail?id=1g9MJnFzBZemf00AAtGEyeNhX2upnZ0d7&sz=w1000",
 
     type: "Project",
     tags: ["Donations", "Social"],

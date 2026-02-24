@@ -44,6 +44,7 @@ export const ProjectSliderItem: React.FC<{
               <img
                 src={current.image}
                 className="object-cover w-full h-full pointer-events-none select-none filter grayscale transition duration-300 group-hover:grayscale-0"
+                referrerPolicy="no-referrer"
               />
             ) : (
               <div className="w-full h-full bg-blue-mid-light" />
@@ -57,6 +58,7 @@ export const ProjectSliderItem: React.FC<{
               <img
                 src={current.image}
                 className="object-cover w-full h-full pointer-events-none select-none"
+                referrerPolicy="no-referrer"
               />
             ) : (
               <div className="w-full h-full bg-blue-mid-light" />

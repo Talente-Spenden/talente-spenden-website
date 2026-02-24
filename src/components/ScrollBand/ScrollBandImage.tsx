@@ -5,14 +5,13 @@ import { useEffect } from "react";
 export const ScrollBandImage: React.FC<{
   images: string[];
 }> = ({ images }) => {
-  let [ref, { width }] = useMeasure();
+  const [ref, { width }] = useMeasure();
   const xTranslation = useMotionValue(0);
 
   useEffect(() => {
-    let controls;
-    let finalPosition = -width / 4;
+    const finalPosition = -width / 4;
 
-    controls = animate(xTranslation, [0, finalPosition], {
+    const controls = animate(xTranslation, [0, finalPosition], {
       ease: "linear",
       duration: 50,
       repeat: Infinity,
@@ -35,7 +34,11 @@ export const ScrollBandImage: React.FC<{
             <>
               {element != "" && (
                 <div className="min-w-[220px] w-[15vw] h-[35vh]">
-                  <img src={element} className="object-cover w-full h-full" />
+                  <img
+                    src={element}
+                    className="object-cover w-full h-full"
+                    referrerPolicy="no-referrer"
+                  />
                 </div>
               )}
             </>

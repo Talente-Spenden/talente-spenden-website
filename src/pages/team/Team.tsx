@@ -29,6 +29,7 @@ export const Team: React.FC = () => {
                     <img
                       src={member.image}
                       className="object-cover w-full h-full"
+                      referrerPolicy="no-referrer"
                     />
                   </div>
                   <div className="mt-3 w-full h-[2px] bg-grey" />

@@ -149,6 +149,7 @@ export const GradientGenerator: React.FC = () => {
   }>(DEFAULT_COLORS);
   const [grain, setGrain] = useState(1);
   const [colorStrength, setColorStrength] = useState(1.2);
+  const [reactToMouse, setReactToMouse] = useState(true);
   const [isControlsOpen, setIsControlsOpen] = useState(!startsInMobile);
   const [isMobile, setIsMobile] = useState(startsInMobile);
   const [showMobileSwipeHint, setShowMobileSwipeHint] = useState(false);
@@ -373,6 +374,23 @@ export const GradientGenerator: React.FC = () => {
       </div>
 
       <div className={isMobile ? "space-y-4" : "space-y-3"}>
+        {!isMobile && (
+          <div className="rounded-lg border border-white/10 bg-black/40 p-3">
+            <label className="flex cursor-pointer items-center gap-2 text-xs font-medium text-white/90">
+              <input
+                type="checkbox"
+                checked={reactToMouse}
+                onChange={(event) => setReactToMouse(event.target.checked)}
+                className="h-4 w-4 rounded border-white/30 bg-black/70 accent-white"
+              />
+              React to mouse cursor
+            </label>
+            <p className="mt-2 text-[11px] text-white/55">
+              Disable for static, non-interactive screenshot captures.
+            </p>
+          </div>
+        )}
+
         {colorControls.map((control) => (
           <div
             key={control.id}
@@ -512,6 +530,7 @@ export const GradientGenerator: React.FC = () => {
             setColors(DEFAULT_COLORS);
             setGrain(1);
             setColorStrength(1.2);
+            setReactToMouse(true);
             setActiveColorPicker(null);
           }}
           className={`rounded-md border border-white/20 text-xs font-medium text-white transition hover:bg-white/10 ${
@@ -580,7 +599,12 @@ export const GradientGenerator: React.FC = () => {
 
   return (
     <div className="bg-black w-screen h-screen fixed top-0 left-0">
-      <Gradient {...colors} grain={grain} colorStrength={colorStrength} />
+      <Gradient
+        {...colors}
+        grain={grain}
+        colorStrength={colorStrength}
+        reactToMouse={reactToMouse}
+      />
 
       {isMobile && (
         <div

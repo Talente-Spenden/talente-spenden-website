@@ -11,6 +11,7 @@ export const Gradient: React.FC<{
   col3?: string;
   grain?: number;
   colorStrength?: number;
+  reactToMouse?: boolean;
 }> = (props) => {
   const { ErrorBoundary, didCatch } = useErrorBoundary();
 

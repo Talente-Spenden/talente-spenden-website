@@ -26,8 +26,9 @@ export const InteractiveGradient = memo(
     col3?: string;
     grain?: number;
     colorStrength?: number;
+    reactToMouse?: boolean;
   }): JSX.Element => {
-    let { col0, col1, col2, col3, grain, colorStrength } = props;
+    let { col0, col1, col2, col3, grain, colorStrength, reactToMouse } = props;
     const fullConfig = resolveConfig(tailwindConfig) as {
       theme: { colors: Record<string, string> };
     };
@@ -63,6 +64,8 @@ export const InteractiveGradient = memo(
       typeof colorStrength === "number"
         ? Math.max(0, Math.min(3, colorStrength))
         : 1.2;
+    const shouldReactToMouse =
+      typeof reactToMouse === "boolean" ? reactToMouse : true;
     const color0 = colorsVector[col0];
     const color1 = colorsVector[col1];
     const color2 = colorsVector[col2];
@@ -86,7 +89,22 @@ export const InteractiveGradient = memo(
       uColorStrength: { value: colorStrength },
     });
     useEffect(() => {
+      if (!shouldReactToMouse) {
+        mouse.current.set(0, 0);
+        if (!mouseTrackedRef.current) {
+          setMouseTracked(true);
+          setMouseTrackedStart(performance.now());
+          mouseTrackedRef.current = true;
+        }
+      }
+    }, [shouldReactToMouse]);
+
+    useEffect(() => {
       const handleMouseMove = (e: MouseEvent) => {
+        if (!shouldReactToMouse) {
+          return;
+        }
+
         mouse.current.set(
           e.clientX / window.innerWidth - 0.5,
           1 - e.clientY / window.innerHeight - 0.5
@@ -103,7 +121,7 @@ export const InteractiveGradient = memo(
       return () => {
         window.removeEventListener("mousemove", handleMouseMove);
       };
-    }, []);
+    }, [shouldReactToMouse]);
 
     useFrame(() => {
       if (mouseTracked && mouseTrackedStart) {

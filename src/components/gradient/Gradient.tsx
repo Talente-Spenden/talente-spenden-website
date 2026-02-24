@@ -9,6 +9,8 @@ export const Gradient: React.FC<{
   col1?: string;
   col2?: string;
   col3?: string;
+  grain?: number;
+  colorStrength?: number;
 }> = (props) => {
   const { ErrorBoundary, didCatch } = useErrorBoundary();
 

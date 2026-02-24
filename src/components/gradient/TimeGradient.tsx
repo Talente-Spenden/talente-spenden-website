@@ -24,8 +24,10 @@ export const TimeGradient = memo(
     col1?: string;
     col2?: string;
     col3?: string;
+    grain?: number;
+    colorStrength?: number;
   }): JSX.Element => {
-    let { col0, col1, col2, col3 } = props;
+    let { col0, col1, col2, col3, grain, colorStrength } = props;
     if (col0 == undefined) {
       col0 = "blue";
     }
@@ -68,6 +70,11 @@ export const TimeGradient = memo(
     col1 = col1 && colorsShader[col1] ? col1 : "purple";
     col2 = col2 && colorsShader[col2] ? col2 : "orange";
     col3 = col3 && colorsShader[col3] ? col3 : "yellow";
+    grain = typeof grain === "number" ? Math.max(0, Math.min(1, grain)) : 1;
+    colorStrength =
+      typeof colorStrength === "number"
+        ? Math.max(0, Math.min(3, colorStrength))
+        : 1.2;
 
     const color0 = colorsVector[col0];
     const color1 = colorsVector[col1];
@@ -88,6 +95,8 @@ export const TimeGradient = memo(
       uColor1: { value: color1.clone() },
       uColor2: { value: color2.clone() },
       uColor3: { value: color3.clone() },
+      uGrain: { value: grain },
+      uColorStrength: { value: colorStrength },
     });
 
     useFrame(() => {
@@ -103,7 +112,9 @@ export const TimeGradient = memo(
       uniforms.current.uColor1.value.copy(color1);
       uniforms.current.uColor2.value.copy(color2);
       uniforms.current.uColor3.value.copy(color3);
-    }, [color0, color1, color2, color3]);
+      uniforms.current.uGrain.value = grain;
+      uniforms.current.uColorStrength.value = colorStrength;
+    }, [color0, color1, color2, color3, grain, colorStrength]);
 
     const vertexShader: string = `
   
@@ -126,6 +137,8 @@ export const TimeGradient = memo(
       uniform vec3 uColor1;
       uniform vec3 uColor2;
       uniform vec3 uColor3;
+      uniform float uGrain;
+      uniform float uColorStrength;
   
       varying vec2 vUv;
   
@@ -244,7 +257,7 @@ export const TimeGradient = memo(
   
       //vec3 col = first_col*smoothstep(0.0,1.0,vec3(noise)) + second_col*(1.0-noise);
       float fade = smoothstep(0.0, 1.0, uTime*0.002);
-      gl_FragColor = vec4((1.0 - fade)*vec3(0.0,0.0,0.0) + (fade)*(vec3(rand(vUv))*0.12 + clamp(noise * 1.2,0.0,1.0)*c2),1.0);
+      gl_FragColor = vec4((1.0 - fade)*vec3(0.0,0.0,0.0) + (fade)*(vec3(rand(vUv))*(0.12 * uGrain) + clamp(noise * uColorStrength,0.0,1.0)*c2),1.0);
       }
     
       `;

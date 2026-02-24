@@ -1,5 +1,5 @@
 import { useFrame } from "@react-three/fiber";
-import { memo, useRef, useState } from "react";
+import { memo, useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import resolveConfig from "tailwindcss/resolveConfig";
 import tailwindConfig from "../../../tailwind.config";
@@ -8,7 +8,7 @@ import tailwindConfig from "../../../tailwind.config";
 
 // Film grain shader is from: https://maximmcnair.com/p/webgl-film-grain
 function hexToRgb(hex: string) {
-  var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
   return result
     ? {
         r: parseInt(result[1], 16) / 255,
@@ -26,58 +26,90 @@ export const InteractiveGradient = memo(
     col3?: string;
   }): JSX.Element => {
     let { col0, col1, col2, col3 } = props;
-    if (col0 == undefined) {
-      col0 = "blue";
-    }
-    if (col1 == undefined) {
-      col1 = "purple";
-    }
-    if (col2 == undefined) {
-      col2 = "orange";
-    }
-    if (col3 == undefined) {
-      col3 = "yellow";
-    }
-    const fullConfig: any = resolveConfig(tailwindConfig);
+    const fullConfig = resolveConfig(tailwindConfig) as {
+      theme: { colors: Record<string, string> };
+    };
     const colorsHex = fullConfig.theme.colors;
-    let [mouseTracked, setMouseTracked] = useState(false);
-    let mouseTrackedRef = useRef(mouseTracked);
-    let [mouseTrackedStart, setMouseTrackedStart] = useState(0.0);
+    const [mouseTracked, setMouseTracked] = useState(false);
+    const mouseTrackedRef = useRef(mouseTracked);
+    const [mouseTrackedStart, setMouseTrackedStart] = useState(0.0);
 
-    let colorsShader: any = {};
-    for (let key in colorsHex) {
+    const colorsShader: Record<string, string> = {};
+    const colorsVector: Record<string, THREE.Vector3> = {};
+    for (const key in colorsHex) {
       let colorRGB = hexToRgb(colorsHex[key]);
       if (colorRGB == null) {
         colorRGB = { r: 0.0, g: 0.0, b: 0.0 };
       }
       colorsShader[key] = `vec3(${colorRGB.r},${colorRGB.g},${colorRGB.b})`;
+      colorsVector[key] = new THREE.Vector3(colorRGB.r, colorRGB.g, colorRGB.b);
     }
 
-    const mouse = new THREE.Vector2();
-    const gradientRef: any = useRef();
-    window.addEventListener("mousemove", (e) => {
-      mouse.set(
-        e.clientX / window.innerWidth - 0.5,
-        1 - e.clientY / window.innerHeight - 0.5
-      );
+    const defaultColors = {
+      col0: "blue",
+      col1: "purple",
+      col2: "orange",
+      col3: "yellow",
+    };
 
-      if (mouseTrackedRef.current == false) {
-        setMouseTracked(true);
-        setMouseTrackedStart(performance.now());
-        mouseTrackedRef.current = true;
-      }
+    col0 = col0 && colorsShader[col0] ? col0 : defaultColors.col0;
+    col1 = col1 && colorsShader[col1] ? col1 : defaultColors.col1;
+    col2 = col2 && colorsShader[col2] ? col2 : defaultColors.col2;
+    col3 = col3 && colorsShader[col3] ? col3 : defaultColors.col3;
+    const color0 = colorsVector[col0];
+    const color1 = colorsVector[col1];
+    const color2 = colorsVector[col2];
+    const color3 = colorsVector[col3];
+
+    const mouse = useRef(new THREE.Vector2());
+    const gradientRef = useRef<
+      THREE.Mesh<THREE.PlaneGeometry, THREE.ShaderMaterial> | null
+    >(null);
+    const uniforms = useRef({
+      uTime: { value: 0 },
+      uRandom: { value: Math.random() * 200 },
+      uMouse: { value: mouse.current },
+      windowWidth: { value: window.innerWidth },
+      windowHeight: { value: window.innerHeight },
+      uColor0: { value: color0.clone() },
+      uColor1: { value: color1.clone() },
+      uColor2: { value: color2.clone() },
+      uColor3: { value: color3.clone() },
     });
+    useEffect(() => {
+      const handleMouseMove = (e: MouseEvent) => {
+        mouse.current.set(
+          e.clientX / window.innerWidth - 0.5,
+          1 - e.clientY / window.innerHeight - 0.5
+        );
+
+        if (mouseTrackedRef.current == false) {
+          setMouseTracked(true);
+          setMouseTrackedStart(performance.now());
+          mouseTrackedRef.current = true;
+        }
+      };
+
+      window.addEventListener("mousemove", handleMouseMove);
+      return () => {
+        window.removeEventListener("mousemove", handleMouseMove);
+      };
+    }, []);
 
     useFrame(() => {
       if (mouseTracked && mouseTrackedStart) {
-        gradientRef.current.material.uniforms.uTime.value =
-          performance.now() - mouseTrackedStart;
-        gradientRef.current.material.uniforms.windowWidth.value =
-          window.innerWidth;
-        gradientRef.current.material.uniforms.windowHeight.value =
-          window.innerHeight;
+        uniforms.current.uTime.value = performance.now() - mouseTrackedStart;
+        uniforms.current.windowWidth.value = window.innerWidth;
+        uniforms.current.windowHeight.value = window.innerHeight;
       }
     });
+
+    useEffect(() => {
+      uniforms.current.uColor0.value.copy(color0);
+      uniforms.current.uColor1.value.copy(color1);
+      uniforms.current.uColor2.value.copy(color2);
+      uniforms.current.uColor3.value.copy(color3);
+    }, [color0, color1, color2, color3]);
 
     const vertexShader: string = `
   
@@ -96,6 +128,10 @@ export const InteractiveGradient = memo(
       uniform vec2 uMouse;
       uniform float windowWidth;
       uniform float windowHeight;
+      uniform vec3 uColor0;
+      uniform vec3 uColor1;
+      uniform vec3 uColor2;
+      uniform vec3 uColor3;
   
       varying vec2 vUv;
   
@@ -201,14 +237,14 @@ export const InteractiveGradient = memo(
   
       void main() {
       float noise = snoise(vec4(vUv, uMouse + uRandom + uTime * 0.0001));
-      vec3 blue_col = mix(${colorsShader[col0]}, ${colorsShader[col1]}, clamp(cos(uTime * 0.001),0.0,1.0));
-      vec3 yellow_col = mix(${colorsShader[col2]}, ${colorsShader[col3]}, clamp(sin(uTime * 0.001),0.0,1.0));
+      vec3 blue_col = mix(uColor0, uColor1, clamp(cos(uTime * 0.001),0.0,1.0));
+      vec3 yellow_col = mix(uColor2, uColor3, clamp(sin(uTime * 0.001),0.0,1.0));
       //vec3 third_col = mix(${colorsShader[col3]}, second_col, clamp(sin(uTime * 0.0001),0.0,1.0));
   
       float f0 = smoothstep(0.0,windowWidth/2.0,gl_FragCoord.x);
-      vec3 c0 = noise*blue_col + (1.0-noise)*(${colorsShader[col0]} * (1.0 - f0) + ${colorsShader[col1]} * f0);
+      vec3 c0 = noise*blue_col + (1.0-noise)*(uColor0 * (1.0 - f0) + uColor1 * f0);
       float f1 = smoothstep(windowWidth/2.0, windowWidth, gl_FragCoord.x);
-      vec3 c1 = noise*yellow_col + (1.0 - noise)*(${colorsShader[col2]} * (1.0 - f1) + ${colorsShader[col3]} * f1);
+      vec3 c1 = noise*yellow_col + (1.0 - noise)*(uColor2 * (1.0 - f1) + uColor3 * f1);
       float f2 = smoothstep(0.0, windowWidth, gl_FragCoord.x);
       vec3 c2 = (1.0-f2) * c0 + f2*c1;
   
@@ -225,13 +261,7 @@ export const InteractiveGradient = memo(
             <planeGeometry args={[1, 1]} />
             <shaderMaterial
               depthTest={false}
-              uniforms={{
-                uTime: { value: performance.now() - mouseTrackedStart },
-                uRandom: { value: Math.random() * 200 },
-                uMouse: { value: mouse },
-                windowWidth: { value: window.innerWidth },
-                windowHeight: { value: window.innerHeight },
-              }}
+              uniforms={uniforms.current}
               vertexShader={vertexShader}
               fragmentShader={fragmentShader}
             />

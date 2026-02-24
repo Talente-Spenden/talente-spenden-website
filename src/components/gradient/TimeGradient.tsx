@@ -8,7 +8,7 @@ import tailwindConfig from "../../../tailwind.config";
 
 // Film grain shader is from: https://maximmcnair.com/p/webgl-film-grain
 function hexToRgb(hex: string) {
-  var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
   return result
     ? {
         r: parseInt(result[1], 16) / 255,
@@ -38,11 +38,13 @@ export const TimeGradient = memo(
     if (col3 == undefined) {
       col3 = "yellow";
     }
-    const fullConfig: any = resolveConfig(tailwindConfig);
+    const fullConfig = resolveConfig(tailwindConfig) as {
+      theme: { colors: Record<string, string> };
+    };
     const colorsHex = fullConfig.theme.colors;
-    let [mouseTrackedStart, setMouseTrackedStart] = useState(0.0);
-    let [animationStarted, setAnimationStarted] = useState(false);
-    let animationStartedRef = useRef(animationStarted);
+    const [mouseTrackedStart, setMouseTrackedStart] = useState(0.0);
+    const [animationStarted, setAnimationStarted] = useState(false);
+    const animationStartedRef = useRef(animationStarted);
 
     useEffect(() => {
       const timeoutId = setTimeout(() => {
@@ -52,28 +54,56 @@ export const TimeGradient = memo(
       }, 250);
       return () => clearTimeout(timeoutId);
     }, []);
-    let colorsShader: any = {};
-    for (let key in colorsHex) {
+    const colorsShader: Record<string, string> = {};
+    const colorsVector: Record<string, THREE.Vector3> = {};
+    for (const key in colorsHex) {
       let colorRGB = hexToRgb(colorsHex[key]);
       if (colorRGB == null) {
         colorRGB = { r: 0.0, g: 0.0, b: 0.0 };
       }
       colorsShader[key] = `vec3(${colorRGB.r},${colorRGB.g},${colorRGB.b})`;
+      colorsVector[key] = new THREE.Vector3(colorRGB.r, colorRGB.g, colorRGB.b);
     }
+    col0 = col0 && colorsShader[col0] ? col0 : "blue";
+    col1 = col1 && colorsShader[col1] ? col1 : "purple";
+    col2 = col2 && colorsShader[col2] ? col2 : "orange";
+    col3 = col3 && colorsShader[col3] ? col3 : "yellow";
 
-    const mouse = new THREE.Vector2();
-    const gradientRef: any = useRef();
+    const color0 = colorsVector[col0];
+    const color1 = colorsVector[col1];
+    const color2 = colorsVector[col2];
+    const color3 = colorsVector[col3];
+
+    const mouse = useRef(new THREE.Vector2());
+    const gradientRef = useRef<
+      THREE.Mesh<THREE.PlaneGeometry, THREE.ShaderMaterial> | null
+    >(null);
+    const uniforms = useRef({
+      uTime: { value: 0 },
+      uRandom: { value: Math.random() * 200 },
+      uMouse: { value: mouse.current },
+      windowWidth: { value: window.innerWidth },
+      windowHeight: { value: window.innerHeight },
+      uColor0: { value: color0.clone() },
+      uColor1: { value: color1.clone() },
+      uColor2: { value: color2.clone() },
+      uColor3: { value: color3.clone() },
+    });
 
     useFrame(() => {
-      if (gradientRef.current && animationStartedRef.current == true) {
-        gradientRef.current.material.uniforms.uTime.value =
-          performance.now() - mouseTrackedStart;
-        gradientRef.current.material.uniforms.windowWidth.value =
-          window.innerWidth;
-        gradientRef.current.material.uniforms.windowHeight.value =
-          window.innerHeight;
+      if (animationStartedRef.current == true) {
+        uniforms.current.uTime.value = performance.now() - mouseTrackedStart;
+        uniforms.current.windowWidth.value = window.innerWidth;
+        uniforms.current.windowHeight.value = window.innerHeight;
       }
     });
+
+    useEffect(() => {
+      uniforms.current.uColor0.value.copy(color0);
+      uniforms.current.uColor1.value.copy(color1);
+      uniforms.current.uColor2.value.copy(color2);
+      uniforms.current.uColor3.value.copy(color3);
+    }, [color0, color1, color2, color3]);
 
     const vertexShader: string = `
   
@@ -92,6 +122,10 @@ export const TimeGradient = memo(
       uniform vec2 uMouse;
       uniform float windowWidth;
       uniform float windowHeight;
+      uniform vec3 uColor0;
+      uniform vec3 uColor1;
+      uniform vec3 uColor2;
+      uniform vec3 uColor3;
   
       varying vec2 vUv;
   
@@ -197,14 +231,14 @@ export const TimeGradient = memo(
   
       void main() {
       float noise = snoise(vec4(vUv, vec2(0.0) + uRandom + uTime * 0.0001));
-      vec3 blue_col = mix(${colorsShader[col0]}, ${colorsShader[col1]}, clamp(cos(uTime * 0.001),0.0,1.0));
-      vec3 yellow_col = mix(${colorsShader[col1]}, ${colorsShader[col0]}, clamp(sin(uTime * 0.001),0.0,1.0));
+      vec3 blue_col = mix(uColor0, uColor1, clamp(cos(uTime * 0.001),0.0,1.0));
+      vec3 yellow_col = mix(uColor2, uColor3, clamp(sin(uTime * 0.001),0.0,1.0));
       //vec3 third_col = mix(${colorsShader[col0]}, second_col, clamp(sin(uTime * 0.0001),0.0,1.0));
   
       float f0 = smoothstep(0.0,windowWidth/2.0,gl_FragCoord.x);
-      vec3 c0 = noise*blue_col + (1.0-noise)*(${colorsShader[col0]} * (1.0 - f0) + ${colorsShader[col0]} * f0);
+      vec3 c0 = noise*blue_col + (1.0-noise)*(uColor0 * (1.0 - f0) + uColor1 * f0);
       float f1 = smoothstep(windowWidth/2.0, windowWidth, gl_FragCoord.x);
-      vec3 c1 = noise*yellow_col + (1.0 - noise)*(${colorsShader[col1]} * (1.0 - f1) + ${colorsShader[col1]} * f1);
+      vec3 c1 = noise*yellow_col + (1.0 - noise)*(uColor2 * (1.0 - f1) + uColor3 * f1);
       float f2 = smoothstep(0.0, windowWidth, gl_FragCoord.x);
       vec3 c2 = (1.0-f2) * c0 + f2*c1;
   
@@ -221,13 +255,7 @@ export const TimeGradient = memo(
             <planeGeometry args={[1, 1]} />
             <shaderMaterial
               depthTest={false}
-              uniforms={{
-                uTime: { value: performance.now() - mouseTrackedStart },
-                uRandom: { value: Math.random() * 200 },
-                uMouse: { value: mouse },
-                windowWidth: { value: window.innerWidth },
-                windowHeight: { value: window.innerHeight },
-              }}
+              uniforms={uniforms.current}
               vertexShader={vertexShader}
               fragmentShader={fragmentShader}
             />

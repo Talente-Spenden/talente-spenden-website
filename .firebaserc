@@ -1,5 +1,18 @@
 {
   "projects": {
     "default": "talente-spenden-website"
-  }
+  },
+  "targets": {
+    "talente-spenden-website": {
+      "hosting": {
+        "main": [
+          "talente-spenden-website"
+        ],
+        "gradient": [
+          "talente-spenden-gradient"
+        ]
+      }
+    }
+  },
+  "etags": {}
 }

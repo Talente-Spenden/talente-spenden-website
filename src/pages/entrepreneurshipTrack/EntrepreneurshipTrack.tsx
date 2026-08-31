@@ -4,7 +4,7 @@ import { ScrollBandText } from "../../components/ScrollBand/ScrollBandText";
 import { tsetQuestions } from "../../config/Config";
 
 const applicationMailto =
-  "mailto:tset.muc@gmail.com?subject=TSET%202026%20%7C%20Application&body=Full%20Name%3A%0AEmail%3A%0AUniversity%3A%0AField%20of%20study%3A%0A%0A---%0A%0ALinks%20to%20your%20GitHub%2C%20personal%20website%2C%20LinkedIn%2C%20%E2%80%A6%0A%0A---%0A%0AWhat%20excites%20you%20about%20building%20a%20startup%20or%20being%20part%20of%20the%20ecosystem%3F%0A%0AWhat%20do%20you%20hope%20to%20get%20out%20of%20TSET%3F%0A%0ADo%20you%20already%20have%20a%20startup%20idea%20or%20a%20project%20in%20mind%3F%0A%0ANo%20is%20completely%20fine%2C%20if%20yes%20then%20introduce%20it%20in%202-3%20sentences%0A%0AWhat%20skills%2C%20interests%2C%20or%20experiences%20do%20you%20think%20you%20would%20bring%20into%20the%20TSET%20cohort%3F%0A%0AAnything%20else%20you%27d%20like%20us%20to%20know%3F";
+  "mailto:talente-spenden@tum.de?subject=TSET%202026%20%7C%20Application&body=Full%20Name%3A%0AEmail%3A%0AUniversity%3A%0AField%20of%20study%3A%0A%0A---%0A%0ALinks%20to%20your%20GitHub%2C%20personal%20website%2C%20LinkedIn%2C%20%E2%80%A6%0A%0A---%0A%0AWhat%20excites%20you%20about%20building%20a%20startup%20or%20being%20part%20of%20the%20ecosystem%3F%0A%0AWhat%20do%20you%20hope%20to%20get%20out%20of%20TSET%3F%0A%0ADo%20you%20already%20have%20a%20startup%20idea%20or%20a%20project%20in%20mind%3F%0A%0ANo%20is%20completely%20fine%2C%20if%20yes%20then%20introduce%20it%20in%202-3%20sentences%0A%0AWhat%20skills%2C%20interests%2C%20or%20experiences%20do%20you%20think%20you%20would%20bring%20into%20the%20TSET%20cohort%3F%0A%0AAnything%20else%20you%27d%20like%20us%20to%20know%3F";
 
 export const EntrepreneurshipTrack: React.FC = () => {
   return (
@@ -32,7 +32,7 @@ export const EntrepreneurshipTrack: React.FC = () => {
               September 1 - 15, 2026.
             </h1>
             <p className="md:text-lg text-white">
-              Apply via mail to tset.muc@gmail.com, attach your CV and answer
+              Apply via mail to talente-spenden@tum.de, attach your CV and answer
               our questions.
             </p>
           </div>
@@ -294,7 +294,7 @@ export const EntrepreneurshipTrack: React.FC = () => {
             Process
           </h2>
           <p className="md:text-lg text-white">
-            Simply apply via mail to tset.muc@gmail.com and answer the
+            Simply apply via mail to talente-spenden@tum.de and answer the
             questions from our application template. No motivational letters,
             meaningless phrases or AI generated filler sentences - let's cut the
             fluff and focus on what's truly important - you. <br /> After a
